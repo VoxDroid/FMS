@@ -348,6 +348,7 @@
             // 
             // guna2HtmlToolTip1
             // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
             this.guna2HtmlToolTip1.AutomaticDelay = 0;
             this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;

@@ -71,7 +71,7 @@ namespace SPAAT.SubPages
                 string name = nametb.Text;
                 string description = categorytb.Text;
                 string category = alloctb.Text;
-                decimal amount = Convert.ToDecimal(remtb.Text);
+                double amount = Convert.ToDouble(remtb.Text);
 
                 DateTime currentDate = DateTime.Now;
 

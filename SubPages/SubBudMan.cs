@@ -70,8 +70,8 @@ namespace SPAAT.SubPages
             {
                 string name = nametb.Text;
                 string category = categorytb.Text;
-                decimal budget = Convert.ToDecimal(alloctb.Text);
-                decimal remaining = Convert.ToDecimal(remtb.Text);
+                double budget = Convert.ToDouble(alloctb.Text);
+                double remaining = Convert.ToDouble(remtb.Text);
 
                 string sqlInsert = "INSERT INTO budman (name, category, allocation, remaining) VALUES (@name, @category, @allocation, @remaining)";
 

@@ -170,6 +170,7 @@ namespace SPAAT.Pages
         {
             PopulateDataGridView();
             UpdateTotalEntriesLabel();
+            searchtextbox.Text = string.Empty;
         }
 
         private void totalentrieslabel_Click(object sender, EventArgs e)
