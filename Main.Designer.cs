@@ -51,17 +51,22 @@
             this.setting = new System.Windows.Forms.TabPage();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.modbudman = new System.Windows.Forms.TabPage();
             this.dashboard1 = new SPAAT.Pages.Dashboard();
             this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
+            this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
             this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
             this.settings1 = new SPAAT.Pages.Settings();
+            this.modBudMan1 = new SPAAT.SubPages.ModBudMan();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
+            this.subbudman.SuspendLayout();
             this.log.SuspendLayout();
             this.setting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            this.modbudman.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -102,6 +107,7 @@
             this.exit.BackColor = System.Drawing.Color.Transparent;
             this.exit.BorderColor = System.Drawing.Color.Transparent;
             this.exit.BorderRadius = 10;
+            this.exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.exit.IconColor = System.Drawing.Color.White;
             this.exit.Location = new System.Drawing.Point(943, 12);
@@ -119,6 +125,7 @@
             this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.BorderRadius = 10;
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(892, 12);
@@ -143,6 +150,7 @@
             this.dashboardbutton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.dashboardbutton.Checked = true;
             this.dashboardbutton.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.dashboardbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboardbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.dashboardbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.dashboardbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -169,6 +177,7 @@
             this.budgetmanagement.BackColor = System.Drawing.Color.Transparent;
             this.budgetmanagement.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.budgetmanagement.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.budgetmanagement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.budgetmanagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.budgetmanagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.budgetmanagement.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -195,6 +204,7 @@
             this.logs.BackColor = System.Drawing.Color.Transparent;
             this.logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.logs.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.logs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.logs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.logs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -221,6 +231,7 @@
             this.Settings.BackColor = System.Drawing.Color.Transparent;
             this.Settings.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Settings.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Settings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Settings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Settings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -268,16 +279,17 @@
             this.pages.Controls.Add(this.dashboardpage);
             this.pages.Controls.Add(this.budman);
             this.pages.Controls.Add(this.subbudman);
+            this.pages.Controls.Add(this.modbudman);
             this.pages.Controls.Add(this.log);
             this.pages.Controls.Add(this.sublog);
             this.pages.Controls.Add(this.setting);
             this.pages.Location = new System.Drawing.Point(220, 68);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.setting;
-            this.pages.PageIndex = 5;
-            this.pages.PageName = "setting";
-            this.pages.PageTitle = "Settings";
+            this.pages.Page = this.modbudman;
+            this.pages.PageIndex = 3;
+            this.pages.PageName = "modbudman";
+            this.pages.PageTitle = "Edit BMF";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(768, 521);
             this.pages.TabIndex = 11;
@@ -324,6 +336,7 @@
             // subbudman
             // 
             this.subbudman.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subbudman.Controls.Add(this.subBudMan1);
             this.subbudman.Location = new System.Drawing.Point(4, 4);
             this.subbudman.Name = "subbudman";
             this.subbudman.Size = new System.Drawing.Size(760, 495);
@@ -388,6 +401,16 @@
             this.bunifuPictureBox1.TabStop = false;
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
+            // modbudman
+            // 
+            this.modbudman.Controls.Add(this.modBudMan1);
+            this.modbudman.Location = new System.Drawing.Point(4, 4);
+            this.modbudman.Name = "modbudman";
+            this.modbudman.Size = new System.Drawing.Size(760, 495);
+            this.modbudman.TabIndex = 7;
+            this.modbudman.Text = "Edit BMF";
+            this.modbudman.UseVisualStyleBackColor = true;
+            // 
             // dashboard1
             // 
             this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -406,6 +429,15 @@
             this.budgetManagement1.Size = new System.Drawing.Size(754, 489);
             this.budgetManagement1.TabIndex = 0;
             // 
+            // subBudMan1
+            // 
+            this.subBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.subBudMan1.Name = "subBudMan1";
+            this.subBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.subBudMan1.TabIndex = 0;
+            // 
             // transactionLogs1
             // 
             this.transactionLogs1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -423,6 +455,16 @@
             this.settings1.Name = "settings1";
             this.settings1.Size = new System.Drawing.Size(760, 495);
             this.settings1.TabIndex = 0;
+            this.settings1.Load += new System.EventHandler(this.settings1_Load);
+            // 
+            // modBudMan1
+            // 
+            this.modBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.modBudMan1.Name = "modBudMan1";
+            this.modBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.modBudMan1.TabIndex = 0;
             // 
             // Main
             // 
@@ -452,10 +494,12 @@
             this.pages.ResumeLayout(false);
             this.dashboardpage.ResumeLayout(false);
             this.budman.ResumeLayout(false);
+            this.subbudman.ResumeLayout(false);
             this.log.ResumeLayout(false);
             this.setting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            this.modbudman.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -486,5 +530,8 @@
         private Pages.BudgetManagement budgetManagement1;
         private Pages.TransactionLogs transactionLogs1;
         private Pages.Settings settings1;
+        private SubPages.SubBudMan subBudMan1;
+        private System.Windows.Forms.TabPage modbudman;
+        private SubPages.ModBudMan modBudMan1;
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Bunifu.UI.WinForms;
+using SPAAT.Pages;
+using SPAAT.SubPages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +23,9 @@ namespace SPAAT
             InitializeComponent();
             appbar.MouseDown += new MouseEventHandler(label1_MouseDown);
         }
-
-        public BunifuPages mypages
+        public BunifuPages GetPagesControl()
         {
-            get { return pages; }
+            return pages;
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -131,6 +132,11 @@ namespace SPAAT
         }
 
         private void budgetManagement1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settings1_Load(object sender, EventArgs e)
         {
 
         }

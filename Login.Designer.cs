@@ -325,6 +325,7 @@
             this.Blocker2.UseTransparentBackground = true;
             this.Blocker2.Visible = false;
             this.Blocker2.Zoom = 80;
+            this.Blocker2.Click += new System.EventHandler(this.Blocker2_Click);
             // 
             // blockerloader
             // 

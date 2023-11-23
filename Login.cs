@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using Guna.UI2.AnimatorNS;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using SPAAT.Pages;
+using SPAAT.SubPages;
 
 namespace SPAAT
 {
@@ -644,6 +646,7 @@ namespace SPAAT
                         Main mainForm = new Main();
                         mainForm.Show();
                         mainForm.LoggedInUser = currentlyLoggedInUser;
+
                         this.Hide();
                     }
                     else
@@ -702,6 +705,11 @@ namespace SPAAT
                     connection.Close();
                 }
             }
+        }
+
+        private void Blocker2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
