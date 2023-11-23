@@ -7,7 +7,9 @@ Bunifu.UI.WinForms.BunifuGradientPanel, Bunifu.UI.WinForms.BunifuGradientPanel, 
 Bunifu.UI.WinForms.BunifuToolTip, Bunifu.UI.WinForms.BunifuToolTip, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuShadowPanel, Bunifu.UI.WinForms.BunifuShadowPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuPages, Bunifu.UI.WinForms.BunifuPages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
+Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuRating, Bunifu.UI.WinForms.BunifuRating, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
+Bunifu.UI.WinForms.BunifuImageButton, Bunifu.UI.WinForms.BunifuImageButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuRadioButton, Bunifu.UI.WinForms.BunifuRadioButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
 Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9
