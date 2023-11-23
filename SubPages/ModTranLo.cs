@@ -32,7 +32,7 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT bm_id, name, category, allocation, remaining FROM budman;";
+                    string sqlQuery = "SELECT tl_id, date, name, description, category, amount FROM tranlo;";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -43,11 +43,12 @@ namespace SPAAT.SubPages
                         foreach (DataRow row in dataTable.Rows)
                         {
                             int rowIndex = budmangrid.Rows.Add();
-                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["bm_id"];
+                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["tl_id"];
+                            budmangrid.Rows[rowIndex].Cells["date"].Value = row["date"];
                             budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
-                            budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
-                            budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
+                            budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
 
                         }
                     }
@@ -83,7 +84,7 @@ namespace SPAAT.SubPages
 
                 if (pagesControl != null)
                 {
-                    pagesControl.SelectedIndex = 1;
+                    pagesControl.SelectedIndex = 4;
                 }
             }
         }
@@ -104,11 +105,11 @@ namespace SPAAT.SubPages
             if (budmangrid.SelectedRows.Count > 0)
             {
                 string name = nametb.Text.Trim();
-                string category = categorytb.Text.Trim();
-                string budgetText = alloctb.Text.Trim();
+                string budget = categorytb.Text.Trim();
+                string category = alloctb.Text.Trim();
                 string remainingText = remtb.Text.Trim();
 
-                if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(category) && string.IsNullOrWhiteSpace(budgetText) && string.IsNullOrWhiteSpace(remainingText))
+                if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(category) && string.IsNullOrWhiteSpace(budget) && string.IsNullOrWhiteSpace(remainingText))
                 {
                     budgetstatuslabel.ForeColor = Color.Maroon;
                     budgetstatuslabel.Visible = true;
@@ -122,10 +123,9 @@ namespace SPAAT.SubPages
 
                 string originalName = selectedRow.Cells["name"].Value.ToString();
                 string originalCategory = selectedRow.Cells["cat"].Value.ToString();
-                decimal originalBudget = Convert.ToDecimal(selectedRow.Cells["alloc"].Value);
-                decimal originalRemaining = Convert.ToDecimal(selectedRow.Cells["rembud"].Value);
+                string originalBudget = selectedRow.Cells["desc"].Value.ToString();
+                decimal originalRemaining = Convert.ToDecimal(selectedRow.Cells["amount"].Value);
 
-                decimal budget = string.IsNullOrWhiteSpace(budgetText) ? originalBudget : Convert.ToDecimal(budgetText);
                 decimal remaining = string.IsNullOrWhiteSpace(remainingText) ? originalRemaining : Convert.ToDecimal(remainingText);
 
                 StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
@@ -136,17 +136,17 @@ namespace SPAAT.SubPages
                 if (!string.IsNullOrWhiteSpace(category) && category != originalCategory)
                     confirmationMessage.AppendLine($"Category: {originalCategory} → {category}");
 
-                if (budget != originalBudget)
-                    confirmationMessage.AppendLine($"Allocation: {originalBudget:C} → {budget:C}");
+                if (!string.IsNullOrWhiteSpace(budget) && budget != originalBudget)
+                    confirmationMessage.AppendLine($"Description: {originalBudget} → {budget}");
 
                 if (remaining != originalRemaining)
-                    confirmationMessage.AppendLine($"Remaining: {originalRemaining:C} → {remaining:C}");
+                    confirmationMessage.AppendLine($"Amount: {originalRemaining:C} → {remaining:C}");
 
                 DialogResult result = MessageBox.Show(confirmationMessage.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    string sqlUpdate = "UPDATE budman SET name = @name, category = @category, allocation = @allocation, remaining = @remaining WHERE bm_id = @bm_id";
+                    string sqlUpdate = "UPDATE tranlo SET name = @name, category = @category, description = @description, amount = @amount WHERE tl_id = @tl_id";
 
                     try
                     {
@@ -158,9 +158,9 @@ namespace SPAAT.SubPages
                             {
                                 command.Parameters.AddWithValue("@name", string.IsNullOrWhiteSpace(name) ? originalName : name);
                                 command.Parameters.AddWithValue("@category", string.IsNullOrWhiteSpace(category) ? originalCategory : category);
-                                command.Parameters.AddWithValue("@allocation", budget);
-                                command.Parameters.AddWithValue("@remaining", remaining);
-                                command.Parameters.AddWithValue("@bm_id", selectedRecordId);
+                                command.Parameters.AddWithValue("@description", string.IsNullOrWhiteSpace(budget) ? originalCategory : budget);
+                                command.Parameters.AddWithValue("@amount", remaining);
+                                command.Parameters.AddWithValue("@tl_id", selectedRecordId);
 
                                 int rowsAffected = command.ExecuteNonQuery();
 
@@ -214,11 +214,12 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT * FROM budman " +
-                              "WHERE category LIKE @searchQuery " +
-                              "   OR allocation LIKE @searchQuery " +
-                              "   OR remaining LIKE @searchQuery" +
-                              "   OR name LIKE @searchQuery";
+                    string sqlQuery = "SELECT * FROM tranlo " +
+                              "WHERE date LIKE @searchQuery " +
+                              "   OR name LIKE @searchQuery " +
+                              "   OR category LIKE @searchQuery" +
+                              "   OR description LIKE @searchQuery" +
+                              "   OR amount LIKE @searchQuery";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -231,11 +232,12 @@ namespace SPAAT.SubPages
                         foreach (DataRow row in dataTable.Rows)
                         {
                             int rowIndex = budmangrid.Rows.Add();
-                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["bm_id"];
+                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["tl_id"];
+                            budmangrid.Rows[rowIndex].Cells["date"].Value = row["date"];
                             budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
-                            budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
-                            budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
+                            budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
 
                         }
                     }
@@ -247,32 +249,19 @@ namespace SPAAT.SubPages
             }
         }
 
-        private void searchlabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             PopulateDataGridView();
         }
 
-        private void budmangrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void budmangrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string yourAllocationColumnName = "alloc";
-            string yourRemainingColumnName = "rembud";
+            string yourAllocationColumnName = "amount";
 
             int yourAllocationColumnIndex = budmangrid.Columns[yourAllocationColumnName].Index;
-            int yourRemainingColumnIndex = budmangrid.Columns[yourRemainingColumnName].Index;
 
-            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex || e.ColumnIndex == yourRemainingColumnIndex))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex))
             {
                 if (e.Value != null && e.Value != DBNull.Value)
                 {
@@ -285,6 +274,28 @@ namespace SPAAT.SubPages
                     else
                     {
                         e.Value = "Invalid Value";
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+
+            string yourDateColumnName = "date";
+
+            int yourDateColumnIndex = budmangrid.Columns[yourDateColumnName].Index;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == yourDateColumnIndex)
+            {
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    DateTime cellValue;
+                    if (DateTime.TryParse(e.Value.ToString(), out cellValue))
+                    {
+                        e.Value = cellValue.ToString("yyyy-MM-dd");
+                        e.FormattingApplied = true;
+                    }
+                    else
+                    {
+                        e.Value = "Invalid Date";
                         e.FormattingApplied = true;
                     }
                 }

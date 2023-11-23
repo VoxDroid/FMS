@@ -315,7 +315,7 @@
             // 
             // date
             // 
-            this.date.HeaderText = "Date";
+            this.date.HeaderText = "Date Added";
             this.date.Name = "date";
             this.date.ReadOnly = true;
             // 

@@ -19,6 +19,7 @@ namespace SPAAT.Pages
         {
             InitializeComponent();
             CalculateAndDisplayTotalRemainingBudget();
+            CalculateAndDisplayTotalFunds();
         }
 
         private void budgetremainlabel_Click(object sender, EventArgs e)
@@ -63,9 +64,42 @@ namespace SPAAT.Pages
             }
         }
 
+        private void CalculateAndDisplayTotalFunds()
+        {
+            string sqlSelectTotalRemaining = "SELECT SUM(amount) FROM tranlo";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlSelectTotalRemaining, connection))
+                    {
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            decimal totalRemaining = Convert.ToDecimal(result);
+                            totalfundslabel.Text = $"Total Funds: {Environment.NewLine} ₱{totalRemaining:n0}";
+                        }
+                        else
+                        {
+                            totalfundslabel.Text = "Total Funds: N/A";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
         private void refresh_Click(object sender, EventArgs e)
         {
             CalculateAndDisplayTotalRemainingBudget();
+            CalculateAndDisplayTotalFunds();
         }
     }
 }

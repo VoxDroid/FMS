@@ -172,6 +172,7 @@
             this.budmangrid.ThemeStyle.RowsStyle.Height = 22;
             this.budmangrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
             // 
             // searchlabel
             // 
@@ -214,6 +215,7 @@
             this.searchtextbox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.searchtextbox.Size = new System.Drawing.Size(176, 42);
             this.searchtextbox.TabIndex = 66;
+            this.searchtextbox.TextChanged += new System.EventHandler(this.searchtextbox_TextChanged);
             // 
             // guna2Button1
             // 
@@ -234,6 +236,7 @@
             this.guna2Button1.TabIndex = 64;
             this.guna2Button1.Text = "Refresh";
             this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // nametb
             // 
@@ -314,6 +317,7 @@
             this.remtb.SelectedText = "";
             this.remtb.Size = new System.Drawing.Size(267, 41);
             this.remtb.TabIndex = 60;
+            this.remtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly_KeyPress);
             // 
             // label2
             // 
@@ -432,6 +436,7 @@
             this.delete.TabIndex = 53;
             this.delete.Text = "Back";
             this.delete.UseTransparentBackground = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // modify
             // 
@@ -452,6 +457,7 @@
             this.modify.TabIndex = 52;
             this.modify.Text = "Clear";
             this.modify.UseTransparentBackground = true;
+            this.modify.Click += new System.EventHandler(this.clear_Click);
             // 
             // createbudget
             // 
@@ -472,6 +478,7 @@
             this.createbudget.TabIndex = 51;
             this.createbudget.Text = "Modify";
             this.createbudget.UseTransparentBackground = true;
+            this.createbudget.Click += new System.EventHandler(this.modifydata_Click);
             // 
             // id
             // 
@@ -482,7 +489,7 @@
             // 
             // date
             // 
-            this.date.HeaderText = "Date";
+            this.date.HeaderText = "Date Added";
             this.date.Name = "date";
             this.date.ReadOnly = true;
             // 
@@ -494,19 +501,19 @@
             // 
             // desc
             // 
-            this.desc.HeaderText = "Desc";
+            this.desc.HeaderText = "Description";
             this.desc.Name = "desc";
             this.desc.ReadOnly = true;
             // 
             // cat
             // 
-            this.cat.HeaderText = "Categ";
+            this.cat.HeaderText = "Category";
             this.cat.Name = "cat";
             this.cat.ReadOnly = true;
             // 
             // amount
             // 
-            this.amount.HeaderText = "Amnt";
+            this.amount.HeaderText = "Amount";
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
             // 

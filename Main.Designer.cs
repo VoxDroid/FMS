@@ -55,12 +55,12 @@
             this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
             this.sublog = new System.Windows.Forms.TabPage();
             this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
+            this.modlog = new System.Windows.Forms.TabPage();
+            this.modTranLo1 = new SPAAT.SubPages.ModTranLo();
             this.setting = new System.Windows.Forms.TabPage();
             this.settings1 = new SPAAT.Pages.Settings();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.modlog = new System.Windows.Forms.TabPage();
-            this.modTranLo1 = new SPAAT.SubPages.ModTranLo();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -68,10 +68,10 @@
             this.modbudman.SuspendLayout();
             this.log.SuspendLayout();
             this.sublog.SuspendLayout();
+            this.modlog.SuspendLayout();
             this.setting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
-            this.modlog.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -433,6 +433,25 @@
             this.subTranLo1.Size = new System.Drawing.Size(760, 495);
             this.subTranLo1.TabIndex = 0;
             // 
+            // modlog
+            // 
+            this.modlog.Controls.Add(this.modTranLo1);
+            this.modlog.Location = new System.Drawing.Point(4, 4);
+            this.modlog.Name = "modlog";
+            this.modlog.Size = new System.Drawing.Size(760, 495);
+            this.modlog.TabIndex = 8;
+            this.modlog.Text = "Edit LF";
+            this.modlog.UseVisualStyleBackColor = true;
+            // 
+            // modTranLo1
+            // 
+            this.modTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.modTranLo1.Name = "modTranLo1";
+            this.modTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.modTranLo1.TabIndex = 0;
+            // 
             // setting
             // 
             this.setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -482,25 +501,6 @@
             this.bunifuPictureBox1.TabStop = false;
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
-            // modlog
-            // 
-            this.modlog.Controls.Add(this.modTranLo1);
-            this.modlog.Location = new System.Drawing.Point(4, 4);
-            this.modlog.Name = "modlog";
-            this.modlog.Size = new System.Drawing.Size(760, 495);
-            this.modlog.TabIndex = 8;
-            this.modlog.Text = "Edit LF";
-            this.modlog.UseVisualStyleBackColor = true;
-            // 
-            // modTranLo1
-            // 
-            this.modTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modTranLo1.Location = new System.Drawing.Point(0, 0);
-            this.modTranLo1.Name = "modTranLo1";
-            this.modTranLo1.Size = new System.Drawing.Size(760, 495);
-            this.modTranLo1.TabIndex = 0;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,6 +525,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZAPISAXIS ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.pages.ResumeLayout(false);
             this.dashboardpage.ResumeLayout(false);
@@ -533,10 +534,10 @@
             this.modbudman.ResumeLayout(false);
             this.log.ResumeLayout(false);
             this.sublog.ResumeLayout(false);
+            this.modlog.ResumeLayout(false);
             this.setting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
-            this.modlog.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
