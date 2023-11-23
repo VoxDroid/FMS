@@ -87,18 +87,18 @@ namespace SPAAT.Pages
                     DeleteRecord(selectedId);
 
                     PopulateDataGridView();
+                    UpdateTotalEntriesLabel();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            UpdateTotalEntriesLabel();
         }
 
-        private void DeleteRecord(int bm_id)
+        private void DeleteRecord(int tl_id)
         {
-            string sqlDelete = "DELETE FROM budman WHERE bm_id = @bm_id";
+            string sqlDelete = "DELETE FROM tranlo WHERE tl_id = @tl_id";
 
             try
             {
@@ -108,7 +108,7 @@ namespace SPAAT.Pages
 
                     using (MySqlCommand command = new MySqlCommand(sqlDelete, connection))
                     {
-                        command.Parameters.AddWithValue("@bm_id", bm_id);
+                        command.Parameters.AddWithValue("@tl_id", tl_id);
 
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -129,7 +129,6 @@ namespace SPAAT.Pages
             }
         }
 
-
         private void PopulateDataGridView()
         {
             try
@@ -138,7 +137,7 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT bm_id, name, category, allocation, remaining FROM budman;";
+                    string sqlQuery = "SELECT tl_id, date, name, description, category, amount FROM tranlo;";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -149,16 +148,15 @@ namespace SPAAT.Pages
                         foreach (DataRow row in dataTable.Rows)
                         {
                             int rowIndex = budmangrid.Rows.Add();
-                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["bm_id"];
+                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["tl_id"];
+                            budmangrid.Rows[rowIndex].Cells["date"].Value = row["date"];
                             budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
-                            budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
-                            budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
-
+                            budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
                         }
                     }
                 }
-                UpdateTotalEntriesLabel();
             }
             catch (Exception ex)
             {
@@ -197,11 +195,12 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT * FROM budman " +
+                    string sqlQuery = "SELECT * FROM tranlo " +
                               "WHERE category LIKE @searchQuery " +
-                              "   OR allocation LIKE @searchQuery " +
-                              "   OR remaining LIKE @searchQuery" +
-                              "   OR name LIKE @searchQuery";
+                              "   OR description LIKE @searchQuery " +
+                              "   OR amount LIKE @searchQuery" +
+                              "   OR name LIKE @searchQuery" +
+                              "   OR date LIKE @searchQuery";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -238,13 +237,11 @@ namespace SPAAT.Pages
 
         private void budmangrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string yourAllocationColumnName = "alloc";
-            string yourRemainingColumnName = "rembud";
+            string yourAllocationColumnName = "amount";
 
             int yourAllocationColumnIndex = budmangrid.Columns[yourAllocationColumnName].Index;
-            int yourRemainingColumnIndex = budmangrid.Columns[yourRemainingColumnName].Index;
 
-            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex || e.ColumnIndex == yourRemainingColumnIndex))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex))
             {
                 if (e.Value != null && e.Value != DBNull.Value)
                 {

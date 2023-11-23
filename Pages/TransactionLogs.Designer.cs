@@ -70,6 +70,7 @@
             this.delete.TabIndex = 28;
             this.delete.Text = "Delete";
             this.delete.UseTransparentBackground = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // budmangrid
             // 
@@ -163,6 +164,8 @@
             this.budmangrid.ThemeStyle.RowsStyle.Height = 22;
             this.budmangrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.budmangrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellContentClick);
+            this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
             // 
             // guna2VScrollBar1
             // 
@@ -203,6 +206,7 @@
             this.guna2Button1.TabIndex = 32;
             this.guna2Button1.Text = "Refresh";
             this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // totalentrieslabel
             // 
@@ -215,6 +219,7 @@
             this.totalentrieslabel.TabIndex = 31;
             this.totalentrieslabel.Text = "Total Entries:";
             this.totalentrieslabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.totalentrieslabel.Click += new System.EventHandler(this.totalentrieslabel_Click);
             // 
             // searchlabel
             // 
@@ -257,6 +262,7 @@
             this.searchtextbox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.searchtextbox.Size = new System.Drawing.Size(176, 42);
             this.searchtextbox.TabIndex = 29;
+            this.searchtextbox.TextChanged += new System.EventHandler(this.searchtextbox_TextChanged);
             // 
             // modify
             // 
@@ -277,6 +283,7 @@
             this.modify.TabIndex = 27;
             this.modify.Text = "Modify";
             this.modify.UseTransparentBackground = true;
+            this.modify.Click += new System.EventHandler(this.modify_Click);
             // 
             // createbudget
             // 
@@ -297,6 +304,7 @@
             this.createbudget.TabIndex = 26;
             this.createbudget.Text = "Create Transaction";
             this.createbudget.UseTransparentBackground = true;
+            this.createbudget.Click += new System.EventHandler(this.createbudget_Click);
             // 
             // id
             // 
@@ -319,7 +327,7 @@
             // 
             // desc
             // 
-            this.desc.HeaderText = "Description";
+            this.desc.HeaderText = "Desc";
             this.desc.Name = "desc";
             this.desc.ReadOnly = true;
             // 
