@@ -62,7 +62,7 @@ namespace SPAAT.Pages
 
                 if (pagesControl != null)
                 {
-                    pagesControl.SelectedIndex = 3;
+                    pagesControl.SelectedIndex = 6;
                 }
             }
         }

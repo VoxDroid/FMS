@@ -442,6 +442,12 @@
     <Compile Include="SubPages\ModBudMan.Designer.cs">
       <DependentUpon>ModBudMan.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\ModTranLo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\ModTranLo.Designer.cs">
+      <DependentUpon>ModTranLo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\SubBudMan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -484,6 +490,9 @@
     </Compile>
     <EmbeddedResource Include="SubPages\ModBudMan.resx">
       <DependentUpon>ModBudMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\ModTranLo.resx">
+      <DependentUpon>ModTranLo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\SubBudMan.resx">
       <DependentUpon>SubBudMan.cs</DependentUpon>

@@ -54,11 +54,13 @@
             this.log = new System.Windows.Forms.TabPage();
             this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
             this.sublog = new System.Windows.Forms.TabPage();
+            this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
             this.setting = new System.Windows.Forms.TabPage();
             this.settings1 = new SPAAT.Pages.Settings();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
+            this.modlog = new System.Windows.Forms.TabPage();
+            this.modTranLo1 = new SPAAT.SubPages.ModTranLo();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -69,6 +71,7 @@
             this.setting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            this.modlog.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -284,14 +287,15 @@
             this.pages.Controls.Add(this.modbudman);
             this.pages.Controls.Add(this.log);
             this.pages.Controls.Add(this.sublog);
+            this.pages.Controls.Add(this.modlog);
             this.pages.Controls.Add(this.setting);
             this.pages.Location = new System.Drawing.Point(220, 68);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.sublog;
-            this.pages.PageIndex = 5;
-            this.pages.PageName = "sublog";
-            this.pages.PageTitle = "Logs Form";
+            this.pages.Page = this.modlog;
+            this.pages.PageIndex = 6;
+            this.pages.PageName = "modlog";
+            this.pages.PageTitle = "Edit LF";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(768, 521);
             this.pages.TabIndex = 11;
@@ -420,6 +424,15 @@
             this.sublog.Text = "Logs Form";
             this.sublog.UseVisualStyleBackColor = true;
             // 
+            // subTranLo1
+            // 
+            this.subTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.subTranLo1.Name = "subTranLo1";
+            this.subTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.subTranLo1.TabIndex = 0;
+            // 
             // setting
             // 
             this.setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -469,14 +482,24 @@
             this.bunifuPictureBox1.TabStop = false;
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
-            // subTranLo1
+            // modlog
             // 
-            this.subTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subTranLo1.Location = new System.Drawing.Point(0, 0);
-            this.subTranLo1.Name = "subTranLo1";
-            this.subTranLo1.Size = new System.Drawing.Size(760, 495);
-            this.subTranLo1.TabIndex = 0;
+            this.modlog.Controls.Add(this.modTranLo1);
+            this.modlog.Location = new System.Drawing.Point(4, 4);
+            this.modlog.Name = "modlog";
+            this.modlog.Size = new System.Drawing.Size(760, 495);
+            this.modlog.TabIndex = 8;
+            this.modlog.Text = "Edit LF";
+            this.modlog.UseVisualStyleBackColor = true;
+            // 
+            // modTranLo1
+            // 
+            this.modTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.modTranLo1.Name = "modTranLo1";
+            this.modTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.modTranLo1.TabIndex = 0;
             // 
             // Main
             // 
@@ -513,6 +536,7 @@
             this.setting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            this.modlog.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -547,5 +571,7 @@
         private System.Windows.Forms.TabPage modbudman;
         private SubPages.ModBudMan modBudMan1;
         private SubPages.SubTranLo subTranLo1;
+        private System.Windows.Forms.TabPage modlog;
+        private SubPages.ModTranLo modTranLo1;
     }
 }
