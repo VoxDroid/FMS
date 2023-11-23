@@ -90,6 +90,13 @@ namespace SPAAT
             this.Text = $"ZAPISAXIS - Settings - {loggedInUser}";
         }
 
+        private void exportf_Click(object sender, EventArgs e)
+        {
+            pages.SelectTab(export);
+            this.Text = $"ZAPISAXIS - Export - {loggedInUser}";
+
+        }
+
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -140,5 +147,6 @@ namespace SPAAT
         {
 
         }
+
     }
 }

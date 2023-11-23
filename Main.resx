@@ -130,6 +130,16 @@
     <value>51</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="exportf.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAO9JREFUSEvdlgsKgzAUBD1Kb1pv0N6wR/AI9iUZ3Bq/YJaCA6F5u9FBCrXdL+M4
+        PmMNsa7yifXgtvvEwVe+pB3n5HGoxZPWHMvLOQv78nLGxra89FbW5aWz80EnKOygE+R20AlyO+gEuR10
+        gtwOOkG+LID6dM+4OU+Q/1/MuID6dM94A3EN9Q3FNRxfuz69FKbf5lwGjIL8sjjIb6D0We0zaZ5BviyA
+        +rAPZq+/tCfLEAvyFuJElrMmaYLjgrwl+TsuW4FOkNtBJ8jtoBPkdtAJcjvoRGSOP/Q1AzoRYV86K290
+        c1IRy/Hk6Z49mqDrvsurDTHJRtL5AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="bunifuPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
