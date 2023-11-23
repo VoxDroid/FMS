@@ -249,6 +249,7 @@ namespace SPAAT.SubPages
             this.delete.Animated = true;
             this.delete.BackColor = System.Drawing.Color.Transparent;
             this.delete.BorderRadius = 10;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -270,6 +271,7 @@ namespace SPAAT.SubPages
             this.modify.Animated = true;
             this.modify.BackColor = System.Drawing.Color.Transparent;
             this.modify.BorderRadius = 10;
+            this.modify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modify.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.modify.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.modify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -291,6 +293,7 @@ namespace SPAAT.SubPages
             this.createbudget.Animated = true;
             this.createbudget.BackColor = System.Drawing.Color.Transparent;
             this.createbudget.BorderRadius = 10;
+            this.createbudget.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createbudget.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.createbudget.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.createbudget.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -312,6 +315,7 @@ namespace SPAAT.SubPages
             this.guna2Button1.Animated = true;
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -360,6 +364,7 @@ namespace SPAAT.SubPages
             this.alloc,
             this.rembud,
             this.id});
+            this.budmangrid.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -520,6 +525,7 @@ namespace SPAAT.SubPages
             // 
             // guna2HtmlToolTip1
             // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
             this.guna2HtmlToolTip1.AutomaticDelay = 0;
             this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;

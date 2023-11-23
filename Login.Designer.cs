@@ -92,6 +92,7 @@
             this.guna2Button1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderRadius = 20;
             this.guna2Button1.BorderThickness = 2;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -192,6 +193,7 @@
             this.loginbutton.BorderColor = System.Drawing.Color.Transparent;
             this.loginbutton.BorderRadius = 20;
             this.loginbutton.BorderThickness = 2;
+            this.loginbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loginbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.loginbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.loginbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -297,6 +299,7 @@
             this.passwordshow.Checked = true;
             this.passwordshow.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.passwordshow.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.passwordshow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.passwordshow.Image = ((System.Drawing.Image)(resources.GetObject("passwordshow.Image")));
             this.passwordshow.ImageOffset = new System.Drawing.Point(0, 0);
             this.passwordshow.ImageRotate = 0F;

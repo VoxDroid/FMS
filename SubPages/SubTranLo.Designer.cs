@@ -228,6 +228,7 @@
             this.delete.Animated = true;
             this.delete.BackColor = System.Drawing.Color.Transparent;
             this.delete.BorderRadius = 10;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -249,6 +250,7 @@
             this.modify.Animated = true;
             this.modify.BackColor = System.Drawing.Color.Transparent;
             this.modify.BorderRadius = 10;
+            this.modify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modify.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.modify.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.modify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -270,6 +272,7 @@
             this.createbudget.Animated = true;
             this.createbudget.BackColor = System.Drawing.Color.Transparent;
             this.createbudget.BorderRadius = 10;
+            this.createbudget.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createbudget.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.createbudget.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.createbudget.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
