@@ -254,7 +254,28 @@ namespace SPAAT.SubPages
             PopulateDataGridView();
         }
 
+        private void budmangrid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell cell = budmangrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string cellText = cell.Value?.ToString();
 
+                if (!string.IsNullOrWhiteSpace(cellText))
+                {
+                    guna2HtmlToolTip1.SetToolTip(budmangrid, cellText);
+                }
+                else
+                {
+                    guna2HtmlToolTip1.SetToolTip(budmangrid, null);
+                }
+            }
+        }
+
+        private void budmangrid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            guna2HtmlToolTip1.SetToolTip(budmangrid, null);
+        }
         private void budmangrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             string yourAllocationColumnName = "amount";

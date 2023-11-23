@@ -47,6 +47,7 @@
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +165,8 @@
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.budmangrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellContentClick);
             this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
+            this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
+            this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
             // 
             // name
             // 
@@ -335,6 +338,19 @@
             this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.Value = 1;
             // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.UseAnimation = false;
+            this.guna2HtmlToolTip1.UseFading = false;
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
+            // 
             // BudgetManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,5 +389,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rembud;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }

@@ -35,6 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.totalentrieslabel = new System.Windows.Forms.Label();
@@ -42,12 +48,7 @@
             this.searchtextbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.modify = new Guna.UI2.WinForms.Guna2Button();
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,6 +167,45 @@
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.budmangrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellContentClick);
             this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
+            this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
+            this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Date Added";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "Desc";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // cat
+            // 
+            this.cat.HeaderText = "Category";
+            this.cat.Name = "cat";
+            this.cat.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
             // 
             // guna2VScrollBar1
             // 
@@ -306,42 +346,18 @@
             this.createbudget.UseTransparentBackground = true;
             this.createbudget.Click += new System.EventHandler(this.createbudget_Click);
             // 
-            // id
+            // guna2HtmlToolTip1
             // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date Added";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // desc
-            // 
-            this.desc.HeaderText = "Desc";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // cat
-            // 
-            this.cat.HeaderText = "Category";
-            this.cat.Name = "cat";
-            this.cat.ReadOnly = true;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.UseAnimation = false;
+            this.guna2HtmlToolTip1.UseFading = false;
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
             // TransactionLogs
             // 
@@ -382,5 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }

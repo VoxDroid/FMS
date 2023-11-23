@@ -73,7 +73,7 @@ namespace SPAAT.SubPages
                 string category = alloctb.Text;
                 decimal amount = Convert.ToDecimal(remtb.Text);
 
-                DateTime currentDate = DateTime.Now.Date;
+                DateTime currentDate = DateTime.Now;
 
                 string sqlInsert = "INSERT INTO tranlo (name, category, description, amount, date) " +
                                    "VALUES (@name, @category, @description, @amount, @date)";
