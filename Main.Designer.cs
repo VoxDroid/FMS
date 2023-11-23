@@ -44,29 +44,31 @@
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.dashboardpage = new System.Windows.Forms.TabPage();
+            this.dashboard1 = new SPAAT.Pages.Dashboard();
             this.budman = new System.Windows.Forms.TabPage();
+            this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
             this.subbudman = new System.Windows.Forms.TabPage();
+            this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
+            this.modbudman = new System.Windows.Forms.TabPage();
+            this.modBudMan1 = new SPAAT.SubPages.ModBudMan();
             this.log = new System.Windows.Forms.TabPage();
+            this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
             this.sublog = new System.Windows.Forms.TabPage();
             this.setting = new System.Windows.Forms.TabPage();
+            this.settings1 = new SPAAT.Pages.Settings();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.modbudman = new System.Windows.Forms.TabPage();
-            this.dashboard1 = new SPAAT.Pages.Dashboard();
-            this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
-            this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
-            this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
-            this.settings1 = new SPAAT.Pages.Settings();
-            this.modBudMan1 = new SPAAT.SubPages.ModBudMan();
+            this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
             this.subbudman.SuspendLayout();
+            this.modbudman.SuspendLayout();
             this.log.SuspendLayout();
+            this.sublog.SuspendLayout();
             this.setting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
-            this.modbudman.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -286,10 +288,10 @@
             this.pages.Location = new System.Drawing.Point(220, 68);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.modbudman;
-            this.pages.PageIndex = 3;
-            this.pages.PageName = "modbudman";
-            this.pages.PageTitle = "Edit BMF";
+            this.pages.Page = this.sublog;
+            this.pages.PageIndex = 5;
+            this.pages.PageName = "sublog";
+            this.pages.PageTitle = "Logs Form";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(768, 521);
             this.pages.TabIndex = 11;
@@ -322,6 +324,15 @@
             this.dashboardpage.TabIndex = 0;
             this.dashboardpage.Text = "Dashboard";
             // 
+            // dashboard1
+            // 
+            this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboard1.Location = new System.Drawing.Point(3, 3);
+            this.dashboard1.Name = "dashboard1";
+            this.dashboard1.Size = new System.Drawing.Size(754, 489);
+            this.dashboard1.TabIndex = 0;
+            // 
             // budman
             // 
             this.budman.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -333,6 +344,15 @@
             this.budman.TabIndex = 1;
             this.budman.Text = "Budget Management";
             // 
+            // budgetManagement1
+            // 
+            this.budgetManagement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
+            this.budgetManagement1.Name = "budgetManagement1";
+            this.budgetManagement1.Size = new System.Drawing.Size(754, 489);
+            this.budgetManagement1.TabIndex = 0;
+            // 
             // subbudman
             // 
             this.subbudman.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -342,6 +362,34 @@
             this.subbudman.Size = new System.Drawing.Size(760, 495);
             this.subbudman.TabIndex = 5;
             this.subbudman.Text = "Budget Management Form";
+            // 
+            // subBudMan1
+            // 
+            this.subBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.subBudMan1.Name = "subBudMan1";
+            this.subBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.subBudMan1.TabIndex = 0;
+            // 
+            // modbudman
+            // 
+            this.modbudman.Controls.Add(this.modBudMan1);
+            this.modbudman.Location = new System.Drawing.Point(4, 4);
+            this.modbudman.Name = "modbudman";
+            this.modbudman.Size = new System.Drawing.Size(760, 495);
+            this.modbudman.TabIndex = 7;
+            this.modbudman.Text = "Edit BMF";
+            this.modbudman.UseVisualStyleBackColor = true;
+            // 
+            // modBudMan1
+            // 
+            this.modBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.modBudMan1.Name = "modBudMan1";
+            this.modBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.modBudMan1.TabIndex = 0;
             // 
             // log
             // 
@@ -353,8 +401,18 @@
             this.log.TabIndex = 2;
             this.log.Text = "Logs";
             // 
+            // transactionLogs1
+            // 
+            this.transactionLogs1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
+            this.transactionLogs1.Name = "transactionLogs1";
+            this.transactionLogs1.Size = new System.Drawing.Size(760, 495);
+            this.transactionLogs1.TabIndex = 0;
+            // 
             // sublog
             // 
+            this.sublog.Controls.Add(this.subTranLo1);
             this.sublog.Location = new System.Drawing.Point(4, 4);
             this.sublog.Name = "sublog";
             this.sublog.Size = new System.Drawing.Size(760, 495);
@@ -371,6 +429,16 @@
             this.setting.Size = new System.Drawing.Size(760, 495);
             this.setting.TabIndex = 3;
             this.setting.Text = "Settings";
+            // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settings1.Location = new System.Drawing.Point(0, 0);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(760, 495);
+            this.settings1.TabIndex = 0;
+            this.settings1.Load += new System.EventHandler(this.settings1_Load);
             // 
             // guna2CirclePictureBox1
             // 
@@ -401,70 +469,14 @@
             this.bunifuPictureBox1.TabStop = false;
             this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
-            // modbudman
+            // subTranLo1
             // 
-            this.modbudman.Controls.Add(this.modBudMan1);
-            this.modbudman.Location = new System.Drawing.Point(4, 4);
-            this.modbudman.Name = "modbudman";
-            this.modbudman.Size = new System.Drawing.Size(760, 495);
-            this.modbudman.TabIndex = 7;
-            this.modbudman.Text = "Edit BMF";
-            this.modbudman.UseVisualStyleBackColor = true;
-            // 
-            // dashboard1
-            // 
-            this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboard1.Location = new System.Drawing.Point(3, 3);
-            this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(754, 489);
-            this.dashboard1.TabIndex = 0;
-            // 
-            // budgetManagement1
-            // 
-            this.budgetManagement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
-            this.budgetManagement1.Name = "budgetManagement1";
-            this.budgetManagement1.Size = new System.Drawing.Size(754, 489);
-            this.budgetManagement1.TabIndex = 0;
-            // 
-            // subBudMan1
-            // 
-            this.subBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subBudMan1.Location = new System.Drawing.Point(0, 0);
-            this.subBudMan1.Name = "subBudMan1";
-            this.subBudMan1.Size = new System.Drawing.Size(760, 495);
-            this.subBudMan1.TabIndex = 0;
-            // 
-            // transactionLogs1
-            // 
-            this.transactionLogs1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
-            this.transactionLogs1.Name = "transactionLogs1";
-            this.transactionLogs1.Size = new System.Drawing.Size(760, 495);
-            this.transactionLogs1.TabIndex = 0;
-            // 
-            // settings1
-            // 
-            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settings1.Location = new System.Drawing.Point(0, 0);
-            this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(760, 495);
-            this.settings1.TabIndex = 0;
-            this.settings1.Load += new System.EventHandler(this.settings1_Load);
-            // 
-            // modBudMan1
-            // 
-            this.modBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modBudMan1.Location = new System.Drawing.Point(0, 0);
-            this.modBudMan1.Name = "modBudMan1";
-            this.modBudMan1.Size = new System.Drawing.Size(760, 495);
-            this.modBudMan1.TabIndex = 0;
+            this.subTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.subTranLo1.Name = "subTranLo1";
+            this.subTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.subTranLo1.TabIndex = 0;
             // 
             // Main
             // 
@@ -495,11 +507,12 @@
             this.dashboardpage.ResumeLayout(false);
             this.budman.ResumeLayout(false);
             this.subbudman.ResumeLayout(false);
+            this.modbudman.ResumeLayout(false);
             this.log.ResumeLayout(false);
+            this.sublog.ResumeLayout(false);
             this.setting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
-            this.modbudman.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -533,5 +546,6 @@
         private SubPages.SubBudMan subBudMan1;
         private System.Windows.Forms.TabPage modbudman;
         private SubPages.ModBudMan modBudMan1;
+        private SubPages.SubTranLo subTranLo1;
     }
 }

@@ -22,6 +22,7 @@ namespace SPAAT.Pages
         {
             InitializeComponent(); 
             PopulateDataGridView();
+            UpdateTotalEntriesLabel();
         }
 
         private void createbudget_Click(object sender, EventArgs e)
@@ -34,11 +35,11 @@ namespace SPAAT.Pages
 
                 if (pagesControl != null)
                 {
-                    pagesControl.SelectedIndex = 2;
+                    pagesControl.SelectedIndex = 5;
                 }
             }
 
-            var SBM = this.Parent.Controls["SubBudMan"] as SubBudMan;
+            var SBM = this.Parent.Controls["SubTranlo"] as SubTranLo;
 
             if (SBM != null)
             {
@@ -213,11 +214,12 @@ namespace SPAAT.Pages
                         foreach (DataRow row in dataTable.Rows)
                         {
                             int rowIndex = budmangrid.Rows.Add();
-                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["bm_id"];
+                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["tl_id"];
+                            budmangrid.Rows[rowIndex].Cells["date"].Value = row["date"];
                             budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
-                            budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
-                            budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
+                            budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
 
                         }
                         UpdateTotalEntriesLabel();
@@ -254,6 +256,28 @@ namespace SPAAT.Pages
                     else
                     {
                         e.Value = "Invalid Value";
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+
+            string yourDateColumnName = "date";
+
+            int yourDateColumnIndex = budmangrid.Columns[yourDateColumnName].Index;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == yourDateColumnIndex)
+            {
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    DateTime cellValue;
+                    if (DateTime.TryParse(e.Value.ToString(), out cellValue))
+                    {
+                        e.Value = cellValue.ToString("yyyy-MM-dd"); 
+                        e.FormattingApplied = true;
+                    }
+                    else
+                    {
+                        e.Value = "Invalid Date";
                         e.FormattingApplied = true;
                     }
                 }
