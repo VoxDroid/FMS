@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPAAT", "SPAAT.csproj", "{B687B221-7D11-46EF-9BE2-BCBD61B8D110}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupForSPAAT", "..\SetupForSPAAT\SetupForSPAAT.vdproj", "{9AC2B2B1-14E7-4E1E-958E-5BBCA56E05E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{B687B221-7D11-46EF-9BE2-BCBD61B8D110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B687B221-7D11-46EF-9BE2-BCBD61B8D110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B687B221-7D11-46EF-9BE2-BCBD61B8D110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC2B2B1-14E7-4E1E-958E-5BBCA56E05E3}.Debug|Any CPU.ActiveCfg = Debug
+		{9AC2B2B1-14E7-4E1E-958E-5BBCA56E05E3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
