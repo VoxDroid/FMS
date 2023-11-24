@@ -567,7 +567,6 @@
             // 
             // adminpage
             // 
-            this.adminpage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.adminpage.Animated = true;
             this.adminpage.BackColor = System.Drawing.Color.Transparent;
             this.adminpage.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
@@ -586,7 +585,7 @@
             this.adminpage.Image = ((System.Drawing.Image)(resources.GetObject("adminpage.Image")));
             this.adminpage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.adminpage.ImageOffset = new System.Drawing.Point(5, 0);
-            this.adminpage.Location = new System.Drawing.Point(-3, 342);
+            this.adminpage.Location = new System.Drawing.Point(-3, 323);
             this.adminpage.Name = "adminpage";
             this.adminpage.Size = new System.Drawing.Size(217, 45);
             this.adminpage.TabIndex = 14;

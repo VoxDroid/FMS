@@ -321,6 +321,8 @@ namespace SPAAT.Pages
                     return "xml";
                 case "sqlite":
                     return "sqlite";
+                case "txt":
+                    return "txt";
                 default:
                     return null;
             }
@@ -350,6 +352,9 @@ namespace SPAAT.Pages
                     case "sqlite":
                         ExportToSQLite(dataGridView, filePath);
                         break;
+                    case "txt":
+                        ExportToTxt(dataGridView, filePath);
+                        break;
                     default:
                         MessageBox.Show("Invalid format selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
@@ -358,6 +363,31 @@ namespace SPAAT.Pages
             catch (Exception ex)
             {
                 MessageBox.Show($"Error exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ExportToTxt(DataGridView dataGridView, string fileName)
+        {
+            try
+            {
+                var lines = new List<string>();
+
+                string header = string.Join("\t", dataGridView.Columns.Cast<DataGridViewColumn>().Select(column => column.HeaderText));
+                lines.Add(header);
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    string line = string.Join("\t", row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString()));
+                    lines.Add(line);
+                }
+
+                File.WriteAllLines(fileName, lines);
+
+                MessageBox.Show($"Data exported to {fileName} successfully.", "Export Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting to TXT: {ex.Message}", "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -390,10 +420,8 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    // Get the selected table name from the combo box
                     string selectedTable = guna2ComboBox2.SelectedItem.ToString().Replace(" ", "_");
 
-                    // Create a dynamic SQL command to create the table
                     using (SQLiteCommand command = new SQLiteCommand(connection))
                     {
                         StringBuilder createTableSql = new StringBuilder($"CREATE TABLE IF NOT EXISTS {selectedTable} (");
@@ -403,7 +431,6 @@ namespace SPAAT.Pages
                             createTableSql.Append($"{column.HeaderText.Replace(" ", "_")} TEXT, ");
                         }
 
-                        // Remove the trailing comma and space
                         createTableSql.Length -= 2;
 
                         createTableSql.Append(")");
@@ -412,7 +439,6 @@ namespace SPAAT.Pages
                         command.ExecuteNonQuery();
                     }
 
-                    // Insert data into the dynamically created table
                     using (SQLiteCommand command = new SQLiteCommand(connection))
                     {
                         foreach (DataGridViewRow row in dataGridView.Rows)
@@ -425,7 +451,6 @@ namespace SPAAT.Pages
                                 command.Parameters.AddWithValue($"@{column.HeaderText.Replace(" ", "_")}", row.Cells[column.Index].Value?.ToString() ?? "");
                             }
 
-                            // Remove the trailing comma and space
                             insertDataSql.Length -= 2;
 
                             insertDataSql.Append(") VALUES (");
@@ -435,7 +460,6 @@ namespace SPAAT.Pages
                                 insertDataSql.Append($"@{column.HeaderText.Replace(" ", "_")}, ");
                             }
 
-                            // Remove the trailing comma and space
                             insertDataSql.Length -= 2;
 
                             insertDataSql.Append(")");
