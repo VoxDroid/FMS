@@ -122,6 +122,12 @@ namespace SPAAT.Pages
 
                                 if (rowsAffected > 0)
                                 {
+                                    string resetAutoIncrementQuery = "ALTER TABLE budman AUTO_INCREMENT = 1";
+                                    using (MySqlCommand resetAutoIncrementCommand = new MySqlCommand(resetAutoIncrementQuery, connection))
+                                    {
+                                        resetAutoIncrementCommand.ExecuteNonQuery();
+                                    }
+
                                     MessageBox.Show("All records deleted successfully.", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
@@ -152,7 +158,7 @@ namespace SPAAT.Pages
                 if (confirmDeletion)
                 {
                     DialogResult finalConfirmation = MessageBox.Show(
-                        "Are you sure you want to delete all records from Budget Management?",
+                        "Are you sure you want to delete all records from Transaction Logs?",
                         "Final Confirmation",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question
@@ -174,6 +180,12 @@ namespace SPAAT.Pages
 
                                 if (rowsAffected > 0)
                                 {
+                                    string resetAutoIncrementQuery = "ALTER TABLE tranlo AUTO_INCREMENT = 1";
+                                    using (MySqlCommand resetAutoIncrementCommand = new MySqlCommand(resetAutoIncrementQuery, connection))
+                                    {
+                                        resetAutoIncrementCommand.ExecuteNonQuery();
+                                    }
+
                                     MessageBox.Show("All records deleted successfully.", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else

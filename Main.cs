@@ -135,7 +135,12 @@ namespace SPAAT
         {
             pages.SelectTab(export);
             this.Text = $"ZAPISAXIS - Export - {loggedInUser}";
+        }
 
+        private void adminpage_Click(object sender, EventArgs e)
+        {
+            pages.SelectTab(admins);
+            this.Text = $"ZAPISAXIS - Admin - {loggedInUser}";
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
@@ -193,5 +198,6 @@ namespace SPAAT
         {
 
         }
+
     }
 }

@@ -61,6 +61,8 @@
             this.settings1 = new SPAAT.Pages.Settings();
             this.export = new System.Windows.Forms.TabPage();
             this.export1 = new SPAAT.Pages.Export();
+            this.admins = new System.Windows.Forms.TabPage();
+            this.adminPage1 = new SPAAT.Pages.AdminPage();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.exportf = new Guna.UI2.WinForms.Guna2Button();
@@ -75,6 +77,7 @@
             this.modlog.SuspendLayout();
             this.setting.SuspendLayout();
             this.export.SuspendLayout();
+            this.admins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -303,13 +306,14 @@
             this.pages.Controls.Add(this.modlog);
             this.pages.Controls.Add(this.setting);
             this.pages.Controls.Add(this.export);
+            this.pages.Controls.Add(this.admins);
             this.pages.Location = new System.Drawing.Point(220, 68);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.dashboardpage;
-            this.pages.PageIndex = 0;
-            this.pages.PageName = "dashboardpage";
-            this.pages.PageTitle = "Dashboard";
+            this.pages.Page = this.admins;
+            this.pages.PageIndex = 9;
+            this.pages.PageName = "admins";
+            this.pages.PageTitle = "Admin";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(768, 521);
             this.pages.TabIndex = 11;
@@ -507,6 +511,25 @@
             this.export1.Size = new System.Drawing.Size(760, 495);
             this.export1.TabIndex = 0;
             // 
+            // admins
+            // 
+            this.admins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.admins.Controls.Add(this.adminPage1);
+            this.admins.Location = new System.Drawing.Point(4, 4);
+            this.admins.Name = "admins";
+            this.admins.Size = new System.Drawing.Size(760, 495);
+            this.admins.TabIndex = 10;
+            this.admins.Text = "Admin";
+            // 
+            // adminPage1
+            // 
+            this.adminPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminPage1.Location = new System.Drawing.Point(0, 0);
+            this.adminPage1.Name = "adminPage1";
+            this.adminPage1.Size = new System.Drawing.Size(760, 495);
+            this.adminPage1.TabIndex = 0;
+            // 
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.DimGray;
@@ -594,6 +617,7 @@
             this.adminpage.TextOffset = new System.Drawing.Point(5, 0);
             this.adminpage.UseTransparentBackground = true;
             this.adminpage.Visible = false;
+            this.adminpage.Click += new System.EventHandler(this.adminpage_Click);
             // 
             // Main
             // 
@@ -633,6 +657,7 @@
             this.modlog.ResumeLayout(false);
             this.setting.ResumeLayout(false);
             this.export.ResumeLayout(false);
+            this.admins.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -675,5 +700,7 @@
         private System.Windows.Forms.TabPage export;
         private Pages.Export export1;
         private Guna.UI2.WinForms.Guna2Button adminpage;
+        private System.Windows.Forms.TabPage admins;
+        private Pages.AdminPage adminPage1;
     }
 }
