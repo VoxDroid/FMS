@@ -76,6 +76,7 @@ namespace SPAAT
 
         public Login()
         {
+            DatabaseInitializer.InitializeDatabase();
             connection = new MySqlConnection(connectionString);
             
             InitializeComponent();

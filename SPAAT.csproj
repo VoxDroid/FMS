@@ -453,6 +453,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDatabase.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
