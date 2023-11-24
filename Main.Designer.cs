@@ -64,6 +64,7 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.exportf = new Guna.UI2.WinForms.Guna2Button();
+            this.adminpage = new Guna.UI2.WinForms.Guna2Button();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -160,7 +161,7 @@
             this.dashboardbutton.Checked = true;
             this.dashboardbutton.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.dashboardbutton.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dashboardbutton.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.dashboardbutton.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.dashboardbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboardbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.dashboardbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -189,7 +190,7 @@
             this.budgetmanagement.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.budgetmanagement.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.budgetmanagement.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.budgetmanagement.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.budgetmanagement.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.budgetmanagement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.budgetmanagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.budgetmanagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -218,7 +219,7 @@
             this.logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.logs.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.logs.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.logs.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.logs.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.logs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.logs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -247,7 +248,7 @@
             this.Settings.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Settings.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.Settings.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Settings.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.Settings.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Settings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Settings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -542,7 +543,7 @@
             this.exportf.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.exportf.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.exportf.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.exportf.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.exportf.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.exportf.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exportf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.exportf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -564,12 +565,44 @@
             this.exportf.UseTransparentBackground = true;
             this.exportf.Click += new System.EventHandler(this.exportf_Click);
             // 
+            // adminpage
+            // 
+            this.adminpage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.adminpage.Animated = true;
+            this.adminpage.BackColor = System.Drawing.Color.Transparent;
+            this.adminpage.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.adminpage.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.adminpage.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.adminpage.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.adminpage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminpage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.adminpage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.adminpage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.adminpage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.adminpage.Enabled = false;
+            this.adminpage.FillColor = System.Drawing.Color.Transparent;
+            this.adminpage.Font = new System.Drawing.Font("Poppins", 10F);
+            this.adminpage.ForeColor = System.Drawing.Color.White;
+            this.adminpage.Image = ((System.Drawing.Image)(resources.GetObject("adminpage.Image")));
+            this.adminpage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.adminpage.ImageOffset = new System.Drawing.Point(5, 0);
+            this.adminpage.Location = new System.Drawing.Point(-3, 342);
+            this.adminpage.Name = "adminpage";
+            this.adminpage.Size = new System.Drawing.Size(217, 45);
+            this.adminpage.TabIndex = 14;
+            this.adminpage.Text = "Admin";
+            this.adminpage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.adminpage.TextOffset = new System.Drawing.Point(5, 0);
+            this.adminpage.UseTransparentBackground = true;
+            this.adminpage.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1000, 597);
+            this.Controls.Add(this.adminpage);
             this.Controls.Add(this.exportf);
             this.Controls.Add(this.bunifuPictureBox1);
             this.Controls.Add(this.guna2CirclePictureBox1);
@@ -642,5 +675,6 @@
         private Guna.UI2.WinForms.Guna2Button exportf;
         private System.Windows.Forms.TabPage export;
         private Pages.Export export1;
+        private Guna.UI2.WinForms.Guna2Button adminpage;
     }
 }

@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Navigation;
+using MySql.Data.MySqlClient;
+using static Guna.UI2.Native.WinApi;
 
 namespace SPAAT
 {
@@ -22,7 +24,38 @@ namespace SPAAT
         {
             InitializeComponent();
             appbar.MouseDown += new MouseEventHandler(label1_MouseDown);
+            Admin();
         }
+
+        private bool IsSuperUser(string username)
+        {
+            string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                connection.Open();
+
+                string getUserIdQuery = "SELECT user_id FROM users WHERE username = @username";
+                string checkSuperUserQuery = "SELECT COUNT(*) FROM su WHERE user_id = @userId";
+
+                using (MySqlCommand getUserIdCommand = new MySqlCommand(getUserIdQuery, connection))
+                {
+                    getUserIdCommand.Parameters.AddWithValue("@username", username);
+
+                    int userId = Convert.ToInt32(getUserIdCommand.ExecuteScalar());
+
+                    using (MySqlCommand checkSuperUserCommand = new MySqlCommand(checkSuperUserQuery, connection))
+                    {
+                        checkSuperUserCommand.Parameters.AddWithValue("@userId", userId);
+
+                        int count = Convert.ToInt32(checkSuperUserCommand.ExecuteScalar());
+
+                        return count > 0;
+                    }
+                }
+            }
+        }
+
         public BunifuPages GetPagesControl()
         {
             return pages;
@@ -57,7 +90,15 @@ namespace SPAAT
                 loggedInUser = value;
                 appbar.Text = $"SOCCS Financial Management System     |     Logged in as: {loggedInUser}";
                 this.Text = $"ZAPISAXIS - {loggedInUser}";
+                Admin();
             }
+        }
+
+        private void Admin()
+        {
+            bool isSuperUser = IsSuperUser(loggedInUser);
+            adminpage.Enabled = isSuperUser;
+            adminpage.Visible = isSuperUser;
         }
 
         private void Main_Load(object sender, EventArgs e)
