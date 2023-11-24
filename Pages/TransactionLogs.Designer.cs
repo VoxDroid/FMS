@@ -35,12 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.totalentrieslabel = new System.Windows.Forms.Label();
@@ -49,6 +43,12 @@
             this.modify = new Guna.UI2.WinForms.Guna2Button();
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,43 +171,6 @@
             this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
             this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
             this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date Added";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // desc
-            // 
-            this.desc.HeaderText = "Desc";
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // cat
-            // 
-            this.cat.HeaderText = "Category";
-            this.cat.Name = "cat";
-            this.cat.ReadOnly = true;
-            // 
-            // amount
-            // 
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
             // 
             // guna2VScrollBar1
             // 
@@ -365,6 +328,43 @@
             this.guna2HtmlToolTip1.UseFading = false;
             this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Date Added";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "Description";
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // cat
+            // 
+            this.cat.HeaderText = "Category";
+            this.cat.Name = "cat";
+            this.cat.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
             // TransactionLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,12 +398,12 @@
         private Guna.UI2.WinForms.Guna2TextBox searchtextbox;
         private Guna.UI2.WinForms.Guna2Button modify;
         private Guna.UI2.WinForms.Guna2Button createbudget;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn desc;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }
