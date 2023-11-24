@@ -32,6 +32,7 @@
             this.crebud = new System.Windows.Forms.Label();
             this.RBM = new Guna.UI2.WinForms.Guna2Button();
             this.RTL = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.SuspendLayout();
             // 
             // logout
@@ -109,6 +110,20 @@
             this.RTL.UseTransparentBackground = true;
             this.RTL.Click += new System.EventHandler(this.RTL_Click);
             // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.UseAnimation = false;
+            this.guna2HtmlToolTip1.UseFading = false;
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,5 +146,6 @@
         private System.Windows.Forms.Label crebud;
         private Guna.UI2.WinForms.Guna2Button RBM;
         private Guna.UI2.WinForms.Guna2Button RTL;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }

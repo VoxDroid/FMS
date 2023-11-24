@@ -174,7 +174,10 @@ namespace SPAAT.SubPages
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Failed to update record.");
+                                    budgetstatuslabel.ForeColor = Color.Maroon;
+                                    budgetstatuslabel.Visible = true;
+                                    budgetstatuslabel.Enabled = true;
+                                    budgetstatuslabel.Text = "Failed to update record.";
                                 }
                             }
                         }
@@ -187,7 +190,10 @@ namespace SPAAT.SubPages
             }
             else
             {
-                MessageBox.Show("Please select a row to update.");
+                budgetstatuslabel.ForeColor = Color.Maroon;
+                budgetstatuslabel.Visible = true;
+                budgetstatuslabel.Enabled = true;
+                budgetstatuslabel.Text = "Please select a row to update.";
             }
         }
 
