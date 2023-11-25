@@ -35,6 +35,7 @@ namespace SPAAT.SubPages
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModBudMan));
             this.nametb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.budgetstatuslabel = new System.Windows.Forms.Label();
@@ -491,6 +492,8 @@ namespace SPAAT.SubPages
             this.searchtextbox.Font = new System.Drawing.Font("Poppins", 12F);
             this.searchtextbox.ForeColor = System.Drawing.Color.White;
             this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
+            this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
             this.searchtextbox.Location = new System.Drawing.Point(560, 14);
             this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.searchtextbox.Name = "searchtextbox";

@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetManagement));
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -245,6 +246,8 @@
             this.searchtextbox.Font = new System.Drawing.Font("Poppins", 12F);
             this.searchtextbox.ForeColor = System.Drawing.Color.White;
             this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
+            this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
             this.searchtextbox.Location = new System.Drawing.Point(556, 409);
             this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.searchtextbox.Name = "searchtextbox";
