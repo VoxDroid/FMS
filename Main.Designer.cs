@@ -36,7 +36,7 @@
             this.appbar = new System.Windows.Forms.Label();
             this.exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.BGB = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.dashboardbutton = new Guna.UI2.WinForms.Guna2Button();
             this.budgetmanagement = new Guna.UI2.WinForms.Guna2Button();
             this.logs = new Guna.UI2.WinForms.Guna2Button();
@@ -44,29 +44,30 @@
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.dashboardpage = new System.Windows.Forms.TabPage();
-            this.dashboard1 = new SPAAT.Pages.Dashboard();
             this.budman = new System.Windows.Forms.TabPage();
-            this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
             this.subbudman = new System.Windows.Forms.TabPage();
-            this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
             this.modbudman = new System.Windows.Forms.TabPage();
-            this.modBudMan1 = new SPAAT.SubPages.ModBudMan();
             this.log = new System.Windows.Forms.TabPage();
-            this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
             this.sublog = new System.Windows.Forms.TabPage();
-            this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
             this.modlog = new System.Windows.Forms.TabPage();
-            this.modTranLo1 = new SPAAT.SubPages.ModTranLo();
             this.setting = new System.Windows.Forms.TabPage();
-            this.settings1 = new SPAAT.Pages.Settings();
             this.export = new System.Windows.Forms.TabPage();
-            this.export1 = new SPAAT.Pages.Export();
             this.admins = new System.Windows.Forms.TabPage();
-            this.adminPage1 = new SPAAT.Pages.AdminPage();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.ZAPISAXIS = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.exportf = new Guna.UI2.WinForms.Guna2Button();
             this.adminpage = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.dashboard1 = new SPAAT.Pages.Dashboard();
+            this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
+            this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
+            this.modBudMan1 = new SPAAT.SubPages.ModBudMan();
+            this.transactionLogs1 = new SPAAT.Pages.TransactionLogs();
+            this.subTranLo1 = new SPAAT.SubPages.SubTranLo();
+            this.modTranLo1 = new SPAAT.SubPages.ModTranLo();
+            this.settings1 = new SPAAT.Pages.Settings();
+            this.export1 = new SPAAT.Pages.Export();
+            this.adminPage1 = new SPAAT.Pages.AdminPage();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -79,7 +80,7 @@
             this.export.SuspendLayout();
             this.admins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -147,14 +148,14 @@
             this.guna2ControlBox2.TabIndex = 2;
             this.guna2ControlBox2.UseTransparentBackground = true;
             // 
-            // bunifuGroupBox1
+            // BGB
             // 
-            this.bunifuGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BGB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.bunifuGroupBox1.Location = new System.Drawing.Point(-3, 68);
-            this.bunifuGroupBox1.Name = "bunifuGroupBox1";
-            this.bunifuGroupBox1.Size = new System.Drawing.Size(217, 524);
-            this.bunifuGroupBox1.TabIndex = 4;
+            this.BGB.Location = new System.Drawing.Point(-3, 68);
+            this.BGB.Name = "BGB";
+            this.BGB.Size = new System.Drawing.Size(217, 524);
+            this.BGB.TabIndex = 4;
             // 
             // dashboardbutton
             // 
@@ -346,17 +347,6 @@
             this.dashboardpage.TabIndex = 0;
             this.dashboardpage.Text = "Dashboard";
             // 
-            // dashboard1
-            // 
-            this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.dashboard1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboard1.Location = new System.Drawing.Point(3, 3);
-            this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(754, 489);
-            this.dashboard1.TabIndex = 0;
-            this.dashboard1.Load += new System.EventHandler(this.dashboard1_Load);
-            // 
             // budman
             // 
             this.budman.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -368,15 +358,6 @@
             this.budman.TabIndex = 1;
             this.budman.Text = "Budget Management";
             // 
-            // budgetManagement1
-            // 
-            this.budgetManagement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
-            this.budgetManagement1.Name = "budgetManagement1";
-            this.budgetManagement1.Size = new System.Drawing.Size(754, 489);
-            this.budgetManagement1.TabIndex = 0;
-            // 
             // subbudman
             // 
             this.subbudman.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -386,15 +367,6 @@
             this.subbudman.Size = new System.Drawing.Size(760, 495);
             this.subbudman.TabIndex = 5;
             this.subbudman.Text = "Budget Management Form";
-            // 
-            // subBudMan1
-            // 
-            this.subBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subBudMan1.Location = new System.Drawing.Point(0, 0);
-            this.subBudMan1.Name = "subBudMan1";
-            this.subBudMan1.Size = new System.Drawing.Size(760, 495);
-            this.subBudMan1.TabIndex = 0;
             // 
             // modbudman
             // 
@@ -406,15 +378,6 @@
             this.modbudman.Text = "Edit BMF";
             this.modbudman.UseVisualStyleBackColor = true;
             // 
-            // modBudMan1
-            // 
-            this.modBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modBudMan1.Location = new System.Drawing.Point(0, 0);
-            this.modBudMan1.Name = "modBudMan1";
-            this.modBudMan1.Size = new System.Drawing.Size(760, 495);
-            this.modBudMan1.TabIndex = 0;
-            // 
             // log
             // 
             this.log.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -424,15 +387,6 @@
             this.log.Size = new System.Drawing.Size(760, 495);
             this.log.TabIndex = 2;
             this.log.Text = "Logs";
-            // 
-            // transactionLogs1
-            // 
-            this.transactionLogs1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
-            this.transactionLogs1.Name = "transactionLogs1";
-            this.transactionLogs1.Size = new System.Drawing.Size(760, 495);
-            this.transactionLogs1.TabIndex = 0;
             // 
             // sublog
             // 
@@ -444,15 +398,6 @@
             this.sublog.Text = "Logs Form";
             this.sublog.UseVisualStyleBackColor = true;
             // 
-            // subTranLo1
-            // 
-            this.subTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subTranLo1.Location = new System.Drawing.Point(0, 0);
-            this.subTranLo1.Name = "subTranLo1";
-            this.subTranLo1.Size = new System.Drawing.Size(760, 495);
-            this.subTranLo1.TabIndex = 0;
-            // 
             // modlog
             // 
             this.modlog.Controls.Add(this.modTranLo1);
@@ -462,15 +407,6 @@
             this.modlog.TabIndex = 8;
             this.modlog.Text = "Edit LF";
             this.modlog.UseVisualStyleBackColor = true;
-            // 
-            // modTranLo1
-            // 
-            this.modTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modTranLo1.Location = new System.Drawing.Point(0, 0);
-            this.modTranLo1.Name = "modTranLo1";
-            this.modTranLo1.Size = new System.Drawing.Size(760, 495);
-            this.modTranLo1.TabIndex = 0;
             // 
             // setting
             // 
@@ -482,16 +418,6 @@
             this.setting.TabIndex = 3;
             this.setting.Text = "Settings";
             // 
-            // settings1
-            // 
-            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settings1.Location = new System.Drawing.Point(0, 0);
-            this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(760, 495);
-            this.settings1.TabIndex = 0;
-            this.settings1.Load += new System.EventHandler(this.settings1_Load);
-            // 
             // export
             // 
             this.export.Controls.Add(this.export1);
@@ -502,15 +428,6 @@
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
             // 
-            // export1
-            // 
-            this.export1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.export1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.export1.Location = new System.Drawing.Point(0, 0);
-            this.export1.Name = "export1";
-            this.export1.Size = new System.Drawing.Size(760, 495);
-            this.export1.TabIndex = 0;
-            // 
             // admins
             // 
             this.admins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -520,15 +437,6 @@
             this.admins.Size = new System.Drawing.Size(760, 495);
             this.admins.TabIndex = 10;
             this.admins.Text = "Admin";
-            // 
-            // adminPage1
-            // 
-            this.adminPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminPage1.Location = new System.Drawing.Point(0, 0);
-            this.adminPage1.Name = "adminPage1";
-            this.adminPage1.Size = new System.Drawing.Size(760, 495);
-            this.adminPage1.TabIndex = 0;
             // 
             // guna2CirclePictureBox1
             // 
@@ -543,21 +451,21 @@
             this.guna2CirclePictureBox1.TabStop = false;
             this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
-            // bunifuPictureBox1
+            // ZAPISAXIS
             // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bunifuPictureBox1.AutoSizeHeight = true;
-            this.bunifuPictureBox1.BorderRadius = 96;
-            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
-            this.bunifuPictureBox1.IsCircle = true;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(12, 393);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(192, 192);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox1.TabIndex = 1;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.ZAPISAXIS.AllowFocused = false;
+            this.ZAPISAXIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ZAPISAXIS.AutoSizeHeight = true;
+            this.ZAPISAXIS.BorderRadius = 96;
+            this.ZAPISAXIS.Image = ((System.Drawing.Image)(resources.GetObject("ZAPISAXIS.Image")));
+            this.ZAPISAXIS.IsCircle = true;
+            this.ZAPISAXIS.Location = new System.Drawing.Point(12, 393);
+            this.ZAPISAXIS.Name = "ZAPISAXIS";
+            this.ZAPISAXIS.Size = new System.Drawing.Size(192, 192);
+            this.ZAPISAXIS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ZAPISAXIS.TabIndex = 1;
+            this.ZAPISAXIS.TabStop = false;
+            this.ZAPISAXIS.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
             // 
             // exportf
             // 
@@ -619,6 +527,117 @@
             this.adminpage.Visible = false;
             this.adminpage.Click += new System.EventHandler(this.adminpage_Click);
             // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.ShowAlways = true;
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.TitleFont = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlToolTip1.TitleForeColor = System.Drawing.Color.Teal;
+            this.guna2HtmlToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.guna2HtmlToolTip1.ToolTipTitle = "ZAPISAXIS";
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
+            // 
+            // dashboard1
+            // 
+            this.dashboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.dashboard1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboard1.Location = new System.Drawing.Point(3, 3);
+            this.dashboard1.Name = "dashboard1";
+            this.dashboard1.Size = new System.Drawing.Size(754, 489);
+            this.dashboard1.TabIndex = 0;
+            this.dashboard1.Load += new System.EventHandler(this.dashboard1_Load);
+            // 
+            // budgetManagement1
+            // 
+            this.budgetManagement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
+            this.budgetManagement1.Name = "budgetManagement1";
+            this.budgetManagement1.Size = new System.Drawing.Size(754, 489);
+            this.budgetManagement1.TabIndex = 0;
+            // 
+            // subBudMan1
+            // 
+            this.subBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.subBudMan1.Name = "subBudMan1";
+            this.subBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.subBudMan1.TabIndex = 0;
+            // 
+            // modBudMan1
+            // 
+            this.modBudMan1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modBudMan1.Location = new System.Drawing.Point(0, 0);
+            this.modBudMan1.Name = "modBudMan1";
+            this.modBudMan1.Size = new System.Drawing.Size(760, 495);
+            this.modBudMan1.TabIndex = 0;
+            // 
+            // transactionLogs1
+            // 
+            this.transactionLogs1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
+            this.transactionLogs1.Name = "transactionLogs1";
+            this.transactionLogs1.Size = new System.Drawing.Size(760, 495);
+            this.transactionLogs1.TabIndex = 0;
+            // 
+            // subTranLo1
+            // 
+            this.subTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.subTranLo1.Name = "subTranLo1";
+            this.subTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.subTranLo1.TabIndex = 0;
+            // 
+            // modTranLo1
+            // 
+            this.modTranLo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modTranLo1.Location = new System.Drawing.Point(0, 0);
+            this.modTranLo1.Name = "modTranLo1";
+            this.modTranLo1.Size = new System.Drawing.Size(760, 495);
+            this.modTranLo1.TabIndex = 0;
+            // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settings1.Location = new System.Drawing.Point(0, 0);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(760, 495);
+            this.settings1.TabIndex = 0;
+            this.settings1.Load += new System.EventHandler(this.settings1_Load);
+            // 
+            // export1
+            // 
+            this.export1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.export1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.export1.Location = new System.Drawing.Point(0, 0);
+            this.export1.Name = "export1";
+            this.export1.Size = new System.Drawing.Size(760, 495);
+            this.export1.TabIndex = 0;
+            // 
+            // adminPage1
+            // 
+            this.adminPage1.AutoScroll = true;
+            this.adminPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminPage1.Location = new System.Drawing.Point(0, 0);
+            this.adminPage1.Name = "adminPage1";
+            this.adminPage1.Size = new System.Drawing.Size(760, 495);
+            this.adminPage1.TabIndex = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,7 +646,7 @@
             this.ClientSize = new System.Drawing.Size(1000, 597);
             this.Controls.Add(this.adminpage);
             this.Controls.Add(this.exportf);
-            this.Controls.Add(this.bunifuPictureBox1);
+            this.Controls.Add(this.ZAPISAXIS);
             this.Controls.Add(this.guna2CirclePictureBox1);
             this.Controls.Add(this.pages);
             this.Controls.Add(this.bunifuSeparator1);
@@ -635,7 +654,7 @@
             this.Controls.Add(this.logs);
             this.Controls.Add(this.budgetmanagement);
             this.Controls.Add(this.dashboardbutton);
-            this.Controls.Add(this.bunifuGroupBox1);
+            this.Controls.Add(this.BGB);
             this.Controls.Add(this.guna2ControlBox2);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.appbar);
@@ -659,7 +678,7 @@
             this.export.ResumeLayout(false);
             this.admins.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -671,7 +690,7 @@
         private System.Windows.Forms.Label appbar;
         private Guna.UI2.WinForms.Guna2ControlBox exit;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
+        private Bunifu.UI.WinForms.BunifuGroupBox BGB;
         private Guna.UI2.WinForms.Guna2Button dashboardbutton;
         private Guna.UI2.WinForms.Guna2Button Settings;
         private Guna.UI2.WinForms.Guna2Button logs;
@@ -682,7 +701,7 @@
         private System.Windows.Forms.TabPage log;
         private System.Windows.Forms.TabPage setting;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
+        private Bunifu.UI.WinForms.BunifuPictureBox ZAPISAXIS;
         private System.Windows.Forms.TabPage sublog;
         private System.Windows.Forms.TabPage budman;
         private System.Windows.Forms.TabPage subbudman;
@@ -702,5 +721,6 @@
         private Guna.UI2.WinForms.Guna2Button adminpage;
         private System.Windows.Forms.TabPage admins;
         private Pages.AdminPage adminPage1;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }

@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Windows.Navigation;
 using MySql.Data.MySqlClient;
 using static Guna.UI2.Native.WinApi;
+using Guna.UI2.WinForms;
 
 namespace SPAAT
 {
@@ -25,6 +26,7 @@ namespace SPAAT
             InitializeComponent();
             appbar.MouseDown += new MouseEventHandler(label1_MouseDown);
             Admin();
+            guna2HtmlToolTip1.SetToolTip(ZAPISAXIS, "© 2023 Copyright: Mhar Andrei Macapallag");
         }
 
         private bool IsSuperUser(string username)
