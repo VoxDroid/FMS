@@ -261,7 +261,6 @@ namespace SPAAT
 
             if (elapsedMilliseconds >= duration)
             {
-                MessageBox.Show("wtf bakit hindi naabot dito huhu", "hays", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 animationTimer.Stop();
                 animationCompleted = true;
 
