@@ -56,13 +56,13 @@
             this.studfil = new System.Windows.Forms.TabPage();
             this.substudfil = new System.Windows.Forms.TabPage();
             this.modstudfil = new System.Windows.Forms.TabPage();
+            this.viewstudfil = new System.Windows.Forms.TabPage();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.ZAPISAXIS = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.exportf = new Guna.UI2.WinForms.Guna2Button();
             this.adminpage = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.studentfile = new Guna.UI2.WinForms.Guna2Button();
-            this.viewstudfil = new System.Windows.Forms.TabPage();
             this.dashboard1 = new SPAAT.Pages.Dashboard();
             this.budgetManagement1 = new SPAAT.Pages.BudgetManagement();
             this.subBudMan1 = new SPAAT.SubPages.SubBudMan();
@@ -91,9 +91,9 @@
             this.studfil.SuspendLayout();
             this.substudfil.SuspendLayout();
             this.modstudfil.SuspendLayout();
+            this.viewstudfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).BeginInit();
-            this.viewstudfil.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -485,6 +485,16 @@
             this.modstudfil.TabIndex = 13;
             this.modstudfil.Text = "Edit SFF";
             // 
+            // viewstudfil
+            // 
+            this.viewstudfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.viewstudfil.Controls.Add(this.viewStudFil1);
+            this.viewstudfil.Location = new System.Drawing.Point(4, 4);
+            this.viewstudfil.Name = "viewstudfil";
+            this.viewstudfil.Size = new System.Drawing.Size(760, 527);
+            this.viewstudfil.TabIndex = 14;
+            this.viewstudfil.Text = "View Debts";
+            // 
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.DimGray;
@@ -619,16 +629,6 @@
             this.studentfile.TextOffset = new System.Drawing.Point(5, 0);
             this.studentfile.UseTransparentBackground = true;
             this.studentfile.Click += new System.EventHandler(this.studentfile_Click);
-            // 
-            // viewstudfil
-            // 
-            this.viewstudfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.viewstudfil.Controls.Add(this.viewStudFil1);
-            this.viewstudfil.Location = new System.Drawing.Point(4, 4);
-            this.viewstudfil.Name = "viewstudfil";
-            this.viewstudfil.Size = new System.Drawing.Size(760, 527);
-            this.viewstudfil.TabIndex = 14;
-            this.viewstudfil.Text = "View Debts";
             // 
             // dashboard1
             // 
@@ -803,9 +803,9 @@
             this.studfil.ResumeLayout(false);
             this.substudfil.ResumeLayout(false);
             this.modstudfil.ResumeLayout(false);
+            this.viewstudfil.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).EndInit();
-            this.viewstudfil.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
