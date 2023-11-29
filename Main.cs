@@ -145,6 +145,12 @@ namespace SPAAT
             this.Text = $"ZAPISAXIS - Admin - {loggedInUser}";
         }
 
+        private void studentfile_Click(object sender, EventArgs e)
+        {
+            pages.SelectTab(studfil);
+            this.Text = $"ZAPISAXIS - Student File - {loggedInUser}";
+        }
+
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
 

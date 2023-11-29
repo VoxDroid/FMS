@@ -537,6 +537,12 @@
     <Compile Include="Pages\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\StudentFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\StudentFile.Designer.cs">
+      <DependentUpon>StudentFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TransactionLogs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -551,6 +557,12 @@
     <Compile Include="SubPages\ModBudMan.Designer.cs">
       <DependentUpon>ModBudMan.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\ModStudFil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\ModStudFil.Designer.cs">
+      <DependentUpon>ModStudFil.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\ModTranLo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -562,6 +574,12 @@
     </Compile>
     <Compile Include="SubPages\SubBudMan.Designer.cs">
       <DependentUpon>SubBudMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\SubStudFil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\SubStudFil.Designer.cs">
+      <DependentUpon>SubStudFil.cs</DependentUpon>
     </Compile>
     <Compile Include="SubPages\SubTranLo.cs">
       <SubType>UserControl</SubType>
@@ -590,6 +608,9 @@
     <EmbeddedResource Include="Pages\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\StudentFile.resx">
+      <DependentUpon>StudentFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\TransactionLogs.resx">
       <DependentUpon>TransactionLogs.cs</DependentUpon>
     </EmbeddedResource>
@@ -606,11 +627,17 @@
     <EmbeddedResource Include="SubPages\ModBudMan.resx">
       <DependentUpon>ModBudMan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\ModStudFil.resx">
+      <DependentUpon>ModStudFil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\ModTranLo.resx">
       <DependentUpon>ModTranLo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\SubBudMan.resx">
       <DependentUpon>SubBudMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\SubStudFil.resx">
+      <DependentUpon>SubStudFil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\SubTranLo.resx">
       <DependentUpon>SubTranLo.cs</DependentUpon>
