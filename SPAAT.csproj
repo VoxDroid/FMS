@@ -587,6 +587,12 @@
     <Compile Include="SubPages\SubTranLo.Designer.cs">
       <DependentUpon>SubTranLo.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\ViewStudFil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\ViewStudFil.Designer.cs">
+      <DependentUpon>ViewStudFil.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -641,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\SubTranLo.resx">
       <DependentUpon>SubTranLo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\ViewStudFil.resx">
+      <DependentUpon>ViewStudFil.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
