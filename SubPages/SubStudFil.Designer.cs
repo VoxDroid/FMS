@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubStudFil));
             this.nametb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.budgetstatuslabel = new System.Windows.Forms.Label();
@@ -42,6 +43,13 @@
             this.chargetb = new Guna.UI2.WinForms.Guna2TextBox();
             this.autofillpaid = new Guna.UI2.WinForms.Guna2Button();
             this.recentstudentscb = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.recompensebutton = new Guna.UI2.WinForms.Guna2Button();
+            this.recompensecb = new Guna.UI2.WinForms.Guna2ImageCheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.debtcb = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.studentInfoLabel = new System.Windows.Forms.Label();
+            this.topaytb = new Guna.UI2.WinForms.Guna2TextBox();
+            this.amounttopaylabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nametb
@@ -89,9 +97,9 @@
             this.budgetstatuslabel.Enabled = false;
             this.budgetstatuslabel.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold);
             this.budgetstatuslabel.ForeColor = System.Drawing.Color.DarkGreen;
-            this.budgetstatuslabel.Location = new System.Drawing.Point(36, 435);
+            this.budgetstatuslabel.Location = new System.Drawing.Point(36, 595);
             this.budgetstatuslabel.Name = "budgetstatuslabel";
-            this.budgetstatuslabel.Size = new System.Drawing.Size(353, 36);
+            this.budgetstatuslabel.Size = new System.Drawing.Size(277, 36);
             this.budgetstatuslabel.TabIndex = 56;
             this.budgetstatuslabel.Text = "BSL";
             this.budgetstatuslabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,7 +110,7 @@
             this.paymentstatuslb.AutoSize = true;
             this.paymentstatuslb.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold);
             this.paymentstatuslb.ForeColor = System.Drawing.Color.White;
-            this.paymentstatuslb.Location = new System.Drawing.Point(35, 348);
+            this.paymentstatuslb.Location = new System.Drawing.Point(475, 274);
             this.paymentstatuslb.Name = "paymentstatuslb";
             this.paymentstatuslb.Size = new System.Drawing.Size(227, 36);
             this.paymentstatuslb.TabIndex = 52;
@@ -175,7 +183,7 @@
             this.delete.FillColor = System.Drawing.Color.IndianRed;
             this.delete.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.delete.ForeColor = System.Drawing.Color.White;
-            this.delete.Location = new System.Drawing.Point(552, 424);
+            this.delete.Location = new System.Drawing.Point(552, 575);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(176, 56);
             this.delete.TabIndex = 48;
@@ -197,7 +205,7 @@
             this.modify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.modify.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.modify.ForeColor = System.Drawing.Color.White;
-            this.modify.Location = new System.Drawing.Point(552, 362);
+            this.modify.Location = new System.Drawing.Point(552, 513);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(176, 56);
             this.modify.TabIndex = 47;
@@ -219,7 +227,7 @@
             this.createbudget.FillColor = System.Drawing.Color.Teal;
             this.createbudget.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.createbudget.ForeColor = System.Drawing.Color.White;
-            this.createbudget.Location = new System.Drawing.Point(552, 300);
+            this.createbudget.Location = new System.Drawing.Point(552, 389);
             this.createbudget.Name = "createbudget";
             this.createbudget.Size = new System.Drawing.Size(176, 56);
             this.createbudget.TabIndex = 46;
@@ -312,12 +320,150 @@
             this.recentstudentscb.TabIndex = 62;
             this.recentstudentscb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.recentstudentscb.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.recentstudentscb.SelectedIndexChanged += new System.EventHandler(this.recentstudentscb_SelectedIndexChanged);
+            // 
+            // recompensebutton
+            // 
+            this.recompensebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.recompensebutton.Animated = true;
+            this.recompensebutton.BackColor = System.Drawing.Color.Transparent;
+            this.recompensebutton.BorderRadius = 10;
+            this.recompensebutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.recompensebutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.recompensebutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.recompensebutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.recompensebutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.recompensebutton.Enabled = false;
+            this.recompensebutton.FillColor = System.Drawing.Color.Teal;
+            this.recompensebutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.recompensebutton.ForeColor = System.Drawing.Color.White;
+            this.recompensebutton.Location = new System.Drawing.Point(552, 451);
+            this.recompensebutton.Name = "recompensebutton";
+            this.recompensebutton.Size = new System.Drawing.Size(176, 56);
+            this.recompensebutton.TabIndex = 63;
+            this.recompensebutton.Text = "Recompense";
+            this.recompensebutton.UseTransparentBackground = true;
+            this.recompensebutton.Click += new System.EventHandler(this.recompensebutton_Click);
+            // 
+            // recompensecb
+            // 
+            this.recompensecb.BackColor = System.Drawing.Color.Transparent;
+            this.recompensecb.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.recompensecb.CheckedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.recompensecb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.recompensecb.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.recompensecb.Image = ((System.Drawing.Image)(resources.GetObject("recompensecb.Image")));
+            this.recompensecb.ImageOffset = new System.Drawing.Point(0, 0);
+            this.recompensecb.ImageRotate = 0F;
+            this.recompensecb.ImageSize = new System.Drawing.Size(25, 25);
+            this.recompensecb.Location = new System.Drawing.Point(291, 347);
+            this.recompensecb.Name = "recompensecb";
+            this.recompensecb.Size = new System.Drawing.Size(34, 36);
+            this.recompensecb.TabIndex = 65;
+            this.recompensecb.UseTransparentBackground = true;
+            this.recompensecb.CheckedChanged += new System.EventHandler(this.recompensecb_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Poppins", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 343);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(274, 48);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Recompense Debt";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // debtcb
+            // 
+            this.debtcb.BackColor = System.Drawing.Color.Transparent;
+            this.debtcb.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.debtcb.BorderRadius = 10;
+            this.debtcb.BorderThickness = 2;
+            this.debtcb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.debtcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.debtcb.Enabled = false;
+            this.debtcb.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.debtcb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.debtcb.Font = new System.Drawing.Font("Poppins", 10F);
+            this.debtcb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.debtcb.ItemHeight = 30;
+            this.debtcb.Items.AddRange(new object[] {
+            "-- Select Student --"});
+            this.debtcb.Location = new System.Drawing.Point(338, 347);
+            this.debtcb.Name = "debtcb";
+            this.debtcb.Size = new System.Drawing.Size(208, 36);
+            this.debtcb.StartIndex = 0;
+            this.debtcb.TabIndex = 67;
+            this.debtcb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.debtcb.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.debtcb.SelectedIndexChanged += new System.EventHandler(this.debtcb_SelectedIndexChanged);
+            // 
+            // studentInfoLabel
+            // 
+            this.studentInfoLabel.AutoSize = true;
+            this.studentInfoLabel.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold);
+            this.studentInfoLabel.ForeColor = System.Drawing.Color.Gray;
+            this.studentInfoLabel.Location = new System.Drawing.Point(35, 391);
+            this.studentInfoLabel.Name = "studentInfoLabel";
+            this.studentInfoLabel.Size = new System.Drawing.Size(257, 72);
+            this.studentInfoLabel.TabIndex = 69;
+            this.studentInfoLabel.Text = "Name: N/A \r\nTotal Debt Amount: N/A";
+            // 
+            // topaytb
+            // 
+            this.topaytb.Animated = true;
+            this.topaytb.BackColor = System.Drawing.Color.Transparent;
+            this.topaytb.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.topaytb.BorderRadius = 10;
+            this.topaytb.BorderThickness = 2;
+            this.topaytb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.topaytb.DefaultText = "";
+            this.topaytb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.topaytb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.topaytb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.topaytb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.topaytb.Enabled = false;
+            this.topaytb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.topaytb.Font = new System.Drawing.Font("Poppins", 10F);
+            this.topaytb.ForeColor = System.Drawing.Color.Black;
+            this.topaytb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.topaytb.Location = new System.Drawing.Point(41, 512);
+            this.topaytb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.topaytb.Name = "topaytb";
+            this.topaytb.PasswordChar = '\0';
+            this.topaytb.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.topaytb.PlaceholderText = "Amount to Pay...";
+            this.topaytb.SelectedText = "";
+            this.topaytb.Size = new System.Drawing.Size(333, 41);
+            this.topaytb.TabIndex = 70;
+            this.topaytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.topaytb_KeyPress);
+            // 
+            // amounttopaylabel
+            // 
+            this.amounttopaylabel.AutoSize = true;
+            this.amounttopaylabel.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold);
+            this.amounttopaylabel.ForeColor = System.Drawing.Color.Gray;
+            this.amounttopaylabel.Location = new System.Drawing.Point(35, 471);
+            this.amounttopaylabel.Name = "amounttopaylabel";
+            this.amounttopaylabel.Size = new System.Drawing.Size(172, 36);
+            this.amounttopaylabel.TabIndex = 71;
+            this.amounttopaylabel.Text = "Amount to Pay:";
             // 
             // SubStudFil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.amounttopaylabel);
+            this.Controls.Add(this.topaytb);
+            this.Controls.Add(this.studentInfoLabel);
+            this.Controls.Add(this.debtcb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.recompensecb);
+            this.Controls.Add(this.recompensebutton);
             this.Controls.Add(this.recentstudentscb);
             this.Controls.Add(this.autofillpaid);
             this.Controls.Add(this.chargetb);
@@ -333,7 +479,7 @@
             this.Controls.Add(this.modify);
             this.Controls.Add(this.createbudget);
             this.Name = "SubStudFil";
-            this.Size = new System.Drawing.Size(750, 500);
+            this.Size = new System.Drawing.Size(750, 651);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +501,12 @@
         private Guna.UI2.WinForms.Guna2TextBox chargetb;
         private Guna.UI2.WinForms.Guna2Button autofillpaid;
         private Guna.UI2.WinForms.Guna2ComboBox recentstudentscb;
+        private Guna.UI2.WinForms.Guna2Button recompensebutton;
+        private Guna.UI2.WinForms.Guna2ImageCheckBox recompensecb;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox debtcb;
+        private System.Windows.Forms.Label studentInfoLabel;
+        private Guna.UI2.WinForms.Guna2TextBox topaytb;
+        private System.Windows.Forms.Label amounttopaylabel;
     }
 }
