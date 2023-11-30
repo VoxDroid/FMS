@@ -304,5 +304,9 @@ namespace SPAAT.Pages
             }
         }
 
+        private void budmangrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

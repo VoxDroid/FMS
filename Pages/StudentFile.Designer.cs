@@ -36,6 +36,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentFile));
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountpaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.totalentrieslabel = new System.Windows.Forms.Label();
@@ -45,13 +52,6 @@
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.debts = new Guna.UI2.WinForms.Guna2Button();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountpaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,9 +171,55 @@
             this.budmangrid.ThemeStyle.RowsStyle.Height = 22;
             this.budmangrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.budmangrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellContentClick);
             this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
             this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
             this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // charge
+            // 
+            this.charge.HeaderText = "Charge";
+            this.charge.Name = "charge";
+            this.charge.ReadOnly = true;
+            // 
+            // amountpaid
+            // 
+            this.amountpaid.HeaderText = "Amount Paid";
+            this.amountpaid.Name = "amountpaid";
+            this.amountpaid.ReadOnly = true;
+            // 
+            // paymentdate
+            // 
+            this.paymentdate.HeaderText = "Payment Date";
+            this.paymentdate.Name = "paymentdate";
+            this.paymentdate.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // sn_id
+            // 
+            this.sn_id.HeaderText = "sn_id";
+            this.sn_id.Name = "sn_id";
+            this.sn_id.ReadOnly = true;
+            this.sn_id.Visible = false;
+            // 
+            // pm_id
+            // 
+            this.pm_id.HeaderText = "pm_id";
+            this.pm_id.Name = "pm_id";
+            this.pm_id.ReadOnly = true;
+            this.pm_id.Visible = false;
             // 
             // guna2VScrollBar1
             // 
@@ -354,51 +400,6 @@
             this.debts.Text = "View Debts";
             this.debts.UseTransparentBackground = true;
             this.debts.Click += new System.EventHandler(this.debts_Click);
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // charge
-            // 
-            this.charge.HeaderText = "Charge";
-            this.charge.Name = "charge";
-            this.charge.ReadOnly = true;
-            // 
-            // amountpaid
-            // 
-            this.amountpaid.HeaderText = "Amount Paid";
-            this.amountpaid.Name = "amountpaid";
-            this.amountpaid.ReadOnly = true;
-            // 
-            // paymentdate
-            // 
-            this.paymentdate.HeaderText = "Payment Date";
-            this.paymentdate.Name = "paymentdate";
-            this.paymentdate.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // sn_id
-            // 
-            this.sn_id.HeaderText = "sn_id";
-            this.sn_id.Name = "sn_id";
-            this.sn_id.ReadOnly = true;
-            this.sn_id.Visible = false;
-            // 
-            // pm_id
-            // 
-            this.pm_id.HeaderText = "pm_id";
-            this.pm_id.Name = "pm_id";
-            this.pm_id.ReadOnly = true;
-            this.pm_id.Visible = false;
             // 
             // StudentFile
             // 
