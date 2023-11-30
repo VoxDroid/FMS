@@ -328,5 +328,10 @@ namespace SPAAT.SubPages
                 }
             }
         }
+
+        private void ModTranLo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

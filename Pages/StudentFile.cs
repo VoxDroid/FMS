@@ -95,53 +95,139 @@ namespace SPAAT.Pages
                 DataGridViewRow selectedRow = budmangrid.SelectedRows[0];
 
                 int selectedId = Convert.ToInt32(selectedRow.Cells["pm_id"].Value);
+                int snId = Convert.ToInt32(selectedRow.Cells["sn_id"].Value);
+                string name = selectedRow.Cells["name"].Value.ToString();
+                string charge = selectedRow.Cells["charge"].Value.ToString();
+                string amountPaid = selectedRow.Cells["amountpaid"].Value.ToString();
 
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    DeleteRecord(selectedId);
-
-                    PopulateDataGridView();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            UpdateTotalEntriesLabel();
-        }
-
-        private void DeleteRecord(int pm_id)
-        {
-            string sqlDelete = "DELETE FROM studfil WHERE pm_id = @pm_id";
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connet))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlDelete, connection))
+                    if (DeleteRecord(selectedId, snId, name, charge, amountPaid))
                     {
-                        command.Parameters.AddWithValue("@pm_id", pm_id);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to delete record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PopulateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            UpdateTotalEntriesLabel();
+        }
+
+        private bool DeleteRecord(int selectedId, int snId, string name, string charge, string amountPaid)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string sqlCheckLastRecord = "SELECT COUNT(*) FROM studfil WHERE sn_id = @snId";
+
+                    using (MySqlCommand commandCheckLastRecord = new MySqlCommand(sqlCheckLastRecord, connection))
+                    {
+                        commandCheckLastRecord.Parameters.AddWithValue("@snId", snId);
+
+                        int recordCount = Convert.ToInt32(commandCheckLastRecord.ExecuteScalar());
+
+                        bool studfilDeleted = false;
+
+                        string sqlDeleteRecord = "DELETE FROM studfil WHERE pm_id = @selectedId";
+
+                        using (MySqlCommand commandDeleteRecord = new MySqlCommand(sqlDeleteRecord, connection))
+                        {
+                            commandDeleteRecord.Parameters.AddWithValue("@selectedId", selectedId);
+
+                            int rowsAffectedDeleteRecord = commandDeleteRecord.ExecuteNonQuery();
+
+                            studfilDeleted = rowsAffectedDeleteRecord > 0;
+                        }
+
+                        if (studfilDeleted)
+                        {
+                            string sqlGetDebt = "SELECT debtamount FROM studdeb WHERE sn_id = @snId";
+
+                            using (MySqlCommand commandGetDebt = new MySqlCommand(sqlGetDebt, connection))
+                            {
+                                commandGetDebt.Parameters.AddWithValue("@snId", snId);
+                                object existingDebt = commandGetDebt.ExecuteScalar();
+
+                                decimal currentDebt = existingDebt != null ? Convert.ToDecimal(existingDebt) : 0;
+
+                                currentDebt -= Convert.ToDecimal(charge) - Convert.ToDecimal(amountPaid);
+
+                                currentDebt = Math.Max(currentDebt, 0);
+
+                                string sqlUpdateDebt = "UPDATE studdeb SET debtamount = @currentDebt WHERE sn_id = @snId";
+
+                                using (MySqlCommand commandUpdateDebt = new MySqlCommand(sqlUpdateDebt, connection))
+                                {
+                                    commandUpdateDebt.Parameters.AddWithValue("@snId", snId);
+                                    commandUpdateDebt.Parameters.AddWithValue("@currentDebt", currentDebt);
+
+                                    int rowsAffectedUpdateDebt = commandUpdateDebt.ExecuteNonQuery();
+                                }
+
+                                bool hasDebt = currentDebt > 0;
+
+                                string sqlUpdateHasDebt = "UPDATE studdeb SET hasdebt = @hasDebt WHERE sn_id = @snId";
+
+                                using (MySqlCommand commandUpdateHasDebt = new MySqlCommand(sqlUpdateHasDebt, connection))
+                                {
+                                    commandUpdateHasDebt.Parameters.AddWithValue("@snId", snId);
+                                    commandUpdateHasDebt.Parameters.AddWithValue("@hasDebt", hasDebt);
+
+                                    int rowsAffectedUpdateHasDebt = commandUpdateHasDebt.ExecuteNonQuery();
+                                }
+
+                                if (recordCount == 1)
+                                {
+                                    string sqlDeleteDebtRecord = "DELETE FROM studdeb WHERE sn_id = @snId";
+
+                                    using (MySqlCommand commandDeleteDebtRecord = new MySqlCommand(sqlDeleteDebtRecord, connection))
+                                    {
+                                        commandDeleteDebtRecord.Parameters.AddWithValue("@snId", snId);
+
+                                        int rowsAffectedDeleteDebtRecord = commandDeleteDebtRecord.ExecuteNonQuery();
+                                    }
+
+                                    string sqlDeleteStudName = "DELETE FROM studname WHERE sn_id = @snId";
+
+                                    using (MySqlCommand commandDeleteStudName = new MySqlCommand(sqlDeleteStudName, connection))
+                                    {
+                                        commandDeleteStudName.Parameters.AddWithValue("@snId", snId);
+
+                                        int rowsAffectedDeleteStudName = commandDeleteStudName.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception: {ex.Message}");
+                    return false;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
 
@@ -197,7 +283,7 @@ namespace SPAAT.Pages
 
         private void UpdateTotalEntriesLabel()
         {
-            totalentrieslabel.Text = $"Total Entries: {Environment.NewLine} {budmangrid.Rows.Count}";
+            totalentrieslabel.Text = $"Total Entries: {Environment.NewLine}{budmangrid.Rows.Count}";
         }
 
         private void searchtextbox_TextChanged(object sender, EventArgs e)

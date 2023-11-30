@@ -34,14 +34,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.modify = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.modify = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.crebud = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,7 @@
             this.budmangrid.ShowCellToolTips = false;
             this.budmangrid.ShowEditingIcon = false;
             this.budmangrid.ShowRowErrors = false;
-            this.budmangrid.Size = new System.Drawing.Size(710, 406);
+            this.budmangrid.Size = new System.Drawing.Size(710, 353);
             this.budmangrid.TabIndex = 26;
             this.budmangrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.budmangrid.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Poppins", 8.25F);
@@ -138,6 +139,25 @@
             this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
             this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
             // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // debtamount
+            // 
+            this.debtamount.HeaderText = "Total Unpaid Amount";
+            this.debtamount.Name = "debtamount";
+            this.debtamount.ReadOnly = true;
+            // 
+            // sn_id
+            // 
+            this.sn_id.HeaderText = "sn_id";
+            this.sn_id.Name = "sn_id";
+            this.sn_id.ReadOnly = true;
+            this.sn_id.Visible = false;
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -146,11 +166,31 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.Controls.Add(this.guna2VScrollBar1);
             this.guna2Panel1.Controls.Add(this.budmangrid);
-            this.guna2Panel1.Location = new System.Drawing.Point(18, 18);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 71);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(710, 406);
+            this.guna2Panel1.Size = new System.Drawing.Size(710, 353);
             this.guna2Panel1.TabIndex = 27;
             this.guna2Panel1.UseTransparentBackground = true;
+            // 
+            // guna2VScrollBar1
+            // 
+            this.guna2VScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2VScrollBar1.AutoRoundedCorners = true;
+            this.guna2VScrollBar1.BindingContainer = this.budmangrid;
+            this.guna2VScrollBar1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar1.BorderRadius = 8;
+            this.guna2VScrollBar1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar1.InUpdate = false;
+            this.guna2VScrollBar1.LargeChange = 10;
+            this.guna2VScrollBar1.Location = new System.Drawing.Point(692, 0);
+            this.guna2VScrollBar1.Minimum = 1;
+            this.guna2VScrollBar1.Name = "guna2VScrollBar1";
+            this.guna2VScrollBar1.ScrollbarSize = 18;
+            this.guna2VScrollBar1.Size = new System.Drawing.Size(18, 353);
+            this.guna2VScrollBar1.TabIndex = 34;
+            this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar1.Value = 1;
             // 
             // modify
             // 
@@ -196,45 +236,6 @@
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2VScrollBar1
-            // 
-            this.guna2VScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2VScrollBar1.AutoRoundedCorners = true;
-            this.guna2VScrollBar1.BindingContainer = this.budmangrid;
-            this.guna2VScrollBar1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar1.BorderRadius = 8;
-            this.guna2VScrollBar1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar1.InUpdate = false;
-            this.guna2VScrollBar1.LargeChange = 10;
-            this.guna2VScrollBar1.Location = new System.Drawing.Point(692, 0);
-            this.guna2VScrollBar1.Minimum = 1;
-            this.guna2VScrollBar1.Name = "guna2VScrollBar1";
-            this.guna2VScrollBar1.ScrollbarSize = 18;
-            this.guna2VScrollBar1.Size = new System.Drawing.Size(18, 406);
-            this.guna2VScrollBar1.TabIndex = 34;
-            this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar1.Value = 1;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // debtamount
-            // 
-            this.debtamount.HeaderText = "Total Unpaid Amount";
-            this.debtamount.Name = "debtamount";
-            this.debtamount.ReadOnly = true;
-            // 
-            // sn_id
-            // 
-            this.sn_id.HeaderText = "sn_id";
-            this.sn_id.Name = "sn_id";
-            this.sn_id.ReadOnly = true;
-            this.sn_id.Visible = false;
-            // 
             // guna2HtmlToolTip1
             // 
             this.guna2HtmlToolTip1.AllowLinksHandling = true;
@@ -249,11 +250,23 @@
             this.guna2HtmlToolTip1.UseFading = false;
             this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
+            // crebud
+            // 
+            this.crebud.AutoSize = true;
+            this.crebud.Font = new System.Drawing.Font("Poppins", 20F, System.Drawing.FontStyle.Bold);
+            this.crebud.ForeColor = System.Drawing.Color.White;
+            this.crebud.Location = new System.Drawing.Point(19, 20);
+            this.crebud.Name = "crebud";
+            this.crebud.Size = new System.Drawing.Size(175, 48);
+            this.crebud.TabIndex = 55;
+            this.crebud.Text = "View Debts";
+            // 
             // ViewStudFil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.crebud);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.guna2Panel1);
@@ -262,6 +275,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -276,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sn_id;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
+        private System.Windows.Forms.Label crebud;
     }
 }
