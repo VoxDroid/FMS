@@ -100,6 +100,79 @@ namespace SPAAT.Pages
             }
         }
 
+        private void budmangrid3_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell cell = budmangrid3.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string cellText = cell.Value?.ToString();
+
+                if (!string.IsNullOrWhiteSpace(cellText))
+                {
+                    guna2HtmlToolTip1.SetToolTip(budmangrid3, cellText);
+                }
+                else
+                {
+                    guna2HtmlToolTip1.SetToolTip(budmangrid3, null);
+                }
+            }
+        }
+
+        private void budmangrid3_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            guna2HtmlToolTip1.SetToolTip(budmangrid3, null);
+        }
+
+        private void budmangrid3_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            string yourAllocationColumnName = "charge";
+            string yourAllocationColumnName2 = "amountpaid";
+
+            int yourAllocationColumnIndex = budmangrid3.Columns[yourAllocationColumnName].Index;
+            int yourAllocationColumnIndex2 = budmangrid3.Columns[yourAllocationColumnName2].Index;
+
+            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex) || e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex2))
+            {
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    decimal cellValue;
+                    if (decimal.TryParse(e.Value.ToString(), out cellValue))
+                    {
+                        e.Value = string.Format("₱{0:N0}", cellValue);
+                        e.FormattingApplied = true;
+                    }
+                    else
+                    {
+                        e.Value = "Invalid Value";
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+
+            string yourDateColumnName = "paymentdate";
+
+            int yourDateColumnIndex = budmangrid2.Columns[yourDateColumnName].Index;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == yourDateColumnIndex)
+            {
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    DateTime cellValue;
+                    if (DateTime.TryParse(e.Value.ToString(), out cellValue))
+                    {
+                        e.Value = cellValue.ToString("yyyy-MM-dd");
+                        e.FormattingApplied = true;
+                    }
+                    else
+                    {
+                        e.Value = "Invalid Date";
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
+        }
+
+
         private void budmangrid2_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -240,6 +313,11 @@ namespace SPAAT.Pages
                     break;
                 case 2:
                     bunifuPages1.SelectTab(tranlo);
+                    PopulateDataGridView();
+                    PopulateDataGridView2();
+                    break;
+                case 3:
+                    bunifuPages1.SelectTab(studfil);
                     PopulateDataGridView();
                     PopulateDataGridView2();
                     break;

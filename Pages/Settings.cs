@@ -207,6 +207,69 @@ namespace SPAAT.Pages
             }
         }
 
+        private void RSF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmDeletion = ConfirmDeletionWithResetKey();
+
+                if (confirmDeletion)
+                {
+                    DialogResult finalConfirmation = MessageBox.Show(
+                        "Are you sure you want to delete all records from Student File?",
+                        "Final Confirmation",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                    if (finalConfirmation == DialogResult.Yes)
+                    {
+                        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+
+                        using (MySqlConnection connection = new MySqlConnection(connet))
+                        {
+                            connection.Open();
+
+                            DeleteTableRecords(connection, "studfil");
+
+                            DeleteTableRecords(connection, "studdeb");
+
+                            DeleteTableRecords(connection, "studname");
+
+                            MessageBox.Show("All records deleted successfully.", "Delete Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"MySQL Error: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteTableRecords(MySqlConnection connection, string tableName)
+        {
+            string deleteQuery = $"DELETE FROM {tableName}";
+
+            using (MySqlCommand command = new MySqlCommand(deleteQuery, connection))
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    string resetAutoIncrementQuery = $"ALTER TABLE {tableName} AUTO_INCREMENT = 1";
+                    using (MySqlCommand resetAutoIncrementCommand = new MySqlCommand(resetAutoIncrementQuery, connection))
+                    {
+                        resetAutoIncrementCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
         private void logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -217,5 +280,7 @@ namespace SPAAT.Pages
                 Application.Exit();
             }
         }
+
+        
     }
 }

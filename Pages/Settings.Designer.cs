@@ -33,6 +33,7 @@
             this.RBM = new Guna.UI2.WinForms.Guna2Button();
             this.RTL = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.RSF = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // logout
@@ -102,7 +103,7 @@
             this.RTL.FillColor = System.Drawing.Color.Maroon;
             this.RTL.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.RTL.ForeColor = System.Drawing.Color.White;
-            this.RTL.Location = new System.Drawing.Point(64, 208);
+            this.RTL.Location = new System.Drawing.Point(64, 181);
             this.RTL.Name = "RTL";
             this.RTL.Size = new System.Drawing.Size(321, 56);
             this.RTL.TabIndex = 39;
@@ -124,11 +125,33 @@
             this.guna2HtmlToolTip1.UseFading = false;
             this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
+            // RSF
+            // 
+            this.RSF.Animated = true;
+            this.RSF.BackColor = System.Drawing.Color.Transparent;
+            this.RSF.BorderRadius = 10;
+            this.RSF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RSF.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RSF.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RSF.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RSF.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RSF.FillColor = System.Drawing.Color.Maroon;
+            this.RSF.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.RSF.ForeColor = System.Drawing.Color.White;
+            this.RSF.Location = new System.Drawing.Point(64, 243);
+            this.RSF.Name = "RSF";
+            this.RSF.Size = new System.Drawing.Size(321, 56);
+            this.RSF.TabIndex = 40;
+            this.RSF.Text = "Reset Student File";
+            this.RSF.UseTransparentBackground = true;
+            this.RSF.Click += new System.EventHandler(this.RSF_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.RSF);
             this.Controls.Add(this.RTL);
             this.Controls.Add(this.RBM);
             this.Controls.Add(this.crebud);
@@ -147,5 +170,6 @@
         private Guna.UI2.WinForms.Guna2Button RBM;
         private Guna.UI2.WinForms.Guna2Button RTL;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
+        private Guna.UI2.WinForms.Guna2Button RSF;
     }
 }
