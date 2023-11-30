@@ -154,7 +154,7 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, duedate, paymentstatus FROM studfil;";
+                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil;";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -171,7 +171,6 @@ namespace SPAAT.Pages
                             budmangrid.Rows[rowIndex].Cells["charge"].Value = row["charge"];
                             budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
                             budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
-                            budmangrid.Rows[rowIndex].Cells["duedate"].Value = row["duedate"];
                             budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
                         }
                     }
@@ -220,7 +219,6 @@ namespace SPAAT.Pages
                               "WHERE name LIKE @searchQuery " +
                               "   OR amountpaid LIKE @searchQuery " +
                               "   OR paymentdate LIKE @searchQuery" +
-                              "   OR duedate LIKE @searchQuery" +
                               "   OR paymentstatus LIKE @searchQuery" +
                               "   OR charge LIKE @searchQuery";
 
@@ -241,7 +239,6 @@ namespace SPAAT.Pages
                             budmangrid.Rows[rowIndex].Cells["charge"].Value = row["charge"];
                             budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
                             budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
-                            budmangrid.Rows[rowIndex].Cells["duedate"].Value = row["duedate"];
                             budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
 
                         }
