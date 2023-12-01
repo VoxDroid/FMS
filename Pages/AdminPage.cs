@@ -16,7 +16,7 @@ namespace SPAAT.Pages
 {
     public partial class AdminPage : UserControl
     {
-        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         public AdminPage()
         {
             InitializeComponent();
@@ -439,7 +439,7 @@ namespace SPAAT.Pages
 
         private void SetResetKey(string resetKey)
         {
-            string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+            string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
             string sqlCheckExistence = "SELECT COUNT(*) FROM resetkeys WHERE id = 1";
             string sqlInsert = "INSERT INTO resetkeys (id, reset_key) VALUES (1, @resetKey)";
@@ -487,7 +487,7 @@ namespace SPAAT.Pages
 
         private string GetResetKey()
         {
-            string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+            string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
             string sqlSelect = "SELECT reset_key FROM resetkeys LIMIT 1";
 

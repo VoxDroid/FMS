@@ -59,7 +59,7 @@ namespace SPAAT.Pages
 
             try
             {
-                string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+                string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
                 using (MySqlConnection connection = new MySqlConnection(connet))
                 {
@@ -108,7 +108,7 @@ namespace SPAAT.Pages
 
                     if (finalConfirmation == DialogResult.Yes)
                     {
-                        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+                        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
                         using (MySqlConnection connection = new MySqlConnection(connet))
                         {
@@ -166,7 +166,7 @@ namespace SPAAT.Pages
 
                     if (finalConfirmation == DialogResult.Yes)
                     {
-                        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+                        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
                         using (MySqlConnection connection = new MySqlConnection(connet))
                         {
@@ -224,7 +224,7 @@ namespace SPAAT.Pages
 
                     if (finalConfirmation == DialogResult.Yes)
                     {
-                        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+                        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
 
                         using (MySqlConnection connection = new MySqlConnection(connet))
                         {

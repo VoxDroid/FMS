@@ -23,7 +23,7 @@ namespace SPAAT.Pages
 {
     public partial class Export : UserControl
     {
-        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         public Export()
         {
             InitializeComponent();

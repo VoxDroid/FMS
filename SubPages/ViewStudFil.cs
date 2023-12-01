@@ -16,7 +16,7 @@ namespace SPAAT.SubPages
 {
     public partial class ViewStudFil : UserControl
     {
-        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         public ViewStudFil()
         {
             InitializeComponent();

@@ -14,9 +14,9 @@ public static class DatabaseInitializer
             {
                 connection.Open();
 
-                CreateDatabaseIfNotExists(connection, "fms");
+                CreateDatabaseIfNotExists(connection, "zapisaxisfms");
 
-                connection.ChangeDatabase("fms");
+                connection.ChangeDatabase("zapisaxisfms");
 
                 CreateTableIfNotExists(connection, "budman", "CREATE TABLE budman (bm_id int(255) NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, category varchar(255) NOT NULL, allocation int(255) NOT NULL, remaining int(255) NOT NULL, PRIMARY KEY (bm_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "");
 

@@ -17,7 +17,7 @@ namespace SPAAT.SubPages
 {
     public partial class ModTranLo : UserControl
     {
-        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         public ModTranLo()
         {
             InitializeComponent();

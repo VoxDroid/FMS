@@ -17,7 +17,7 @@ namespace SPAAT.Pages
 {
     public partial class StudentFile : UserControl
     {
-        string connet = "Server=localhost;Database=fms;Username=root;Password=;";
+        string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         public StudentFile()
         {
             InitializeComponent();

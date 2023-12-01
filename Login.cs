@@ -21,7 +21,7 @@ namespace SPAAT
     public partial class Login : Form
     {
         private MySqlConnection connection;
-        private string connectionString = "Server=localhost;Database=fms;Username=root;Password=;";
+        private string connectionString = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
         private Guna2Transition formTransition;
         private int targetX = 12;
         private int targetY = 12;
