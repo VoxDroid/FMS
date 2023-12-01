@@ -28,6 +28,12 @@ public static class DatabaseInitializer
 
                 CreateTableIfNotExists(connection, "users", "CREATE TABLE users (user_id int(255) NOT NULL AUTO_INCREMENT, username varchar(255) NOT NULL, password varchar(255) NOT NULL, PRIMARY KEY (user_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "INSERT INTO users (username, password) VALUES ('admin', 'admin')", "ALTER TABLE users AUTO_INCREMENT = 1");
 
+                CreateTableIfNotExists(connection, "studname", "CREATE TABLE studname (sn_id int(255) NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, PRIMARY KEY (sn_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "");
+
+                CreateTableIfNotExists(connection, "studdeb", "CREATE TABLE studdeb (sn_id int(255) NOT NULL, name varchar(255) NOT NULL, hasdebt bit(1) NOT NULL, debtamount int(255) NOT NULL, PRIMARY KEY (sn_id), CONSTRAINT FK_StudentDebt FOREIGN KEY (sn_id) REFERENCES studname (sn_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", "");
+
+                CreateTableIfNotExists(connection, "studfil", "CREATE TABLE studfil (pm_id int(255) NOT NULL AUTO_INCREMENT, sn_id int(255) NOT NULL, name varchar(255) NOT NULL, charge int(255) NOT NULL, amountpaid int(255) NOT NULL, paymentdate varchar(255) NOT NULL, paymentstatus varchar(255) NOT NULL, PRIMARY KEY (pm_id), KEY sn_id (sn_id), CONSTRAINT studfil_ibfk_1 FOREIGN KEY (sn_id) REFERENCES studname (sn_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "");
+
                 CheckAndInsertDefaultUser(connection);
                 CheckAndInsertDefaultSu(connection);
             }
