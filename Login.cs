@@ -78,7 +78,7 @@ namespace SPAAT
         {
             DatabaseInitializer.InitializeDatabase();
             connection = new MySqlConnection(connectionString);
-            
+
             InitializeComponent();
             this.Load += Login_Load;
             Blocker.Enabled = false;
@@ -102,7 +102,7 @@ namespace SPAAT
         {
             if (Opacity > 0)
             {
-                Opacity -= 0.05; 
+                Opacity -= 0.05;
             }
             else if (Opacity == 0)
             {
@@ -139,11 +139,11 @@ namespace SPAAT
             settings3.Tick += settingsback_Tick;
 
             timer2 = new Timer();
-            timer2.Interval = 3000; 
+            timer2.Interval = 3000;
             timer2.Tick += Timer2_Tick;
             timer2.Start();
             buttonDisappearTimer = new Timer();
-            buttonDisappearTimer.Interval = 3500; 
+            buttonDisappearTimer.Interval = 3500;
             buttonDisappearTimer.Tick += ButtonDisappearTimer_Tick;
 
             loadingLabelTimer = new Timer();
@@ -290,10 +290,10 @@ namespace SPAAT
                 int currentY2 = (int)(HideContinue.Location.Y + (target2Y - HideContinue.Location.Y) * progress);
 
                 HideContinue.Location = new Point(currentX2, currentY2);
-                
+
             }
 
-            
+
         }
 
         private int movePixelsX;
@@ -710,6 +710,71 @@ namespace SPAAT
         private void Blocker2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void usernameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                password.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                LoginEnter();
+                e.Handled = true;
+            }
+        }
+
+        private void LoginEnter()
+        {
+            lblError.Text = string.Empty;
+            string username1 = username.Text;
+            string password1 = password.Text;
+            if (IsDatabaseConnected())
+            {
+                if (string.IsNullOrWhiteSpace(username1) || string.IsNullOrWhiteSpace(password1))
+                {
+                    lblError.Enabled = true;
+                    lblError.Visible = true;
+                    lblError.Text = "Please fill up all the fields.";
+                }
+                else
+                {
+                    string authenticatedUser = AuthenticateUser(username1, password1);
+
+                    if (!string.IsNullOrEmpty(authenticatedUser))
+                    {
+                        currentlyLoggedInUser = authenticatedUser;
+
+                        lblError.Enabled = false;
+                        lblError.Visible = false;
+                        lblError.Text = string.Empty;
+                        Main mainForm = new Main();
+                        mainForm.Show();
+                        mainForm.LoggedInUser = currentlyLoggedInUser;
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        lblError.Enabled = true;
+                        lblError.Visible = true;
+                        lblError.Text = "Invalid username or password.";
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Database error.");
+                lblError.Enabled = true;
+                lblError.Visible = true;
+                lblError.Text = "Database Error.";
+            }
         }
     }
 }

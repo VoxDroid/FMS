@@ -245,6 +245,7 @@
             this.username.Size = new System.Drawing.Size(361, 53);
             this.username.TabIndex = 10;
             this.username.Visible = false;
+            this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyDown);
             // 
             // password
             // 
@@ -276,6 +277,7 @@
             this.password.Size = new System.Drawing.Size(361, 53);
             this.password.TabIndex = 11;
             this.password.Visible = false;
+            this.password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.password_KeyPress);
             // 
             // Blocker
             // 
