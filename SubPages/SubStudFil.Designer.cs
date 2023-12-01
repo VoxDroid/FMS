@@ -312,7 +312,7 @@
             this.recentstudentscb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.recentstudentscb.ItemHeight = 30;
             this.recentstudentscb.Items.AddRange(new object[] {
-            "-- Recent Students --"});
+            "-- Recent --"});
             this.recentstudentscb.Location = new System.Drawing.Point(488, 104);
             this.recentstudentscb.Name = "recentstudentscb";
             this.recentstudentscb.Size = new System.Drawing.Size(208, 36);
@@ -391,7 +391,7 @@
             this.debtcb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.debtcb.ItemHeight = 30;
             this.debtcb.Items.AddRange(new object[] {
-            "-- Select Student --"});
+            "-- Select --"});
             this.debtcb.Location = new System.Drawing.Point(338, 347);
             this.debtcb.Name = "debtcb";
             this.debtcb.Size = new System.Drawing.Size(208, 36);

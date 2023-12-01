@@ -167,7 +167,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.BGB.Location = new System.Drawing.Point(-3, 68);
             this.BGB.Name = "BGB";
-            this.BGB.Size = new System.Drawing.Size(217, 574);
+            this.BGB.Size = new System.Drawing.Size(217, 672);
             this.BGB.TabIndex = 4;
             // 
             // dashboardbutton
@@ -301,7 +301,7 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(210, 68);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Vertical;
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 571);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 669);
             this.bunifuSeparator1.TabIndex = 10;
             // 
             // pages
@@ -333,7 +333,7 @@
             this.pages.PageName = "viewstudfil";
             this.pages.PageTitle = "View Debts";
             this.pages.SelectedIndex = 0;
-            this.pages.Size = new System.Drawing.Size(768, 571);
+            this.pages.Size = new System.Drawing.Size(768, 669);
             this.pages.TabIndex = 11;
             animation1.AnimateOnlyDifferences = true;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -360,7 +360,7 @@
             this.dashboardpage.Location = new System.Drawing.Point(4, 4);
             this.dashboardpage.Name = "dashboardpage";
             this.dashboardpage.Padding = new System.Windows.Forms.Padding(3);
-            this.dashboardpage.Size = new System.Drawing.Size(760, 527);
+            this.dashboardpage.Size = new System.Drawing.Size(760, 562);
             this.dashboardpage.TabIndex = 0;
             this.dashboardpage.Text = "Dashboard";
             // 
@@ -371,7 +371,7 @@
             this.budman.Location = new System.Drawing.Point(4, 4);
             this.budman.Name = "budman";
             this.budman.Padding = new System.Windows.Forms.Padding(3);
-            this.budman.Size = new System.Drawing.Size(760, 527);
+            this.budman.Size = new System.Drawing.Size(760, 562);
             this.budman.TabIndex = 1;
             this.budman.Text = "Budget Management";
             // 
@@ -381,7 +381,7 @@
             this.subbudman.Controls.Add(this.subBudMan1);
             this.subbudman.Location = new System.Drawing.Point(4, 4);
             this.subbudman.Name = "subbudman";
-            this.subbudman.Size = new System.Drawing.Size(760, 527);
+            this.subbudman.Size = new System.Drawing.Size(760, 562);
             this.subbudman.TabIndex = 5;
             this.subbudman.Text = "Budget Management Form";
             // 
@@ -390,7 +390,7 @@
             this.modbudman.Controls.Add(this.modBudMan1);
             this.modbudman.Location = new System.Drawing.Point(4, 4);
             this.modbudman.Name = "modbudman";
-            this.modbudman.Size = new System.Drawing.Size(760, 527);
+            this.modbudman.Size = new System.Drawing.Size(760, 562);
             this.modbudman.TabIndex = 7;
             this.modbudman.Text = "Edit BMF";
             this.modbudman.UseVisualStyleBackColor = true;
@@ -401,7 +401,7 @@
             this.log.Controls.Add(this.transactionLogs1);
             this.log.Location = new System.Drawing.Point(4, 4);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(760, 527);
+            this.log.Size = new System.Drawing.Size(760, 562);
             this.log.TabIndex = 2;
             this.log.Text = "Logs";
             // 
@@ -410,7 +410,7 @@
             this.sublog.Controls.Add(this.subTranLo1);
             this.sublog.Location = new System.Drawing.Point(4, 4);
             this.sublog.Name = "sublog";
-            this.sublog.Size = new System.Drawing.Size(760, 527);
+            this.sublog.Size = new System.Drawing.Size(760, 562);
             this.sublog.TabIndex = 6;
             this.sublog.Text = "Logs Form";
             this.sublog.UseVisualStyleBackColor = true;
@@ -420,7 +420,7 @@
             this.modlog.Controls.Add(this.modTranLo1);
             this.modlog.Location = new System.Drawing.Point(4, 4);
             this.modlog.Name = "modlog";
-            this.modlog.Size = new System.Drawing.Size(760, 527);
+            this.modlog.Size = new System.Drawing.Size(760, 562);
             this.modlog.TabIndex = 8;
             this.modlog.Text = "Edit LF";
             this.modlog.UseVisualStyleBackColor = true;
@@ -431,7 +431,7 @@
             this.setting.Controls.Add(this.settings1);
             this.setting.Location = new System.Drawing.Point(4, 4);
             this.setting.Name = "setting";
-            this.setting.Size = new System.Drawing.Size(760, 527);
+            this.setting.Size = new System.Drawing.Size(760, 562);
             this.setting.TabIndex = 3;
             this.setting.Text = "Settings";
             // 
@@ -440,7 +440,7 @@
             this.export.Controls.Add(this.export1);
             this.export.Location = new System.Drawing.Point(4, 4);
             this.export.Name = "export";
-            this.export.Size = new System.Drawing.Size(760, 527);
+            this.export.Size = new System.Drawing.Size(760, 562);
             this.export.TabIndex = 9;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -451,7 +451,7 @@
             this.admins.Controls.Add(this.adminPage1);
             this.admins.Location = new System.Drawing.Point(4, 4);
             this.admins.Name = "admins";
-            this.admins.Size = new System.Drawing.Size(760, 527);
+            this.admins.Size = new System.Drawing.Size(760, 562);
             this.admins.TabIndex = 10;
             this.admins.Text = "Admin";
             // 
@@ -461,7 +461,7 @@
             this.studfil.Controls.Add(this.studentFile1);
             this.studfil.Location = new System.Drawing.Point(4, 4);
             this.studfil.Name = "studfil";
-            this.studfil.Size = new System.Drawing.Size(760, 527);
+            this.studfil.Size = new System.Drawing.Size(760, 562);
             this.studfil.TabIndex = 11;
             this.studfil.Text = "Student File";
             // 
@@ -471,7 +471,7 @@
             this.substudfil.Controls.Add(this.subStudFil1);
             this.substudfil.Location = new System.Drawing.Point(4, 4);
             this.substudfil.Name = "substudfil";
-            this.substudfil.Size = new System.Drawing.Size(760, 527);
+            this.substudfil.Size = new System.Drawing.Size(760, 562);
             this.substudfil.TabIndex = 12;
             this.substudfil.Text = "Student File Form";
             // 
@@ -481,7 +481,7 @@
             this.modstudfil.Controls.Add(this.modStudFil1);
             this.modstudfil.Location = new System.Drawing.Point(4, 4);
             this.modstudfil.Name = "modstudfil";
-            this.modstudfil.Size = new System.Drawing.Size(760, 527);
+            this.modstudfil.Size = new System.Drawing.Size(760, 562);
             this.modstudfil.TabIndex = 13;
             this.modstudfil.Text = "Edit SFF";
             // 
@@ -491,7 +491,7 @@
             this.viewstudfil.Controls.Add(this.viewStudFil1);
             this.viewstudfil.Location = new System.Drawing.Point(4, 4);
             this.viewstudfil.Name = "viewstudfil";
-            this.viewstudfil.Size = new System.Drawing.Size(760, 527);
+            this.viewstudfil.Size = new System.Drawing.Size(760, 625);
             this.viewstudfil.TabIndex = 14;
             this.viewstudfil.Text = "View Debts";
             // 
@@ -516,7 +516,7 @@
             this.ZAPISAXIS.BorderRadius = 96;
             this.ZAPISAXIS.Image = ((System.Drawing.Image)(resources.GetObject("ZAPISAXIS.Image")));
             this.ZAPISAXIS.IsCircle = true;
-            this.ZAPISAXIS.Location = new System.Drawing.Point(12, 443);
+            this.ZAPISAXIS.Location = new System.Drawing.Point(12, 541);
             this.ZAPISAXIS.Name = "ZAPISAXIS";
             this.ZAPISAXIS.Size = new System.Drawing.Size(192, 192);
             this.ZAPISAXIS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -637,7 +637,7 @@
             this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboard1.Location = new System.Drawing.Point(3, 3);
             this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(754, 521);
+            this.dashboard1.Size = new System.Drawing.Size(754, 556);
             this.dashboard1.TabIndex = 0;
             this.dashboard1.Load += new System.EventHandler(this.dashboard1_Load);
             // 
@@ -647,7 +647,7 @@
             this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
             this.budgetManagement1.Name = "budgetManagement1";
-            this.budgetManagement1.Size = new System.Drawing.Size(754, 539);
+            this.budgetManagement1.Size = new System.Drawing.Size(754, 574);
             this.budgetManagement1.TabIndex = 0;
             // 
             // subBudMan1
@@ -656,7 +656,7 @@
             this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subBudMan1.Location = new System.Drawing.Point(0, 0);
             this.subBudMan1.Name = "subBudMan1";
-            this.subBudMan1.Size = new System.Drawing.Size(760, 545);
+            this.subBudMan1.Size = new System.Drawing.Size(760, 580);
             this.subBudMan1.TabIndex = 0;
             // 
             // modBudMan1
@@ -665,7 +665,7 @@
             this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modBudMan1.Location = new System.Drawing.Point(0, 0);
             this.modBudMan1.Name = "modBudMan1";
-            this.modBudMan1.Size = new System.Drawing.Size(760, 545);
+            this.modBudMan1.Size = new System.Drawing.Size(760, 580);
             this.modBudMan1.TabIndex = 0;
             // 
             // transactionLogs1
@@ -674,7 +674,7 @@
             this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
             this.transactionLogs1.Name = "transactionLogs1";
-            this.transactionLogs1.Size = new System.Drawing.Size(760, 545);
+            this.transactionLogs1.Size = new System.Drawing.Size(760, 580);
             this.transactionLogs1.TabIndex = 0;
             // 
             // subTranLo1
@@ -683,7 +683,7 @@
             this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subTranLo1.Location = new System.Drawing.Point(0, 0);
             this.subTranLo1.Name = "subTranLo1";
-            this.subTranLo1.Size = new System.Drawing.Size(760, 545);
+            this.subTranLo1.Size = new System.Drawing.Size(760, 580);
             this.subTranLo1.TabIndex = 0;
             // 
             // modTranLo1
@@ -692,7 +692,7 @@
             this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modTranLo1.Location = new System.Drawing.Point(0, 0);
             this.modTranLo1.Name = "modTranLo1";
-            this.modTranLo1.Size = new System.Drawing.Size(760, 545);
+            this.modTranLo1.Size = new System.Drawing.Size(760, 580);
             this.modTranLo1.TabIndex = 0;
             // 
             // settings1
@@ -701,7 +701,7 @@
             this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settings1.Location = new System.Drawing.Point(0, 0);
             this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(760, 545);
+            this.settings1.Size = new System.Drawing.Size(760, 580);
             this.settings1.TabIndex = 0;
             this.settings1.Load += new System.EventHandler(this.settings1_Load);
             // 
@@ -711,7 +711,7 @@
             this.export1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.export1.Location = new System.Drawing.Point(0, 0);
             this.export1.Name = "export1";
-            this.export1.Size = new System.Drawing.Size(760, 545);
+            this.export1.Size = new System.Drawing.Size(760, 580);
             this.export1.TabIndex = 0;
             // 
             // adminPage1
@@ -721,7 +721,7 @@
             this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPage1.Location = new System.Drawing.Point(0, 0);
             this.adminPage1.Name = "adminPage1";
-            this.adminPage1.Size = new System.Drawing.Size(760, 545);
+            this.adminPage1.Size = new System.Drawing.Size(760, 580);
             this.adminPage1.TabIndex = 0;
             // 
             // studentFile1
@@ -730,7 +730,7 @@
             this.studentFile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentFile1.Location = new System.Drawing.Point(0, 0);
             this.studentFile1.Name = "studentFile1";
-            this.studentFile1.Size = new System.Drawing.Size(760, 545);
+            this.studentFile1.Size = new System.Drawing.Size(760, 580);
             this.studentFile1.TabIndex = 0;
             // 
             // subStudFil1
@@ -739,7 +739,7 @@
             this.subStudFil1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subStudFil1.Location = new System.Drawing.Point(0, 0);
             this.subStudFil1.Name = "subStudFil1";
-            this.subStudFil1.Size = new System.Drawing.Size(760, 527);
+            this.subStudFil1.Size = new System.Drawing.Size(760, 562);
             this.subStudFil1.TabIndex = 0;
             // 
             // modStudFil1
@@ -748,7 +748,7 @@
             this.modStudFil1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modStudFil1.Location = new System.Drawing.Point(0, 0);
             this.modStudFil1.Name = "modStudFil1";
-            this.modStudFil1.Size = new System.Drawing.Size(760, 527);
+            this.modStudFil1.Size = new System.Drawing.Size(760, 562);
             this.modStudFil1.TabIndex = 0;
             // 
             // viewStudFil1
@@ -757,7 +757,7 @@
             this.viewStudFil1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewStudFil1.Location = new System.Drawing.Point(0, 0);
             this.viewStudFil1.Name = "viewStudFil1";
-            this.viewStudFil1.Size = new System.Drawing.Size(760, 527);
+            this.viewStudFil1.Size = new System.Drawing.Size(760, 625);
             this.viewStudFil1.TabIndex = 0;
             // 
             // Main
@@ -765,7 +765,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(1000, 647);
+            this.ClientSize = new System.Drawing.Size(1000, 745);
             this.Controls.Add(this.studentfile);
             this.Controls.Add(this.adminpage);
             this.Controls.Add(this.exportf);

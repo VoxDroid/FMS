@@ -44,7 +44,7 @@ namespace SPAAT.SubPages
                             recentstudentscb.Items.Clear();
 
                             DataRow initialRow = dataTable.NewRow();
-                            initialRow["name"] = "-- Recent Students --";
+                            initialRow["name"] = "-- Recent --";
                             dataTable.Rows.InsertAt(initialRow, 0);
 
                             recentstudentscb.DataSource = dataTable;
@@ -82,7 +82,7 @@ namespace SPAAT.SubPages
                             debtcb.Items.Clear();
 
                             DataRow initialRow = dataTable.NewRow();
-                            initialRow["name"] = "-- Select Student --";
+                            initialRow["name"] = "-- Select --";
                             dataTable.Rows.InsertAt(initialRow, 0);
 
                             debtcb.DataSource = dataTable;
@@ -196,7 +196,7 @@ namespace SPAAT.SubPages
                                 commandFil.Parameters.AddWithValue("@name", name);
                                 commandFil.Parameters.AddWithValue("@amountpaid", amountpaid);
                                 commandFil.Parameters.AddWithValue("@charge", charge);
-                                commandFil.Parameters.AddWithValue("@paymentdate", currentDate.AddMonths(1).ToString("yyyy-MM-dd"));
+                                commandFil.Parameters.AddWithValue("@paymentdate", currentDate.AddMonths(0).ToString("yyyy-MM-dd"));
                                 commandFil.Parameters.AddWithValue("@paymentstatus", Convert.ToDecimal(charge) == Convert.ToDecimal(amountpaid) ? "Paid" : "Partial");
 
                                 int rowsAffectedFil = commandFil.ExecuteNonQuery();

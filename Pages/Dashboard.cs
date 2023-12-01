@@ -21,6 +21,7 @@ namespace SPAAT.Pages
             InitializeComponent();
             CalculateAndDisplayTotalRemainingBudget();
             CalculateAndDisplayTotalFunds();
+            CalculateAndDisplayTotalCharge();
             PopulateDataGridView();
             SetDefaultSelectedColumn();
         }
@@ -35,9 +36,9 @@ namespace SPAAT.Pages
             CalculateAndDisplayTotalRemainingBudget();
         }
 
-        private void CalculateAndDisplayTotalRemainingBudget()
+        private void CalculateAndDisplayTotalCharge()
         {
-            string sqlSelectTotalRemaining = "SELECT SUM(remaining) FROM budman";
+            string sqlSelectTotalRemaining = "SELECT SUM(charge) FROM studfil";
 
             try
             {
@@ -52,11 +53,43 @@ namespace SPAAT.Pages
                         if (result != null && result != DBNull.Value)
                         {
                             decimal totalRemaining = Convert.ToDecimal(result);
-                            budgetremainlabel.Text = $"Total Remaining Budget: {Environment.NewLine} ₱{totalRemaining:n0}";
+                            third.Text = $"Total Charged Amount: {Environment.NewLine} ₱{totalRemaining:n0}";
                         }
                         else
                         {
-                            budgetremainlabel.Text = "Total Remaining Budget: N/A";
+                            third.Text = "Total Charged Amount: N/A";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void CalculateAndDisplayTotalRemainingBudget()
+        {
+            string sqlSelectTotalRemaining = "SELECT SUM(debtamount) FROM studdeb";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlSelectTotalRemaining, connection))
+                    {
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            decimal totalRemaining = Convert.ToDecimal(result);
+                            budgetremainlabel.Text = $"Total Uncollected Dues: {Environment.NewLine} ₱{totalRemaining:n0}";
+                        }
+                        else
+                        {
+                            budgetremainlabel.Text = "Total Uncollected Dues: N/A";
                         }
                     }
                 }
@@ -69,7 +102,7 @@ namespace SPAAT.Pages
 
         private void CalculateAndDisplayTotalFunds()
         {
-            string sqlSelectTotalRemaining = "SELECT SUM(amount) FROM tranlo";
+            string sqlSelectTotalRemaining = "SELECT SUM(amountpaid) FROM studfil";
 
             try
             {
@@ -103,6 +136,7 @@ namespace SPAAT.Pages
         {
             CalculateAndDisplayTotalRemainingBudget();
             CalculateAndDisplayTotalFunds();
+            CalculateAndDisplayTotalCharge();
             PopulateDataGridView();
             SetDefaultSelectedColumn();
         }
@@ -118,8 +152,9 @@ namespace SPAAT.Pages
             dataGridView.Columns[3].SortMode = DataGridViewColumnSortMode.Programmatic;
             dataGridView.Columns[4].SortMode = DataGridViewColumnSortMode.Programmatic;
             dataGridView.Columns[5].SortMode = DataGridViewColumnSortMode.Programmatic;
+            dataGridView.Columns[6].SortMode = DataGridViewColumnSortMode.Programmatic;
 
-            dataGridView.Sort(dataGridView.Columns[1], ListSortDirection.Descending);
+            dataGridView.Sort(dataGridView.Columns[3], ListSortDirection.Descending);
         }
     
 
@@ -154,7 +189,7 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT tl_id, date, name, description, category, amount FROM tranlo;";
+                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil;";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -165,12 +200,13 @@ namespace SPAAT.Pages
                         foreach (DataRow row in dataTable.Rows)
                         {
                             int rowIndex = budmangrid.Rows.Add();
-                            budmangrid.Rows[rowIndex].Cells["id"].Value = row["tl_id"];
-                            budmangrid.Rows[rowIndex].Cells["date"].Value = row["date"];
+                            budmangrid.Rows[rowIndex].Cells["pm_id"].Value = row["pm_id"];
+                            budmangrid.Rows[rowIndex].Cells["sn_id"].Value = row["sn_id"];
                             budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
-                            budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
-                            budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
-                            budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
+                            budmangrid.Rows[rowIndex].Cells["charge"].Value = row["charge"];
+                            budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
+                            budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
+                            budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
                         }
                     }
                 }
@@ -188,7 +224,7 @@ namespace SPAAT.Pages
 
         private void budmangrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string yourAllocationColumnName = "amount";
+            string yourAllocationColumnName = "amountpaid";
 
             int yourAllocationColumnIndex = budmangrid.Columns[yourAllocationColumnName].Index;
 
@@ -210,7 +246,7 @@ namespace SPAAT.Pages
                 }
             }
 
-            string yourDateColumnName = "date";
+            string yourDateColumnName = "paymentdate";
 
             int yourDateColumnIndex = budmangrid.Columns[yourDateColumnName].Index;
 
@@ -231,6 +267,16 @@ namespace SPAAT.Pages
                     }
                 }
             }
+        }
+
+        private void totalfundslabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_ClientSizeChanged(object sender, EventArgs e)
+        {
+            budgetremainlabel.Location = new Point(third.Right + 10, third.Top);
         }
     }
 }
