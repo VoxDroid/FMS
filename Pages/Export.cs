@@ -29,7 +29,45 @@ namespace SPAAT.Pages
             InitializeComponent();
             PopulateDataGridView();
             PopulateDataGridView2();
+            PopulateDataGridView3();
         }
+
+        private void PopulateDataGridView3()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil;";
+
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        adapter.Fill(dataTable);
+                        budmangrid3.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            int rowIndex = budmangrid3.Rows.Add();
+                            budmangrid3.Rows[rowIndex].Cells["pm_id"].Value = row["pm_id"];
+                            budmangrid3.Rows[rowIndex].Cells["sn_id"].Value = row["sn_id"];
+                            budmangrid3.Rows[rowIndex].Cells["name2"].Value = row["name"];
+                            budmangrid3.Rows[rowIndex].Cells["charge"].Value = row["charge"];
+                            budmangrid3.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
+                            budmangrid3.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
+                            budmangrid3.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
         private void PopulateDataGridView2()
         {
             try
@@ -151,7 +189,7 @@ namespace SPAAT.Pages
 
             string yourDateColumnName = "paymentdate";
 
-            int yourDateColumnIndex = budmangrid2.Columns[yourDateColumnName].Index;
+            int yourDateColumnIndex = budmangrid3.Columns[yourDateColumnName].Index;
 
             if (e.RowIndex >= 0 && e.ColumnIndex == yourDateColumnIndex)
             {
@@ -305,21 +343,25 @@ namespace SPAAT.Pages
                     bunifuPages1.SelectTab(select);
                     PopulateDataGridView();
                     PopulateDataGridView2();
+                    PopulateDataGridView3();
                     break;
                 case 1:
                     bunifuPages1.SelectTab(budman);
                     PopulateDataGridView();
                     PopulateDataGridView2();
+                    PopulateDataGridView3();
                     break;
                 case 2:
                     bunifuPages1.SelectTab(tranlo);
                     PopulateDataGridView();
                     PopulateDataGridView2();
+                    PopulateDataGridView3();
                     break;
                 case 3:
                     bunifuPages1.SelectTab(studfil);
                     PopulateDataGridView();
                     PopulateDataGridView2();
+                    PopulateDataGridView3();
                     break;
                 default:
                     break;
@@ -377,6 +419,10 @@ namespace SPAAT.Pages
                     else if (selectedTable == "Transaction Logs")
                     {
                         ExportData(budmangrid2, filePath, selectedFormat);
+                    }
+                    else if (selectedTable == "Student File")
+                    {
+                        ExportData(budmangrid3, filePath, selectedFormat);
                     }
                 }
             }

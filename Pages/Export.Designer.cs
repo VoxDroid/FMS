@@ -71,11 +71,11 @@
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.exportbutton = new Guna.UI2.WinForms.Guna2Button();
             this.studfil = new System.Windows.Forms.TabPage();
             this.budmangrid3 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.exportbutton = new Guna.UI2.WinForms.Guna2Button();
+            this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountpaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -585,43 +585,6 @@
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
             // 
-            // guna2HtmlToolTip1
-            // 
-            this.guna2HtmlToolTip1.AllowLinksHandling = true;
-            this.guna2HtmlToolTip1.AutomaticDelay = 0;
-            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
-            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
-            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.guna2HtmlToolTip1.UseAnimation = false;
-            this.guna2HtmlToolTip1.UseFading = false;
-            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
-            // 
-            // exportbutton
-            // 
-            this.exportbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exportbutton.Animated = true;
-            this.exportbutton.BackColor = System.Drawing.Color.Transparent;
-            this.exportbutton.BorderRadius = 10;
-            this.exportbutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exportbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.exportbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.exportbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.exportbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.exportbutton.Enabled = false;
-            this.exportbutton.FillColor = System.Drawing.Color.Teal;
-            this.exportbutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.exportbutton.ForeColor = System.Drawing.Color.White;
-            this.exportbutton.Location = new System.Drawing.Point(19, 403);
-            this.exportbutton.Name = "exportbutton";
-            this.exportbutton.Size = new System.Drawing.Size(230, 56);
-            this.exportbutton.TabIndex = 44;
-            this.exportbutton.Text = "Export";
-            this.exportbutton.UseTransparentBackground = true;
-            this.exportbutton.Click += new System.EventHandler(this.exportbutton_Click);
-            // 
             // studfil
             // 
             this.studfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
@@ -658,7 +621,7 @@
             this.budmangrid3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.budmangrid3.ColumnHeadersHeight = 35;
             this.budmangrid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.name2,
             this.charge,
             this.amountpaid,
             this.paymentdate,
@@ -729,11 +692,48 @@
             this.budmangrid3.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid3_CellMouseEnter);
             this.budmangrid3.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid3_CellMouseLeave);
             // 
-            // dataGridViewTextBoxColumn1
+            // guna2HtmlToolTip1
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.UseAnimation = false;
+            this.guna2HtmlToolTip1.UseFading = false;
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
+            // 
+            // exportbutton
+            // 
+            this.exportbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportbutton.Animated = true;
+            this.exportbutton.BackColor = System.Drawing.Color.Transparent;
+            this.exportbutton.BorderRadius = 10;
+            this.exportbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exportbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exportbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exportbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exportbutton.Enabled = false;
+            this.exportbutton.FillColor = System.Drawing.Color.Teal;
+            this.exportbutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.exportbutton.ForeColor = System.Drawing.Color.White;
+            this.exportbutton.Location = new System.Drawing.Point(19, 403);
+            this.exportbutton.Name = "exportbutton";
+            this.exportbutton.Size = new System.Drawing.Size(230, 56);
+            this.exportbutton.TabIndex = 44;
+            this.exportbutton.Text = "Export";
+            this.exportbutton.UseTransparentBackground = true;
+            this.exportbutton.Click += new System.EventHandler(this.exportbutton_Click);
+            // 
+            // name2
+            // 
+            this.name2.HeaderText = "Name";
+            this.name2.Name = "name2";
+            this.name2.ReadOnly = true;
             // 
             // charge
             // 
@@ -834,7 +834,7 @@
         private Guna.UI2.WinForms.Guna2Button exportbutton;
         private System.Windows.Forms.TabPage studfil;
         private Guna.UI2.WinForms.Guna2DataGridView budmangrid3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name2;
         private System.Windows.Forms.DataGridViewTextBoxColumn charge;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountpaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn paymentdate;
