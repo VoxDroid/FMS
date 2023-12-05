@@ -13,6 +13,8 @@ using MySql.Data.MySqlClient;
 using SPAAT.SubPages;
 using System.Speech.Synthesis;
 using System.Threading;
+using System.Diagnostics;
+using System.IO;
 
 namespace SPAAT.Pages
 {
@@ -24,6 +26,9 @@ namespace SPAAT.Pages
             guna2HtmlToolTip1.SetToolTip(logout, "Log out and go to the login page.");
             guna2HtmlToolTip1.SetToolTip(RBM, "Delete and reset all data stored in Budget Management.");
             guna2HtmlToolTip1.SetToolTip(RTL, "Delete and reset all data stored in Transaction Logs.");
+            guna2HtmlToolTip1.SetToolTip(RSF, "Delete and reset all data stored in Student File.");
+            guna2HtmlToolTip1.SetToolTip(backupdatabase, "Generates a backup database zapisaxisfms_backup.sql file");
+            guna2HtmlToolTip1.SetToolTip(importdatabase, "Overwrites and deletes the existing database with the data from a backup. ");
         }
 
 
@@ -37,7 +42,7 @@ namespace SPAAT.Pages
 
                 if (string.IsNullOrEmpty(userInput))
                 {
-                    MessageBox.Show("Reset Operation Canceled. No reset key entered.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Operation Canceled. No key entered.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return false;
                 }
 
@@ -281,6 +286,153 @@ namespace SPAAT.Pages
             }
         }
 
-        
+        private void backupdatabase_Click(object sender, EventArgs e)
+        {
+            string dbHost = "localhost";
+            string dbUsername = "root";
+            string dbPassword = "";
+            string dbName = "zapisaxisfms";
+
+            string connectionString = $"Server={dbHost};Database={dbName};User ID={dbUsername};Password={dbPassword};";
+
+            bool confirmDeletion = ConfirmDeletionWithResetKey();
+
+            if (!confirmDeletion)
+            {
+                return;
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                FileName = $"{dbName}_backup_{DateTime.Now:yyyyMMdd_HHmmss}.sql",
+                Filter = "SQL Files (*.sql)|*.sql|All Files (*.*)|*.*",
+                Title = "Save Backup File"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string backupFile = saveFileDialog.FileName;
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand cmd = new MySqlCommand())
+                        {
+                            using (MySqlBackup mb = new MySqlBackup(cmd))
+                            {
+                                cmd.Connection = connection;
+
+                                MemoryStream memoryStream = new MemoryStream();
+                                mb.ExportToMemoryStream(memoryStream);
+
+                                File.WriteAllBytes(backupFile, memoryStream.ToArray());
+
+                                MessageBox.Show($"Backup successful. File saved to: {backupFile}", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Backup failed. Error: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private bool ConfirmImportWithConfirmationKey()
+        {
+            do
+            {
+                string userInput = Microsoft.VisualBasic.Interaction.InputBox(
+                    "To proceed with the import, type 'IMPORT' in the box below:",
+                    "Import Confirmation",
+                    ""
+                );
+
+                if (string.IsNullOrEmpty(userInput))
+                {
+                    MessageBox.Show("Import canceled. No confirmation text entered.", "Import Canceled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                if (userInput.Trim().Equals("IMPORT", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Import canceled. Incorrect confirmation text.", "Import Canceled", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            while (true);
+        }
+
+        private void importdatabase_Click(object sender, EventArgs e)
+        {
+            string dbHost = "localhost";
+            string dbUsername = "root";
+            string dbPassword = "";
+            string dbName = "zapisaxisfms";
+
+            string connectionString = $"Server={dbHost};Database={dbName};User ID={dbUsername};Password={dbPassword};";
+
+            bool confirmDeletion = ConfirmDeletionWithResetKey();
+
+            if (!confirmDeletion)
+            {
+                return;
+            }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "SQL Files (*.sql)|*.sql|All Files (*.*)|*.*",
+                Title = "Select SQL File to Import"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                DialogResult importConfirmation = MessageBox.Show(
+                    "Importing will override the existing database with the data from the selected file. Are you sure you want to proceed?",
+                    "Import Confirmation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (importConfirmation == DialogResult.Yes)
+                {
+                    bool confirmImport = ConfirmImportWithConfirmationKey();
+
+                    if (confirmImport)
+                    {
+                        string sqlFilePath = openFileDialog.FileName;
+
+                        try
+                        {
+                            string sqlScript = File.ReadAllText(sqlFilePath);
+
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                connection.Open();
+
+                                using (MySqlCommand cmd = new MySqlCommand(sqlScript, connection))
+                                {
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show($"Import successful.", "Import Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Import failed. Error: {ex.Message}", "Import Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

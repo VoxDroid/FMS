@@ -154,7 +154,7 @@ namespace SPAAT.Pages
             dataGridView.Columns[5].SortMode = DataGridViewColumnSortMode.Programmatic;
             dataGridView.Columns[6].SortMode = DataGridViewColumnSortMode.Programmatic;
 
-            dataGridView.Sort(dataGridView.Columns[3], ListSortDirection.Descending);
+            dataGridView.Sort(dataGridView.Columns[2], ListSortDirection.Descending);
         }
     
 
