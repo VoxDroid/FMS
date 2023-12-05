@@ -669,5 +669,18 @@ namespace SPAAT.SubPages
                 }
             }
         }
+
+        private void nametb_TextChanged(object sender, EventArgs e)
+        {
+            nametb.Text = nametb.Text.ToUpper();
+
+            nametb.SelectionStart = nametb.Text.Length;
+            nametb.SelectionLength = 0;
+        }
+
+        private void nametb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
+        }
     }
 }

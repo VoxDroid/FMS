@@ -78,6 +78,8 @@
             this.nametb.SelectedText = "";
             this.nametb.Size = new System.Drawing.Size(428, 41);
             this.nametb.TabIndex = 58;
+            this.nametb.TextChanged += new System.EventHandler(this.nametb_TextChanged);
+            this.nametb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nametb_KeyPress);
             // 
             // label3
             // 

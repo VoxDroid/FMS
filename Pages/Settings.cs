@@ -38,7 +38,7 @@ namespace SPAAT.Pages
 
             do
             {
-                string userInput = Microsoft.VisualBasic.Interaction.InputBox("Enter the reset key to confirm deletion:", "Confirmation", "");
+                string userInput = Microsoft.VisualBasic.Interaction.InputBox("Enter the reset key to confirm operation:", "Confirmation", "");
 
                 if (string.IsNullOrEmpty(userInput))
                 {
