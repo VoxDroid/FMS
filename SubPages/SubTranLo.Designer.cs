@@ -122,6 +122,8 @@
             this.remtb.SelectedText = "";
             this.remtb.Size = new System.Drawing.Size(428, 41);
             this.remtb.TabIndex = 42;
+            this.remtb.TextChanged += new System.EventHandler(this.remtb_TextChanged);
+            this.remtb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.remtb_KeyDown);
             this.remtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly_KeyPress);
             // 
             // label2

@@ -333,6 +333,7 @@ namespace SPAAT.SubPages
                     chargetb.SelectionStart = chargetb.Text.Length;
                 }
             }
+            amountptb.Text = string.Empty;
             amountptb.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             autofillpaid.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             UpdatePaymentStatus();

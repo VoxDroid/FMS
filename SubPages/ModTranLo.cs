@@ -158,7 +158,7 @@ namespace SPAAT.SubPages
                             {
                                 command.Parameters.AddWithValue("@name", string.IsNullOrWhiteSpace(name) ? originalName : name);
                                 command.Parameters.AddWithValue("@category", string.IsNullOrWhiteSpace(category) ? originalCategory : category);
-                                command.Parameters.AddWithValue("@description", string.IsNullOrWhiteSpace(budget) ? originalCategory : budget);
+                                command.Parameters.AddWithValue("@description", string.IsNullOrWhiteSpace(budget) ? originalBudget : budget);
                                 command.Parameters.AddWithValue("@amount", remaining);
                                 command.Parameters.AddWithValue("@tl_id", selectedRecordId);
 
@@ -170,6 +170,7 @@ namespace SPAAT.SubPages
                                     budgetstatuslabel.Visible = true;
                                     budgetstatuslabel.ForeColor = Color.DarkGreen;
                                     budgetstatuslabel.Text = "Record updated successfully.";
+                                    PopulateDataGridView();
                                 }
                                 else
                                 {
@@ -177,6 +178,7 @@ namespace SPAAT.SubPages
                                     budgetstatuslabel.Visible = true;
                                     budgetstatuslabel.Enabled = true;
                                     budgetstatuslabel.Text = "Failed to update record.";
+                                    PopulateDataGridView();
                                 }
                             }
                         }
@@ -332,6 +334,26 @@ namespace SPAAT.SubPages
         private void ModTranLo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void remtb_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(remtb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    remtb.Text = "1";
+                    remtb.SelectionStart = remtb.Text.Length;
+                }
+            }
+        }
+
+        private void remtb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && remtb.Text.Length == 1)
+            {
+                remtb.Text = "";
+            }
         }
     }
 }

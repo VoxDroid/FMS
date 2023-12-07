@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Guna.UI2.WinForms;
+using System.Runtime.InteropServices;
 
 namespace SPAAT.SubPages
 {
@@ -118,11 +119,37 @@ namespace SPAAT.SubPages
             }
         }
 
+        private void NumbersOnly2Alloc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void NumbersOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+
+            string newText = remtb.Text + e.KeyChar;
+
+            if (!string.IsNullOrEmpty(newText) && decimal.TryParse(newText, out decimal typedAmount))
+            {
+                decimal chargeAmount = Convert.ToDecimal(alloctb.Text);
+
+                if (typedAmount < 1 && typedAmount == 0)
+                {
+                    e.Handled = true;
+                    remtb.Text = "1";
+                }
+                else if (typedAmount > chargeAmount)
+                {
+                    e.Handled = true;
+                    remtb.Text = chargeAmount.ToString();
+                }
             }
         }
 
@@ -134,6 +161,48 @@ namespace SPAAT.SubPages
         private void budgetstatuslabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void alloctb_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(alloctb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    alloctb.Text = "1";
+                    alloctb.SelectionStart = alloctb.Text.Length;
+                }
+            }
+            remtb.Text = string.Empty;
+            remtb.Enabled = !string.IsNullOrWhiteSpace(alloctb.Text);
+        }
+
+        private void alloctb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && alloctb.Text.Length == 1)
+            {
+                alloctb.Text = "";
+            }
+        }
+
+        private void remtb_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(remtb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    remtb.Text = "1";
+                    remtb.SelectionStart = alloctb.Text.Length;
+                }
+            }
+        }
+
+        private void remtb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && remtb.Text.Length == 1)
+            {
+                remtb.Text = "";
+            }
         }
     }
 }

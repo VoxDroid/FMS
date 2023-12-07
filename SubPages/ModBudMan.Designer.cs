@@ -130,6 +130,7 @@ namespace SPAAT.SubPages
             this.remtb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.remtb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.remtb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.remtb.Enabled = false;
             this.remtb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.remtb.Font = new System.Drawing.Font("Poppins", 10F);
             this.remtb.ForeColor = System.Drawing.Color.Black;
@@ -143,6 +144,8 @@ namespace SPAAT.SubPages
             this.remtb.SelectedText = "";
             this.remtb.Size = new System.Drawing.Size(267, 41);
             this.remtb.TabIndex = 42;
+            this.remtb.TextChanged += new System.EventHandler(this.remtb_TextChanged);
+            this.remtb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.remtb_KeyDown);
             this.remtb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly_KeyPress);
             // 
             // label2
@@ -182,7 +185,9 @@ namespace SPAAT.SubPages
             this.alloctb.SelectedText = "";
             this.alloctb.Size = new System.Drawing.Size(267, 41);
             this.alloctb.TabIndex = 40;
-            this.alloctb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly_KeyPress);
+            this.alloctb.TextChanged += new System.EventHandler(this.alloctb_TextChanged);
+            this.alloctb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.alloctb_KeyDown);
+            this.alloctb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly2Alloc_KeyPress);
             // 
             // label1
             // 
@@ -191,9 +196,9 @@ namespace SPAAT.SubPages
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(35, 235);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 36);
+            this.label1.Size = new System.Drawing.Size(208, 36);
             this.label1.TabIndex = 39;
-            this.label1.Text = "Allocation";
+            this.label1.Text = "Allocation Amount";
             // 
             // categorytb
             // 

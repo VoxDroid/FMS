@@ -126,6 +126,26 @@ namespace SPAAT.SubPages
                 e.Handled = true;
             }
         }
+
+        private void remtb_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(remtb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    remtb.Text = "1";
+                    remtb.SelectionStart = remtb.Text.Length;
+                }
+            }
+        }
+
+        private void remtb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && remtb.Text.Length == 1)
+            {
+                remtb.Text = "";
+            }
+        }
     }
 }
     

@@ -197,6 +197,7 @@ namespace SPAAT.SubPages
 
         private void chargetb_TextChanged(object sender, EventArgs e)
         {
+            amountptb.Text = string.Empty;
             amountptb.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             autofillpaid.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             UpdatePaymentStatus();
@@ -359,6 +360,7 @@ namespace SPAAT.SubPages
                                 budgetstatuslabel.Visible = true;
                                 budgetstatuslabel.Enabled = true;
                                 budgetstatuslabel.Text = "Record updated successfully.";
+                                PopulateDataGridView();
                                 amountptb.Clear();
                                 chargetb.Clear();
                             }
@@ -368,6 +370,7 @@ namespace SPAAT.SubPages
                                 budgetstatuslabel.Visible = true;
                                 budgetstatuslabel.Enabled = true;
                                 budgetstatuslabel.Text = "Failed to update record.";
+                                PopulateDataGridView();
                             }
                         }
                     }
