@@ -276,6 +276,7 @@
             this.chargetb.Size = new System.Drawing.Size(428, 41);
             this.chargetb.TabIndex = 60;
             this.chargetb.TextChanged += new System.EventHandler(this.chargetb_TextChanged);
+            this.chargetb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.chargetb_KeyDown);
             this.chargetb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumbersOnly_KeyPress);
             // 
             // autofillpaid

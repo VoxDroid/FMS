@@ -325,6 +325,14 @@ namespace SPAAT.SubPages
 
         private void chargetb_TextChanged(object sender, EventArgs e)
         {
+            if (int.TryParse(chargetb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    chargetb.Text = "1";
+                    chargetb.SelectionStart = chargetb.Text.Length;
+                }
+            }
             amountptb.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             autofillpaid.Enabled = !string.IsNullOrWhiteSpace(chargetb.Text);
             UpdatePaymentStatus();
@@ -444,6 +452,8 @@ namespace SPAAT.SubPages
             {
                 e.Handled = true;
             }
+
+
         }
 
         private void amountptb_TextChanged(object sender, EventArgs e)
@@ -681,6 +691,14 @@ namespace SPAAT.SubPages
         private void nametb_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void chargetb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && chargetb.Text.Length == 1)
+            {
+                chargetb.Text = "";
+            }
         }
     }
 }

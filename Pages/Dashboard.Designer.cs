@@ -40,11 +40,11 @@
             this.budgetremainlabel = new System.Windows.Forms.Label();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.third = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.refresh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
-            this.third = new System.Windows.Forms.Label();
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +100,20 @@
             // 
             this.guna2Elipse3.BorderRadius = 10;
             this.guna2Elipse3.TargetControl = this.third;
+            // 
+            // third
+            // 
+            this.third.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.third.BackColor = System.Drawing.Color.Gray;
+            this.third.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold);
+            this.third.ForeColor = System.Drawing.Color.White;
+            this.third.Location = new System.Drawing.Point(22, 122);
+            this.third.Name = "third";
+            this.third.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.third.Size = new System.Drawing.Size(406, 88);
+            this.third.TabIndex = 29;
+            this.third.Text = "Total Charged Amount:";
             // 
             // label1
             // 
@@ -169,20 +183,6 @@
             this.guna2VScrollBar1.TabIndex = 27;
             this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.Value = 1;
-            // 
-            // third
-            // 
-            this.third.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.third.BackColor = System.Drawing.Color.Gray;
-            this.third.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold);
-            this.third.ForeColor = System.Drawing.Color.White;
-            this.third.Location = new System.Drawing.Point(22, 122);
-            this.third.Name = "third";
-            this.third.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.third.Size = new System.Drawing.Size(406, 88);
-            this.third.TabIndex = 29;
-            this.third.Text = "Total Charged Amount:";
             // 
             // guna2Elipse4
             // 
@@ -284,7 +284,7 @@
             this.budmangrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.budmangrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.budmangrid_CellFormatting);
             this.budmangrid.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
-            this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseEnter);
+            this.budmangrid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid_CellMouseLeave);
             // 
             // name
             // 

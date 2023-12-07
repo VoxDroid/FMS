@@ -225,10 +225,12 @@ namespace SPAAT.Pages
         private void budmangrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             string yourAllocationColumnName = "amountpaid";
+            string yourAllocationColumnName2 = "charge";
 
             int yourAllocationColumnIndex = budmangrid.Columns[yourAllocationColumnName].Index;
+            int yourAllocationColumnIndex2 = budmangrid.Columns[yourAllocationColumnName2].Index;
 
-            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex))
+            if (e.RowIndex >= 0 && (e.ColumnIndex == yourAllocationColumnIndex || e.ColumnIndex == yourAllocationColumnIndex2))
             {
                 if (e.Value != null && e.Value != DBNull.Value)
                 {
