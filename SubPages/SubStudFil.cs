@@ -458,6 +458,14 @@ namespace SPAAT.SubPages
 
         private void amountptb_TextChanged(object sender, EventArgs e)
         {
+            if (int.TryParse(amountptb.Text, out int typedAmount))
+            {
+                if (typedAmount == 0)
+                {
+                    amountptb.Text = "1";
+                    amountptb.SelectionStart = amountptb.Text.Length;
+                }
+            }
             UpdatePaymentStatus();
         }
 
@@ -698,6 +706,14 @@ namespace SPAAT.SubPages
             if (e.KeyCode == Keys.Back && chargetb.Text.Length == 1)
             {
                 chargetb.Text = "";
+            }
+        }
+
+        private void amountptb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back && amountptb.Text.Length == 1)
+            {
+                amountptb.Text = "";
             }
         }
     }

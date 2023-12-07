@@ -146,6 +146,7 @@
             this.amountptb.Size = new System.Drawing.Size(297, 41);
             this.amountptb.TabIndex = 51;
             this.amountptb.TextChanged += new System.EventHandler(this.amountptb_TextChanged);
+            this.amountptb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.amountptb_KeyDown);
             this.amountptb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amountptb_KeyPress);
             this.amountptb.Validating += new System.ComponentModel.CancelEventHandler(this.amountptb_Validating);
             // 
