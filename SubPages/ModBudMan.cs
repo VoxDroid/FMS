@@ -23,6 +23,7 @@ namespace SPAAT.SubPages
         {
             InitializeComponent();
             PopulateDataGridView();
+            LoadRecentCategories();
         }
 
         private void PopulateDataGridView()
@@ -87,6 +88,7 @@ namespace SPAAT.SubPages
                     pagesControl.SelectedIndex = 1;
                 }
             }
+            LoadRecentCategories();
         }
         private void clear_Click(object sender, EventArgs e)
         {
@@ -98,6 +100,7 @@ namespace SPAAT.SubPages
             budgetstatuslabel.ForeColor = Color.DarkGreen;
             budgetstatuslabel.Visible = false;
             budgetstatuslabel.Enabled = false;
+            LoadRecentCategories();
         }
 
         private void modifydata_Click(object sender, EventArgs e)
@@ -185,6 +188,7 @@ namespace SPAAT.SubPages
                                     budgetstatuslabel.ForeColor = Color.DarkGreen;
                                     budgetstatuslabel.Text = "Record updated successfully.";
                                     PopulateDataGridView();
+                                    LoadRecentCategories();
                                 }
                                 else
                                 {
@@ -193,6 +197,7 @@ namespace SPAAT.SubPages
                                     budgetstatuslabel.Enabled = true;
                                     budgetstatuslabel.Text = "Failed to update record.";
                                     PopulateDataGridView();
+                                    LoadRecentCategories();
                                 }
                             }
                         }
@@ -312,6 +317,7 @@ namespace SPAAT.SubPages
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             PopulateDataGridView();
+            LoadRecentCategories();
         }
 
         private void budmangrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -417,6 +423,72 @@ namespace SPAAT.SubPages
             }
             remtb.Text = string.Empty;
             remtb.Enabled = !string.IsNullOrWhiteSpace(alloctb.Text);
+        }
+
+        private void recentstudentscb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (recentstudentscb.SelectedIndex == 0)
+            {
+                categorytb.Text = string.Empty;
+            }
+            else
+            {
+                categorytb.Text = recentstudentscb.Text;
+            }
+        }
+
+        private void LoadRecentCategories()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    string sqlQuery = "SELECT DISTINCT category FROM budman ORDER BY bm_id DESC";
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            recentstudentscb.DataSource = null;
+                            recentstudentscb.Items.Clear();
+
+                            DataRow initialRow = dataTable.NewRow();
+                            initialRow["category"] = "-- Recent --";
+                            dataTable.Rows.InsertAt(initialRow, 0);
+
+                            recentstudentscb.DataSource = dataTable;
+                            recentstudentscb.DisplayMember = "category";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void recentstudentscb_Click(object sender, EventArgs e)
+        {
+
+            LoadRecentCategories();
+        }
+
+        private void categorytb_TextChanged(object sender, EventArgs e)
+        {
+            categorytb.Text = categorytb.Text.ToUpper();
+
+            categorytb.SelectionStart = categorytb.Text.Length;
+            categorytb.SelectionLength = 0;
+        }
+
+        private void categorytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
         }
     }
 }

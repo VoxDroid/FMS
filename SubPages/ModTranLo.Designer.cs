@@ -59,6 +59,7 @@
             this.modify = new Guna.UI2.WinForms.Guna2Button();
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.recentstudentscb = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -402,6 +403,8 @@
             this.alloctb.SelectedText = "";
             this.alloctb.Size = new System.Drawing.Size(267, 41);
             this.alloctb.TabIndex = 58;
+            this.alloctb.TextChanged += new System.EventHandler(this.alloctb_TextChanged);
+            this.alloctb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.alloctb_KeyPress);
             // 
             // label1
             // 
@@ -543,11 +546,37 @@
             this.guna2HtmlToolTip1.UseFading = false;
             this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
+            // recentstudentscb
+            // 
+            this.recentstudentscb.BackColor = System.Drawing.Color.Transparent;
+            this.recentstudentscb.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recentstudentscb.BorderRadius = 10;
+            this.recentstudentscb.BorderThickness = 2;
+            this.recentstudentscb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.recentstudentscb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.recentstudentscb.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.recentstudentscb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.recentstudentscb.Font = new System.Drawing.Font("Poppins", 10F);
+            this.recentstudentscb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recentstudentscb.ItemHeight = 30;
+            this.recentstudentscb.Items.AddRange(new object[] {
+            "-- Recent --"});
+            this.recentstudentscb.Location = new System.Drawing.Point(154, 235);
+            this.recentstudentscb.Name = "recentstudentscb";
+            this.recentstudentscb.Size = new System.Drawing.Size(154, 36);
+            this.recentstudentscb.StartIndex = 0;
+            this.recentstudentscb.TabIndex = 69;
+            this.recentstudentscb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.recentstudentscb.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.recentstudentscb.SelectedIndexChanged += new System.EventHandler(this.recentstudentscb_SelectedIndexChanged);
+            this.recentstudentscb.Click += new System.EventHandler(this.recentstudentscb_Click);
+            // 
             // ModTranLo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.recentstudentscb);
             this.Controls.Add(this.guna2VScrollBar1);
             this.Controls.Add(this.searchlabel);
             this.Controls.Add(this.searchtextbox);
@@ -602,5 +631,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cat;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
+        private Guna.UI2.WinForms.Guna2ComboBox recentstudentscb;
     }
 }

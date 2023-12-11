@@ -484,6 +484,7 @@
             this.Controls.Add(this.createbudget);
             this.Name = "SubStudFil";
             this.Size = new System.Drawing.Size(750, 651);
+            this.Load += new System.EventHandler(this.SubStudFil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

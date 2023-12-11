@@ -717,5 +717,10 @@ namespace SPAAT.SubPages
                 amountptb.Text = "";
             }
         }
+
+        private void SubStudFil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

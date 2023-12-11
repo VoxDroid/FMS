@@ -41,6 +41,7 @@
             this.budgetstatuslabel = new System.Windows.Forms.Label();
             this.nametb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.recentstudentscb = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // delete
@@ -157,6 +158,8 @@
             this.categorytb.SelectedText = "";
             this.categorytb.Size = new System.Drawing.Size(428, 41);
             this.categorytb.TabIndex = 25;
+            this.categorytb.TextChanged += new System.EventHandler(this.categorytb_TextChanged);
+            this.categorytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.categorytb_KeyPress);
             // 
             // alloctb
             // 
@@ -295,11 +298,37 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Name";
             // 
+            // recentstudentscb
+            // 
+            this.recentstudentscb.BackColor = System.Drawing.Color.Transparent;
+            this.recentstudentscb.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recentstudentscb.BorderRadius = 10;
+            this.recentstudentscb.BorderThickness = 2;
+            this.recentstudentscb.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.recentstudentscb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.recentstudentscb.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.recentstudentscb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.recentstudentscb.Font = new System.Drawing.Font("Poppins", 10F);
+            this.recentstudentscb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.recentstudentscb.ItemHeight = 30;
+            this.recentstudentscb.Items.AddRange(new object[] {
+            "-- Recent --"});
+            this.recentstudentscb.Location = new System.Drawing.Point(294, 150);
+            this.recentstudentscb.Name = "recentstudentscb";
+            this.recentstudentscb.Size = new System.Drawing.Size(175, 36);
+            this.recentstudentscb.StartIndex = 0;
+            this.recentstudentscb.TabIndex = 63;
+            this.recentstudentscb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.recentstudentscb.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.recentstudentscb.SelectedIndexChanged += new System.EventHandler(this.recentstudentscb_SelectedIndexChanged);
+            this.recentstudentscb.Click += new System.EventHandler(this.recentstudentscb_Click);
+            // 
             // SubBudMan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.recentstudentscb);
             this.Controls.Add(this.nametb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.budgetstatuslabel);
@@ -336,5 +365,6 @@
         private System.Windows.Forms.Label budgetstatuslabel;
         private Guna.UI2.WinForms.Guna2TextBox nametb;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox recentstudentscb;
     }
 }
