@@ -441,5 +441,10 @@ namespace SPAAT.SubPages
                 
             }
         }
+
+        private void searchlabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

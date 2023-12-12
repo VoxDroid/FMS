@@ -124,5 +124,51 @@ namespace SPAAT.SubPages
                 }
             }
         }
+
+        private void searchtextbox_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = searchtextbox.Text.Trim();
+
+            FilterDataGridView(searchQuery);
+        }
+
+        private void FilterDataGridView(string searchQuery)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+                    string sqlQuery = "SELECT * FROM studdeb WHERE hasdebt = 1 " +
+                              "AND (name LIKE @searchQuery OR debtamount LIKE @searchQuery)";
+
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
+
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        adapter.Fill(dataTable);
+                        budmangrid.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            int rowIndex = budmangrid.Rows.Add();
+                            budmangrid.Rows[rowIndex].Cells["sn_id"].Value = row["sn_id"];
+                            budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["debtamount"].Value = row["debtamount"];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void searchlabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

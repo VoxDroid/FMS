@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewStudFil));
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtamount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,8 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.crebud = new System.Windows.Forms.Label();
+            this.searchlabel = new System.Windows.Forms.Label();
+            this.searchtextbox = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -261,11 +264,59 @@
             this.crebud.TabIndex = 55;
             this.crebud.Text = "View Debts";
             // 
+            // searchlabel
+            // 
+            this.searchlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchlabel.AutoSize = true;
+            this.searchlabel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchlabel.ForeColor = System.Drawing.Color.White;
+            this.searchlabel.Location = new System.Drawing.Point(490, 28);
+            this.searchlabel.Name = "searchlabel";
+            this.searchlabel.Size = new System.Drawing.Size(76, 28);
+            this.searchlabel.TabIndex = 91;
+            this.searchlabel.Text = "Search:";
+            this.searchlabel.Click += new System.EventHandler(this.searchlabel_Click);
+            // 
+            // searchtextbox
+            // 
+            this.searchtextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchtextbox.Animated = true;
+            this.searchtextbox.BackColor = System.Drawing.Color.Transparent;
+            this.searchtextbox.BorderColor = System.Drawing.Color.White;
+            this.searchtextbox.BorderRadius = 10;
+            this.searchtextbox.BorderThickness = 2;
+            this.searchtextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchtextbox.DefaultText = "";
+            this.searchtextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchtextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchtextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchtextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchtextbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.searchtextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchtextbox.Font = new System.Drawing.Font("Poppins", 12F);
+            this.searchtextbox.ForeColor = System.Drawing.Color.White;
+            this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
+            this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
+            this.searchtextbox.Location = new System.Drawing.Point(569, 20);
+            this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.searchtextbox.Name = "searchtextbox";
+            this.searchtextbox.PasswordChar = '\0';
+            this.searchtextbox.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.searchtextbox.PlaceholderText = "Search...";
+            this.searchtextbox.SelectedText = "";
+            this.searchtextbox.ShadowDecoration.Color = System.Drawing.Color.Transparent;
+            this.searchtextbox.Size = new System.Drawing.Size(159, 42);
+            this.searchtextbox.TabIndex = 90;
+            this.searchtextbox.TextChanged += new System.EventHandler(this.searchtextbox_TextChanged);
+            // 
             // ViewStudFil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.searchlabel);
+            this.Controls.Add(this.searchtextbox);
             this.Controls.Add(this.crebud);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.modify);
@@ -291,5 +342,7 @@
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private System.Windows.Forms.Label crebud;
+        private System.Windows.Forms.Label searchlabel;
+        private Guna.UI2.WinForms.Guna2TextBox searchtextbox;
     }
 }

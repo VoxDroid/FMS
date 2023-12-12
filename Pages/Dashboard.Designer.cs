@@ -170,12 +170,13 @@
             // 
             this.guna2VScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2VScrollBar1.AutoRoundedCorners = true;
+            this.guna2VScrollBar1.BindingContainer = this.budmangrid;
             this.guna2VScrollBar1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.BorderRadius = 8;
             this.guna2VScrollBar1.FillColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.InUpdate = false;
             this.guna2VScrollBar1.LargeChange = 10;
-            this.guna2VScrollBar1.Location = new System.Drawing.Point(841, 257);
+            this.guna2VScrollBar1.Location = new System.Drawing.Point(839, 259);
             this.guna2VScrollBar1.Minimum = 1;
             this.guna2VScrollBar1.Name = "guna2VScrollBar1";
             this.guna2VScrollBar1.ScrollbarSize = 18;
@@ -336,8 +337,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.Controls.Add(this.budmangrid);
             this.Controls.Add(this.guna2VScrollBar1);
+            this.Controls.Add(this.budmangrid);
             this.Controls.Add(this.third);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.budgetremainlabel);

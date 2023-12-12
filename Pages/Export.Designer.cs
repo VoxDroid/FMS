@@ -73,8 +73,6 @@
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studfil = new System.Windows.Forms.TabPage();
             this.budmangrid3 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
-            this.exportbutton = new Guna.UI2.WinForms.Guna2Button();
             this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountpaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +80,9 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.exportbutton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2VScrollBar3 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.bunifuPages1.SuspendLayout();
             this.select.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -588,6 +589,7 @@
             // studfil
             // 
             this.studfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.studfil.Controls.Add(this.guna2VScrollBar3);
             this.studfil.Controls.Add(this.budmangrid3);
             this.studfil.Location = new System.Drawing.Point(4, 4);
             this.studfil.Name = "studfil";
@@ -692,43 +694,6 @@
             this.budmangrid3.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid3_CellMouseEnter);
             this.budmangrid3.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.budmangrid3_CellMouseLeave);
             // 
-            // guna2HtmlToolTip1
-            // 
-            this.guna2HtmlToolTip1.AllowLinksHandling = true;
-            this.guna2HtmlToolTip1.AutomaticDelay = 0;
-            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
-            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
-            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.guna2HtmlToolTip1.UseAnimation = false;
-            this.guna2HtmlToolTip1.UseFading = false;
-            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
-            // 
-            // exportbutton
-            // 
-            this.exportbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exportbutton.Animated = true;
-            this.exportbutton.BackColor = System.Drawing.Color.Transparent;
-            this.exportbutton.BorderRadius = 10;
-            this.exportbutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exportbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.exportbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.exportbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.exportbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.exportbutton.Enabled = false;
-            this.exportbutton.FillColor = System.Drawing.Color.Teal;
-            this.exportbutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.exportbutton.ForeColor = System.Drawing.Color.White;
-            this.exportbutton.Location = new System.Drawing.Point(19, 403);
-            this.exportbutton.Name = "exportbutton";
-            this.exportbutton.Size = new System.Drawing.Size(230, 56);
-            this.exportbutton.TabIndex = 44;
-            this.exportbutton.Text = "Export";
-            this.exportbutton.UseTransparentBackground = true;
-            this.exportbutton.Click += new System.EventHandler(this.exportbutton_Click);
-            // 
             // name2
             // 
             this.name2.HeaderText = "Name";
@@ -773,6 +738,62 @@
             this.pm_id.Name = "pm_id";
             this.pm_id.ReadOnly = true;
             this.pm_id.Visible = false;
+            // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.UseAnimation = false;
+            this.guna2HtmlToolTip1.UseFading = false;
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
+            // 
+            // exportbutton
+            // 
+            this.exportbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exportbutton.Animated = true;
+            this.exportbutton.BackColor = System.Drawing.Color.Transparent;
+            this.exportbutton.BorderRadius = 10;
+            this.exportbutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exportbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exportbutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exportbutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exportbutton.Enabled = false;
+            this.exportbutton.FillColor = System.Drawing.Color.Teal;
+            this.exportbutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.exportbutton.ForeColor = System.Drawing.Color.White;
+            this.exportbutton.Location = new System.Drawing.Point(19, 403);
+            this.exportbutton.Name = "exportbutton";
+            this.exportbutton.Size = new System.Drawing.Size(230, 56);
+            this.exportbutton.TabIndex = 44;
+            this.exportbutton.Text = "Export";
+            this.exportbutton.UseTransparentBackground = true;
+            this.exportbutton.Click += new System.EventHandler(this.exportbutton_Click);
+            // 
+            // guna2VScrollBar3
+            // 
+            this.guna2VScrollBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2VScrollBar3.AutoRoundedCorners = true;
+            this.guna2VScrollBar3.BindingContainer = this.budmangrid3;
+            this.guna2VScrollBar3.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.InUpdate = false;
+            this.guna2VScrollBar3.LargeChange = 10;
+            this.guna2VScrollBar3.Location = new System.Drawing.Point(448, 3);
+            this.guna2VScrollBar3.Minimum = 1;
+            this.guna2VScrollBar3.Name = "guna2VScrollBar3";
+            this.guna2VScrollBar3.ScrollbarSize = 1;
+            this.guna2VScrollBar3.Size = new System.Drawing.Size(1, 428);
+            this.guna2VScrollBar3.TabIndex = 47;
+            this.guna2VScrollBar3.ThumbColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.Value = 1;
             // 
             // Export
             // 
@@ -841,5 +862,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn sn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_id;
+        private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar3;
     }
 }

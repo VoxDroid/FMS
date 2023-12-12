@@ -36,6 +36,7 @@
             this.RSF = new Guna.UI2.WinForms.Guna2Button();
             this.backupdatabase = new Guna.UI2.WinForms.Guna2Button();
             this.importdatabase = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // logout
@@ -190,11 +191,33 @@
             this.importdatabase.UseTransparentBackground = true;
             this.importdatabase.Click += new System.EventHandler(this.importdatabase_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(375, 243);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(321, 56);
+            this.guna2Button1.TabIndex = 43;
+            this.guna2Button1.Text = "Reset Database";
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.importdatabase);
             this.Controls.Add(this.backupdatabase);
             this.Controls.Add(this.RSF);
@@ -219,5 +242,6 @@
         private Guna.UI2.WinForms.Guna2Button RSF;
         private Guna.UI2.WinForms.Guna2Button backupdatabase;
         private Guna.UI2.WinForms.Guna2Button importdatabase;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

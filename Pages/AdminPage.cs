@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using System.Xml.Linq;
 using Google.Protobuf.WellKnownTypes;
 using Guna.UI2.WinForms;
+using System.IO;
 namespace SPAAT.Pages
 {
     public partial class AdminPage : UserControl
@@ -141,7 +142,7 @@ namespace SPAAT.Pages
             guna2HtmlToolTip1.SetToolTip(budmangrid, null);
         }
 
-        private void createbudget_Click(object sender, EventArgs e)
+        private void ExportUsersToTxt()
         {
             if (string.IsNullOrWhiteSpace(nametb.Text) || string.IsNullOrWhiteSpace(passtb.Text))
             {
@@ -190,6 +191,8 @@ namespace SPAAT.Pages
                                 budgetstatuslabel.Text = "Record inserted successfully.";
                                 nametb.Clear();
                                 passtb.Clear();
+
+                                PopulateDataGridView();
                             }
                             else
                             {
@@ -202,6 +205,145 @@ namespace SPAAT.Pages
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
+            }
+        }
+        private bool dataModified = false;
+
+        private void createbudget2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(nametb.Text) || string.IsNullOrWhiteSpace(passtb.Text))
+                {
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Please fill in all the fields.";
+                    return;
+                }
+
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    string sqlQueryResetKeys = "SELECT reset_key FROM resetkeys WHERE id = 1";
+
+                    using (MySqlCommand commandResetKeys = new MySqlCommand(sqlQueryResetKeys, connection))
+                    {
+                        DataTable dataTableResetKeys = new DataTable();
+                        MySqlDataAdapter adapterResetKeys = new MySqlDataAdapter(commandResetKeys);
+
+                        adapterResetKeys.Fill(dataTableResetKeys);
+
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
+                        saveFileDialog.Title = "za_RecoverAccounts";
+
+                        string defaultFileName = $"za_recoveraccounts_{DateTime.Now.ToString("yyyyMMdd")}.txt";
+                        saveFileDialog.FileName = defaultFileName;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+
+                            string name = nametb.Text;
+                            string password = passtb.Text;
+
+                            if (IsUsernameExists(name))
+                            {
+                                budgetstatuslabel.ForeColor = Color.Maroon;
+                                budgetstatuslabel.Enabled = true;
+                                budgetstatuslabel.Visible = true;
+                                budgetstatuslabel.Text = "Username already exists.";
+                                return;
+                            }
+
+                            DateTime currentDate = DateTime.Now;
+
+                            string sqlInsert = "INSERT INTO users (username, password) " +
+                                               "VALUES (@name, @password)";
+
+                            using (MySqlCommand insertCommand = new MySqlCommand(sqlInsert, connection))
+                            {
+                                insertCommand.Parameters.AddWithValue("@name", name);
+                                insertCommand.Parameters.AddWithValue("@password", password);
+
+                                int rowsAffected = insertCommand.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    budgetstatuslabel.Enabled = true;
+                                    budgetstatuslabel.Visible = true;
+                                    budgetstatuslabel.ForeColor = Color.DarkGreen;
+                                    budgetstatuslabel.Text = "Record inserted successfully.";
+                                    nametb.Clear();
+                                    passtb.Clear();
+
+                                    dataModified = true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to insert record.");
+                                }
+                            }
+
+                            if (dataModified)
+                            {
+                                string sqlQueryUsers = "SELECT user_id, username, password FROM users";
+                                using (MySqlCommand commandUsers = new MySqlCommand(sqlQueryUsers, connection))
+                                {
+                                    DataTable dataTableUsers = new DataTable();
+                                    MySqlDataAdapter adapterUsers = new MySqlDataAdapter(commandUsers);
+                                    adapterUsers.Fill(dataTableUsers);
+
+                                    using (StreamWriter sw = new StreamWriter(filePath))
+                                    {
+                                        sw.WriteLine("** WARNING: KEEP THIS FILE IN A SAFE PLACE! YOU WILL BE RESPONSIBLE FOR THE RECOVERY AND BACKUP OF YOUR DATA **");
+
+                                        if (dataTableResetKeys.Rows.Count > 0)
+                                        {
+                                            sw.WriteLine($"Reset Key: {dataTableResetKeys.Rows[0]["reset_key"]}");
+                                            sw.WriteLine();
+                                        }
+
+                                        foreach (DataRow row in dataTableUsers.Rows)
+                                        {
+                                            if (row["user_id"].ToString() == "1")
+                                            {
+                                                sw.WriteLine("(Admin Account)");
+                                            }
+                                            else
+                                            {
+                                                sw.WriteLine("(Normal User Account)");
+                                            }
+
+                                            sw.WriteLine($"ID: {row["user_id"]}");
+                                            sw.WriteLine($"Username: {row["username"]}");
+                                            sw.WriteLine($"Password: {row["password"]}");
+                                            sw.WriteLine();
+                                        }
+                                    }
+
+                                    MessageBox.Show($"Accounts Recovery File exported successfully to {filePath}");
+                                    PopulateDataGridView();
+                                    dataModified = false;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Saving the file is necessary before continuing.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Saving the file is necessary before continuing.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -229,6 +371,8 @@ namespace SPAAT.Pages
 
         }
 
+        private bool deleteDataModified = false;
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             try
@@ -253,18 +397,107 @@ namespace SPAAT.Pages
                     return;
                 }
 
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this user account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult deleteResult = MessageBox.Show("Are you sure you want to delete this user account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
+                if (deleteResult == DialogResult.Yes)
                 {
-                    DeleteRecord(selectedId);
+                    using (SaveFileDialog deleteSaveFileDialog = new SaveFileDialog())
+                    {
+                        deleteSaveFileDialog.Filter = "Text Files (*.txt)|*.txt";
+                        deleteSaveFileDialog.Title = "za_RecoverAccounts";
 
-                    PopulateDataGridView();
+                        string defaultFileName = $"za_recoveraccounts_{DateTime.Now.ToString("yyyyMMdd")}.txt";
+                        deleteSaveFileDialog.FileName = defaultFileName;
+
+                        if (deleteSaveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = deleteSaveFileDialog.FileName;
+
+                            using (StreamWriter sw = new StreamWriter(filePath))
+                            {
+                                sw.WriteLine("** WARNING: KEEP THIS FILE IN A SAFE PLACE! YOU WILL BE RESPONSIBLE FOR THE RECOVERY AND BACKUP OF YOUR DATA **");
+
+                                DeleteRecord(selectedId);
+
+                                DataTable dataTable = FetchUserData();
+                                DataTable resetKeysTable = FetchResetKeysData();
+
+                                if (resetKeysTable.Rows.Count > 0)
+                                {
+                                    sw.WriteLine($"Reset Key: {resetKeysTable.Rows[0]["reset_key"]}");
+                                    sw.WriteLine();
+                                }
+
+                                foreach (DataRow row in dataTable.Rows)
+                                {
+                                    if (row["user_id"].ToString() == "1")
+                                    {
+                                        sw.WriteLine("(Admin Account)");
+                                    }
+                                    else
+                                    {
+                                        sw.WriteLine("(Normal User Account)");
+                                    }
+
+                                    sw.WriteLine($"ID: {row["user_id"]}");
+                                    sw.WriteLine($"Username: {row["username"]}");
+                                    sw.WriteLine($"Password: {row["password"]}");
+                                    sw.WriteLine();
+                                }
+                            }
+
+                            PopulateDataGridView();
+                            deleteDataModified = true;
+                            
+                            budgetstatuslabel.Enabled = true;
+                            budgetstatuslabel.Visible = true;
+                            budgetstatuslabel.ForeColor = Color.DarkGreen;
+                            budgetstatuslabel.Text = "Record deleted successfully.";
+
+                            MessageBox.Show($"Accounts Recovery File exported successfully to {filePath}");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Saving the file is necessary before continuing.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Deletion was canceled.");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private DataTable FetchUserData()
+        {
+            string sqlQuery = "SELECT user_id, username, password FROM users";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+            {
+                DataTable dataTable = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        private DataTable FetchResetKeysData()
+        {
+            string sqlQueryResetKeys = "SELECT reset_key FROM resetkeys WHERE id = 1";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            using (MySqlCommand commandResetKeys = new MySqlCommand(sqlQueryResetKeys, connection))
+            {
+                DataTable dataTableResetKeys = new DataTable();
+                MySqlDataAdapter adapterResetKeys = new MySqlDataAdapter(commandResetKeys);
+                adapterResetKeys.Fill(dataTableResetKeys);
+                return dataTableResetKeys;
             }
         }
 
@@ -322,83 +555,144 @@ namespace SPAAT.Pages
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (budmangrid.SelectedRows.Count > 0)
+            try
             {
-                string name = nametb.Text.Trim();
-                string password = passtb.Text.Trim();
+                if (budmangrid.SelectedRows.Count > 0)
+                {
+                    string name = nametb.Text.Trim();
+                    string password = passtb.Text.Trim();
 
-                if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(password))
+                    if (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(password))
+                    {
+                        budgetstatuslabel.ForeColor = Color.Maroon;
+                        budgetstatuslabel.Visible = true;
+                        budgetstatuslabel.Enabled = true;
+                        budgetstatuslabel.Text = "Please fill in at least one field.";
+                        return;
+                    }
+
+                    DataGridViewRow selectedRow = budmangrid.SelectedRows[0];
+                    int selectedRecordId = Convert.ToInt32(selectedRow.Cells["id"].Value);
+
+                    string originalName = selectedRow.Cells["username"].Value.ToString();
+                    string originalPassword = selectedRow.Cells["password"].Value.ToString();
+
+                    StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
+
+                    if (!string.IsNullOrWhiteSpace(name) && name != originalName)
+                        confirmationMessage.AppendLine($"Name: {originalName} → {name}");
+
+                    if (!string.IsNullOrWhiteSpace(password) && password != originalPassword)
+                        confirmationMessage.AppendLine($"Password: {originalPassword} → {password}");
+
+                    DialogResult result = MessageBox.Show(confirmationMessage.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
+                        saveFileDialog.Title = "za_RecoverAccounts";
+
+                        string defaultFileName = $"za_recoveraccounts_{DateTime.Now.ToString("yyyyMMdd")}.txt";
+                        saveFileDialog.FileName = defaultFileName;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+
+                            string sqlUpdate = "UPDATE users SET username = @username, password = @password WHERE user_id = @user_id";
+
+                            using (MySqlConnection connection = new MySqlConnection(connet))
+                            {
+                                connection.Open();
+
+                                using (MySqlCommand command = new MySqlCommand(sqlUpdate, connection))
+                                {
+                                    command.Parameters.AddWithValue("@username", string.IsNullOrWhiteSpace(name) ? originalName : name);
+                                    command.Parameters.AddWithValue("@password", string.IsNullOrWhiteSpace(password) ? originalPassword : password);
+                                    command.Parameters.AddWithValue("@user_id", selectedRecordId);
+
+                                    int rowsAffected = command.ExecuteNonQuery();
+
+                                    if (rowsAffected > 0)
+                                    {
+                                        budgetstatuslabel.Enabled = true;
+                                        budgetstatuslabel.Visible = true;
+                                        budgetstatuslabel.ForeColor = Color.DarkGreen;
+                                        budgetstatuslabel.Text = "User Account updated successfully.";
+
+                                        PopulateDataGridView();
+
+                                        using (StreamWriter sw = new StreamWriter(filePath))
+                                        {
+                                            sw.WriteLine("** WARNING: KEEP THIS FILE IN A SAFE PLACE! YOU WILL BE RESPONSIBLE FOR THE RECOVERY AND BACKUP OF YOUR DATA **");
+
+                                            string sqlQueryResetKeys = "SELECT reset_key FROM resetkeys WHERE id = 1";
+                                            using (MySqlCommand commandResetKeys = new MySqlCommand(sqlQueryResetKeys, connection))
+                                            {
+                                                DataTable dataTableResetKeys = new DataTable();
+                                                MySqlDataAdapter adapterResetKeys = new MySqlDataAdapter(commandResetKeys);
+                                                adapterResetKeys.Fill(dataTableResetKeys);
+
+                                                if (dataTableResetKeys.Rows.Count > 0)
+                                                {
+                                                    sw.WriteLine($"Reset Key: {dataTableResetKeys.Rows[0]["reset_key"]}");
+                                                    sw.WriteLine();
+                                                }
+                                            }
+
+                                            string sqlQueryUsers = "SELECT user_id, username, password FROM users";
+                                            using (MySqlCommand commandUsers = new MySqlCommand(sqlQueryUsers, connection))
+                                            {
+                                                DataTable dataTableUsers = new DataTable();
+                                                MySqlDataAdapter adapterUsers = new MySqlDataAdapter(commandUsers);
+                                                adapterUsers.Fill(dataTableUsers);
+
+                                                foreach (DataRow row in dataTableUsers.Rows)
+                                                {
+                                                    if (row["user_id"].ToString() == "1")
+                                                    {
+                                                        sw.WriteLine("(Admin Account)");
+                                                    }
+                                                    else
+                                                    {
+                                                        sw.WriteLine("(Normal User Account)");
+                                                    }
+
+                                                    sw.WriteLine($"ID: {row["user_id"]}");
+                                                    sw.WriteLine($"Username: {row["username"]}");
+                                                    sw.WriteLine($"Password: {row["password"]}");
+                                                    sw.WriteLine();
+                                                }
+                                            }
+                                        }
+
+                                        MessageBox.Show($"Accounts Recovery File exported successfully to {filePath}");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Failed to update User Account.");
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Saving the file is necessary before continuing.");
+                        }
+                    }
+                }
+                else
                 {
                     budgetstatuslabel.ForeColor = Color.Maroon;
                     budgetstatuslabel.Visible = true;
                     budgetstatuslabel.Enabled = true;
-                    budgetstatuslabel.Text = "Please fill in at least one field.";
-                    return;
-                }
-
-                DataGridViewRow selectedRow = budmangrid.SelectedRows[0];
-                int selectedRecordId = Convert.ToInt32(selectedRow.Cells["id"].Value);
-
-                string originalName = selectedRow.Cells["username"].Value.ToString();
-                string originalPassword = selectedRow.Cells["password"].Value.ToString();
-
-                StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
-
-                if (!string.IsNullOrWhiteSpace(name) && name != originalName)
-                    confirmationMessage.AppendLine($"Name: {originalName} → {name}");
-
-                if (!string.IsNullOrWhiteSpace(password) && password != originalPassword)
-                    confirmationMessage.AppendLine($"Password: {originalPassword} → {password}");
-
-                DialogResult result = MessageBox.Show(confirmationMessage.ToString(), "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
-                {
-                    string sqlUpdate = "UPDATE users SET username = @username, password = @password WHERE user_id = @user_id";
-
-                    try
-                    {
-                        using (MySqlConnection connection = new MySqlConnection(connet))
-                        {
-                            connection.Open();
-
-                            using (MySqlCommand command = new MySqlCommand(sqlUpdate, connection))
-                            {
-                                command.Parameters.AddWithValue("@username", string.IsNullOrWhiteSpace(name) ? originalName : name);
-                                command.Parameters.AddWithValue("@password", string.IsNullOrWhiteSpace(password) ? originalPassword : password);
-                                command.Parameters.AddWithValue("@user_id", selectedRecordId);
-
-                                int rowsAffected = command.ExecuteNonQuery();
-
-                                if (rowsAffected > 0)
-                                {
-                                    budgetstatuslabel.Enabled = true;
-                                    budgetstatuslabel.Visible = true;
-                                    budgetstatuslabel.ForeColor = Color.DarkGreen;
-                                    budgetstatuslabel.Text = "User Account updated successfully.";
-                                }
-                                else
-                                {
-                                    budgetstatuslabel.ForeColor = Color.Maroon;
-                                    budgetstatuslabel.Visible = true;
-                                    budgetstatuslabel.Enabled = true;
-                                    budgetstatuslabel.Text = "Failed to update User Account.";
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
+                    budgetstatuslabel.Text = "Please select a row to update.";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                budgetstatuslabel.ForeColor = Color.Maroon;
-                budgetstatuslabel.Visible = true;
-                budgetstatuslabel.Enabled = true;
-                budgetstatuslabel.Text = "Please select a row to update.";
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -542,7 +836,7 @@ namespace SPAAT.Pages
                     budgetstatuslabel.Enabled = true;
                     budgetstatuslabel.Visible = true;
                     budgetstatuslabel.ForeColor = Color.DarkGreen;
-                    budgetstatuslabel.Text = $"Reset key {resetKey} copied.";
+                    budgetstatuslabel.Text = $"Reset key copied.";
                     MessageBox.Show($"Reset key {resetKey} copied to clipboard.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
