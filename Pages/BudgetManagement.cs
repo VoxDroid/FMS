@@ -22,6 +22,69 @@ namespace SPAAT.Pages
         {
             InitializeComponent();
             PopulateDataGridView();
+            UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
+        }
+
+        private void CalculateAndDisplayTotalCharge2()
+        {
+            int columnIndex = 2;
+            decimal sum = 0;
+
+            if (budmangrid.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in budmangrid.Rows)
+                {
+                    if (row.Cells[columnIndex].Value != null && decimal.TryParse(row.Cells[columnIndex].Value.ToString(), out decimal cellValue))
+                    {
+                        sum += cellValue;
+                    }
+                }
+            }
+            else
+            {
+                sum = -1;
+            }
+
+            if (sum == -1)
+            {
+                TFC2.Text = "Total Alloc Amount: N/A";
+            }
+            else
+            {
+                TFC2.Text = $"Total Alloc Amount: \r\n₱{sum:n0}";
+            }
+        }
+
+        private void CalculateAndDisplayTotalCharge()
+        {
+            int columnIndex = 3;
+            decimal sum = 0;
+
+            if (budmangrid.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in budmangrid.Rows)
+                {
+                    if (row.Cells[columnIndex].Value != null && decimal.TryParse(row.Cells[columnIndex].Value.ToString(), out decimal cellValue))
+                    {
+                        sum += cellValue;
+                    }
+                }
+            }
+            else
+            {
+                sum = -1;
+            }
+
+            if (sum == -1)
+            {
+                TFC.Text = "Total Remaining Bud: N/A";
+            }
+            else
+            {
+                TFC.Text = $"Total Remaining Bud: ₱{sum:n0}";
+            }
         }
 
         private void createbudget_Click(object sender, EventArgs e)
@@ -94,6 +157,8 @@ namespace SPAAT.Pages
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private void DeleteRecord(int bm_id)
@@ -159,6 +224,8 @@ namespace SPAAT.Pages
                     }
                 }
                 UpdateTotalEntriesLabel();
+                CalculateAndDisplayTotalCharge();
+                CalculateAndDisplayTotalCharge2();
             }
             catch (Exception ex)
             {
@@ -170,12 +237,16 @@ namespace SPAAT.Pages
         {
             PopulateDataGridView();
             UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
             searchtextbox.Text = string.Empty;
         }
 
         private void totalentrieslabel_Click(object sender, EventArgs e)
         {
             UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private void UpdateTotalEntriesLabel()
@@ -188,6 +259,8 @@ namespace SPAAT.Pages
             string searchQuery = searchtextbox.Text.Trim();
 
             FilterDataGridView(searchQuery);
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private void FilterDataGridView(string searchQuery)
@@ -223,6 +296,8 @@ namespace SPAAT.Pages
 
                         }
                         UpdateTotalEntriesLabel();
+                        CalculateAndDisplayTotalCharge();
+                        CalculateAndDisplayTotalCharge2();
                     }
                 }
             }

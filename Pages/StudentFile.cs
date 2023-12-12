@@ -23,12 +23,12 @@ namespace SPAAT.Pages
             InitializeComponent();
             PopulateDataGridView();
             CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
-        private void CalculateAndDisplaySum()
+        private void CalculateAndDisplayTotalCharge2()
         {
-
-            int columnIndex = 1; 
+            int columnIndex = 1;
             decimal sum = 0;
 
             if (budmangrid.Rows.Count > 0)
@@ -48,11 +48,11 @@ namespace SPAAT.Pages
 
             if (sum == -1)
             {
-                TFC.Text = "Total Funds Collected: N/A";
+                TFC2.Text = "Total Charge Amount: N/A";
             }
             else
             {
-                TFC.Text = $"Total Funds Collected: ₱{sum:n0}";
+                TFC2.Text = $"Total Charge Amount: ₱{sum:n0}";
             }
         }
 
@@ -184,6 +184,7 @@ namespace SPAAT.Pages
 
             UpdateTotalEntriesLabel();
             CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private bool DeleteRecord(int selectedId, int snId, string name, string charge, string amountPaid)
@@ -325,6 +326,7 @@ namespace SPAAT.Pages
                     }
                 }
                 UpdateTotalEntriesLabel();
+                CalculateAndDisplayTotalCharge2();
             }
             catch (Exception ex)
             {
@@ -338,12 +340,14 @@ namespace SPAAT.Pages
             UpdateTotalEntriesLabel();
 
             CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
             searchtextbox.Text = string.Empty;
         }
 
         private void totalentrieslabel_Click(object sender, EventArgs e)
         {
             UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private void UpdateTotalEntriesLabel()
@@ -357,6 +361,7 @@ namespace SPAAT.Pages
 
             FilterDataGridView(searchQuery);
             CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
         }
 
         private void FilterDataGridView(string searchQuery)
@@ -396,6 +401,7 @@ namespace SPAAT.Pages
                         }
                         UpdateTotalEntriesLabel();
                         CalculateAndDisplayTotalCharge();
+                        CalculateAndDisplayTotalCharge2();
                     }
                 }
             }

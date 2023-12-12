@@ -53,6 +53,7 @@
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.debts = new Guna.UI2.WinForms.Guna2Button();
             this.TFC = new System.Windows.Forms.Label();
+            this.TFC2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,7 +150,7 @@
             this.budmangrid.ShowCellToolTips = false;
             this.budmangrid.ShowEditingIcon = false;
             this.budmangrid.ShowRowErrors = false;
-            this.budmangrid.Size = new System.Drawing.Size(531, 643);
+            this.budmangrid.Size = new System.Drawing.Size(531, 661);
             this.budmangrid.TabIndex = 25;
             this.budmangrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.budmangrid.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Poppins", 8.25F);
@@ -237,7 +238,7 @@
             this.guna2VScrollBar1.Minimum = 1;
             this.guna2VScrollBar1.Name = "guna2VScrollBar1";
             this.guna2VScrollBar1.ScrollbarSize = 18;
-            this.guna2VScrollBar1.Size = new System.Drawing.Size(18, 643);
+            this.guna2VScrollBar1.Size = new System.Drawing.Size(18, 661);
             this.guna2VScrollBar1.TabIndex = 33;
             this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.Value = 1;
@@ -269,7 +270,7 @@
             this.totalentrieslabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.totalentrieslabel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalentrieslabel.ForeColor = System.Drawing.Color.White;
-            this.totalentrieslabel.Location = new System.Drawing.Point(576, 454);
+            this.totalentrieslabel.Location = new System.Drawing.Point(576, 504);
             this.totalentrieslabel.Name = "totalentrieslabel";
             this.totalentrieslabel.Size = new System.Drawing.Size(146, 83);
             this.totalentrieslabel.TabIndex = 31;
@@ -283,7 +284,7 @@
             this.searchlabel.AutoSize = true;
             this.searchlabel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchlabel.ForeColor = System.Drawing.Color.White;
-            this.searchlabel.Location = new System.Drawing.Point(612, 548);
+            this.searchlabel.Location = new System.Drawing.Point(612, 598);
             this.searchlabel.Name = "searchlabel";
             this.searchlabel.Size = new System.Drawing.Size(76, 28);
             this.searchlabel.TabIndex = 30;
@@ -310,7 +311,7 @@
             this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
             this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.searchtextbox.Location = new System.Drawing.Point(556, 582);
+            this.searchtextbox.Location = new System.Drawing.Point(556, 632);
             this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.searchtextbox.Name = "searchtextbox";
             this.searchtextbox.PasswordChar = '\0';
@@ -407,20 +408,33 @@
             this.TFC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TFC.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
             this.TFC.ForeColor = System.Drawing.Color.White;
-            this.TFC.Location = new System.Drawing.Point(550, 363);
+            this.TFC.Location = new System.Drawing.Point(550, 426);
             this.TFC.Name = "TFC";
-            this.TFC.Size = new System.Drawing.Size(192, 83);
+            this.TFC.Size = new System.Drawing.Size(192, 70);
             this.TFC.TabIndex = 35;
-            this.TFC.Text = "Total Funds Collected:";
+            this.TFC.Text = "Total Funds Collected:\r\nN/A";
             this.TFC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TFC2
+            // 
+            this.TFC2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TFC2.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.TFC2.ForeColor = System.Drawing.Color.White;
+            this.TFC2.Location = new System.Drawing.Point(550, 344);
+            this.TFC2.Name = "TFC2";
+            this.TFC2.Size = new System.Drawing.Size(192, 70);
+            this.TFC2.TabIndex = 36;
+            this.TFC2.Text = "Total Charge Amount:\r\nN/A";
+            this.TFC2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StudentFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.Controls.Add(this.TFC);
             this.Controls.Add(this.guna2VScrollBar1);
+            this.Controls.Add(this.TFC2);
+            this.Controls.Add(this.TFC);
             this.Controls.Add(this.debts);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.budmangrid);
@@ -431,7 +445,7 @@
             this.Controls.Add(this.modify);
             this.Controls.Add(this.createbudget);
             this.Name = "StudentFile";
-            this.Size = new System.Drawing.Size(750, 673);
+            this.Size = new System.Drawing.Size(750, 691);
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -459,5 +473,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_id;
         private System.Windows.Forms.Label TFC;
+        private System.Windows.Forms.Label TFC2;
     }
 }

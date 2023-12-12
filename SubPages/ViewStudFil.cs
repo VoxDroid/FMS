@@ -21,6 +21,37 @@ namespace SPAAT.SubPages
         {
             InitializeComponent();
             PopulateDataGridView();
+            CalculateAndDisplayTotalCharge();
+        }
+
+        private void CalculateAndDisplayTotalCharge()
+        {
+            int columnIndex = 1;
+            decimal sum = 0;
+
+            if (budmangrid.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in budmangrid.Rows)
+                {
+                    if (row.Cells[columnIndex].Value != null && decimal.TryParse(row.Cells[columnIndex].Value.ToString(), out decimal cellValue))
+                    {
+                        sum += cellValue;
+                    }
+                }
+            }
+            else
+            {
+                sum = -1;
+            }
+
+            if (sum == -1)
+            {
+                TFC.Text = "Total Uncollected Dues: N/A";
+            }
+            else
+            {
+                TFC.Text = $"Total Uncollected Dues: ₱{sum:n0}";
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -37,11 +68,14 @@ namespace SPAAT.SubPages
                     pagesControl.SelectedIndex = 10;
                 }
             }
+
+            CalculateAndDisplayTotalCharge();
         }
 
         private void modify_Click(object sender, EventArgs e)
         {
             PopulateDataGridView();
+            CalculateAndDisplayTotalCharge();
         }
 
         private void PopulateDataGridView()
@@ -92,6 +126,8 @@ namespace SPAAT.SubPages
                     guna2HtmlToolTip1.SetToolTip(budmangrid, null);
                 }
             }
+
+            CalculateAndDisplayTotalCharge();
         }
 
         private void budmangrid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +166,7 @@ namespace SPAAT.SubPages
             string searchQuery = searchtextbox.Text.Trim();
 
             FilterDataGridView(searchQuery);
+            CalculateAndDisplayTotalCharge();
         }
 
         private void FilterDataGridView(string searchQuery)
