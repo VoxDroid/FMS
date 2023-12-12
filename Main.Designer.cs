@@ -77,6 +77,7 @@
             this.subStudFil1 = new SPAAT.SubPages.SubStudFil();
             this.modStudFil1 = new SPAAT.SubPages.ModStudFil();
             this.viewStudFil1 = new SPAAT.SubPages.ViewStudFil();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -178,7 +179,7 @@
             this.dashboardbutton.Checked = true;
             this.dashboardbutton.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.dashboardbutton.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dashboardbutton.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            this.dashboardbutton.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             this.dashboardbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboardbutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.dashboardbutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -207,7 +208,7 @@
             this.budgetmanagement.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.budgetmanagement.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.budgetmanagement.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.budgetmanagement.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.budgetmanagement.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.budgetmanagement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.budgetmanagement.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.budgetmanagement.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -236,7 +237,7 @@
             this.logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.logs.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.logs.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.logs.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.logs.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.logs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.logs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -265,7 +266,7 @@
             this.Settings.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Settings.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.Settings.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Settings.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.Settings.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Settings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Settings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -352,6 +353,7 @@
             animation1.TransparencyCoeff = 0F;
             this.pages.Transition = animation1;
             this.pages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
+            this.pages.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pages_KeyDown);
             // 
             // dashboardpage
             // 
@@ -360,7 +362,7 @@
             this.dashboardpage.Location = new System.Drawing.Point(4, 4);
             this.dashboardpage.Name = "dashboardpage";
             this.dashboardpage.Padding = new System.Windows.Forms.Padding(3);
-            this.dashboardpage.Size = new System.Drawing.Size(760, 562);
+            this.dashboardpage.Size = new System.Drawing.Size(760, 625);
             this.dashboardpage.TabIndex = 0;
             this.dashboardpage.Text = "Dashboard";
             // 
@@ -371,7 +373,7 @@
             this.budman.Location = new System.Drawing.Point(4, 4);
             this.budman.Name = "budman";
             this.budman.Padding = new System.Windows.Forms.Padding(3);
-            this.budman.Size = new System.Drawing.Size(760, 562);
+            this.budman.Size = new System.Drawing.Size(760, 625);
             this.budman.TabIndex = 1;
             this.budman.Text = "Budget Management";
             // 
@@ -381,7 +383,7 @@
             this.subbudman.Controls.Add(this.subBudMan1);
             this.subbudman.Location = new System.Drawing.Point(4, 4);
             this.subbudman.Name = "subbudman";
-            this.subbudman.Size = new System.Drawing.Size(760, 562);
+            this.subbudman.Size = new System.Drawing.Size(760, 625);
             this.subbudman.TabIndex = 5;
             this.subbudman.Text = "Budget Management Form";
             // 
@@ -390,7 +392,7 @@
             this.modbudman.Controls.Add(this.modBudMan1);
             this.modbudman.Location = new System.Drawing.Point(4, 4);
             this.modbudman.Name = "modbudman";
-            this.modbudman.Size = new System.Drawing.Size(760, 562);
+            this.modbudman.Size = new System.Drawing.Size(760, 625);
             this.modbudman.TabIndex = 7;
             this.modbudman.Text = "Edit BMF";
             this.modbudman.UseVisualStyleBackColor = true;
@@ -401,7 +403,7 @@
             this.log.Controls.Add(this.transactionLogs1);
             this.log.Location = new System.Drawing.Point(4, 4);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(760, 562);
+            this.log.Size = new System.Drawing.Size(760, 625);
             this.log.TabIndex = 2;
             this.log.Text = "Logs";
             // 
@@ -410,7 +412,7 @@
             this.sublog.Controls.Add(this.subTranLo1);
             this.sublog.Location = new System.Drawing.Point(4, 4);
             this.sublog.Name = "sublog";
-            this.sublog.Size = new System.Drawing.Size(760, 562);
+            this.sublog.Size = new System.Drawing.Size(760, 625);
             this.sublog.TabIndex = 6;
             this.sublog.Text = "Logs Form";
             this.sublog.UseVisualStyleBackColor = true;
@@ -420,7 +422,7 @@
             this.modlog.Controls.Add(this.modTranLo1);
             this.modlog.Location = new System.Drawing.Point(4, 4);
             this.modlog.Name = "modlog";
-            this.modlog.Size = new System.Drawing.Size(760, 562);
+            this.modlog.Size = new System.Drawing.Size(760, 625);
             this.modlog.TabIndex = 8;
             this.modlog.Text = "Edit LF";
             this.modlog.UseVisualStyleBackColor = true;
@@ -431,7 +433,7 @@
             this.setting.Controls.Add(this.settings1);
             this.setting.Location = new System.Drawing.Point(4, 4);
             this.setting.Name = "setting";
-            this.setting.Size = new System.Drawing.Size(760, 562);
+            this.setting.Size = new System.Drawing.Size(760, 625);
             this.setting.TabIndex = 3;
             this.setting.Text = "Settings";
             // 
@@ -440,7 +442,7 @@
             this.export.Controls.Add(this.export1);
             this.export.Location = new System.Drawing.Point(4, 4);
             this.export.Name = "export";
-            this.export.Size = new System.Drawing.Size(760, 562);
+            this.export.Size = new System.Drawing.Size(760, 625);
             this.export.TabIndex = 9;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -451,7 +453,7 @@
             this.admins.Controls.Add(this.adminPage1);
             this.admins.Location = new System.Drawing.Point(4, 4);
             this.admins.Name = "admins";
-            this.admins.Size = new System.Drawing.Size(760, 562);
+            this.admins.Size = new System.Drawing.Size(760, 625);
             this.admins.TabIndex = 10;
             this.admins.Text = "Admin";
             // 
@@ -461,7 +463,7 @@
             this.studfil.Controls.Add(this.studentFile1);
             this.studfil.Location = new System.Drawing.Point(4, 4);
             this.studfil.Name = "studfil";
-            this.studfil.Size = new System.Drawing.Size(760, 562);
+            this.studfil.Size = new System.Drawing.Size(760, 625);
             this.studfil.TabIndex = 11;
             this.studfil.Text = "Student File";
             // 
@@ -471,7 +473,7 @@
             this.substudfil.Controls.Add(this.subStudFil1);
             this.substudfil.Location = new System.Drawing.Point(4, 4);
             this.substudfil.Name = "substudfil";
-            this.substudfil.Size = new System.Drawing.Size(760, 562);
+            this.substudfil.Size = new System.Drawing.Size(760, 625);
             this.substudfil.TabIndex = 12;
             this.substudfil.Text = "Student File Form";
             // 
@@ -481,7 +483,7 @@
             this.modstudfil.Controls.Add(this.modStudFil1);
             this.modstudfil.Location = new System.Drawing.Point(4, 4);
             this.modstudfil.Name = "modstudfil";
-            this.modstudfil.Size = new System.Drawing.Size(760, 562);
+            this.modstudfil.Size = new System.Drawing.Size(760, 625);
             this.modstudfil.TabIndex = 13;
             this.modstudfil.Text = "Edit SFF";
             // 
@@ -531,7 +533,7 @@
             this.exportf.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.exportf.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.exportf.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.exportf.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.exportf.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.exportf.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exportf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.exportf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -560,7 +562,7 @@
             this.adminpage.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.adminpage.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.adminpage.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.adminpage.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.adminpage.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.adminpage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adminpage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.adminpage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -608,7 +610,7 @@
             this.studentfile.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.studentfile.CheckedState.FillColor = System.Drawing.Color.Gray;
             this.studentfile.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.studentfile.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.studentfile.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.studentfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.studentfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.studentfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -637,7 +639,7 @@
             this.dashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboard1.Location = new System.Drawing.Point(3, 3);
             this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(754, 556);
+            this.dashboard1.Size = new System.Drawing.Size(754, 619);
             this.dashboard1.TabIndex = 0;
             this.dashboard1.Load += new System.EventHandler(this.dashboard1_Load);
             // 
@@ -647,7 +649,7 @@
             this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
             this.budgetManagement1.Name = "budgetManagement1";
-            this.budgetManagement1.Size = new System.Drawing.Size(754, 574);
+            this.budgetManagement1.Size = new System.Drawing.Size(754, 619);
             this.budgetManagement1.TabIndex = 0;
             // 
             // subBudMan1
@@ -656,7 +658,7 @@
             this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subBudMan1.Location = new System.Drawing.Point(0, 0);
             this.subBudMan1.Name = "subBudMan1";
-            this.subBudMan1.Size = new System.Drawing.Size(760, 580);
+            this.subBudMan1.Size = new System.Drawing.Size(760, 625);
             this.subBudMan1.TabIndex = 0;
             // 
             // modBudMan1
@@ -665,7 +667,7 @@
             this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modBudMan1.Location = new System.Drawing.Point(0, 0);
             this.modBudMan1.Name = "modBudMan1";
-            this.modBudMan1.Size = new System.Drawing.Size(760, 580);
+            this.modBudMan1.Size = new System.Drawing.Size(760, 625);
             this.modBudMan1.TabIndex = 0;
             // 
             // transactionLogs1
@@ -674,7 +676,7 @@
             this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
             this.transactionLogs1.Name = "transactionLogs1";
-            this.transactionLogs1.Size = new System.Drawing.Size(760, 580);
+            this.transactionLogs1.Size = new System.Drawing.Size(760, 625);
             this.transactionLogs1.TabIndex = 0;
             // 
             // subTranLo1
@@ -683,7 +685,7 @@
             this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subTranLo1.Location = new System.Drawing.Point(0, 0);
             this.subTranLo1.Name = "subTranLo1";
-            this.subTranLo1.Size = new System.Drawing.Size(760, 580);
+            this.subTranLo1.Size = new System.Drawing.Size(760, 625);
             this.subTranLo1.TabIndex = 0;
             // 
             // modTranLo1
@@ -692,7 +694,7 @@
             this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modTranLo1.Location = new System.Drawing.Point(0, 0);
             this.modTranLo1.Name = "modTranLo1";
-            this.modTranLo1.Size = new System.Drawing.Size(760, 580);
+            this.modTranLo1.Size = new System.Drawing.Size(760, 625);
             this.modTranLo1.TabIndex = 0;
             // 
             // settings1
@@ -701,7 +703,7 @@
             this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settings1.Location = new System.Drawing.Point(0, 0);
             this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(760, 580);
+            this.settings1.Size = new System.Drawing.Size(760, 625);
             this.settings1.TabIndex = 0;
             this.settings1.Load += new System.EventHandler(this.settings1_Load);
             // 
@@ -711,7 +713,7 @@
             this.export1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.export1.Location = new System.Drawing.Point(0, 0);
             this.export1.Name = "export1";
-            this.export1.Size = new System.Drawing.Size(760, 580);
+            this.export1.Size = new System.Drawing.Size(760, 625);
             this.export1.TabIndex = 0;
             // 
             // adminPage1
@@ -721,7 +723,7 @@
             this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPage1.Location = new System.Drawing.Point(0, 0);
             this.adminPage1.Name = "adminPage1";
-            this.adminPage1.Size = new System.Drawing.Size(760, 580);
+            this.adminPage1.Size = new System.Drawing.Size(760, 625);
             this.adminPage1.TabIndex = 0;
             // 
             // studentFile1
@@ -730,7 +732,7 @@
             this.studentFile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentFile1.Location = new System.Drawing.Point(0, 0);
             this.studentFile1.Name = "studentFile1";
-            this.studentFile1.Size = new System.Drawing.Size(760, 580);
+            this.studentFile1.Size = new System.Drawing.Size(760, 625);
             this.studentFile1.TabIndex = 0;
             // 
             // subStudFil1
@@ -739,7 +741,7 @@
             this.subStudFil1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subStudFil1.Location = new System.Drawing.Point(0, 0);
             this.subStudFil1.Name = "subStudFil1";
-            this.subStudFil1.Size = new System.Drawing.Size(760, 562);
+            this.subStudFil1.Size = new System.Drawing.Size(760, 625);
             this.subStudFil1.TabIndex = 0;
             // 
             // modStudFil1
@@ -748,7 +750,7 @@
             this.modStudFil1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modStudFil1.Location = new System.Drawing.Point(0, 0);
             this.modStudFil1.Name = "modStudFil1";
-            this.modStudFil1.Size = new System.Drawing.Size(760, 562);
+            this.modStudFil1.Size = new System.Drawing.Size(760, 625);
             this.modStudFil1.TabIndex = 0;
             // 
             // viewStudFil1
@@ -760,12 +762,44 @@
             this.viewStudFil1.Size = new System.Drawing.Size(760, 625);
             this.viewStudFil1.TabIndex = 0;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2Button1.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 10F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.Location = new System.Drawing.Point(764, 8);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.White;
+            this.guna2Button1.Size = new System.Drawing.Size(112, 45);
+            this.guna2Button1.TabIndex = 16;
+            this.guna2Button1.Text = "Log out";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.TextOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1000, 745);
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.studentfile);
             this.Controls.Add(this.adminpage);
             this.Controls.Add(this.exportf);
@@ -858,5 +892,6 @@
         private SubPages.ModStudFil modStudFil1;
         private System.Windows.Forms.TabPage viewstudfil;
         private SubPages.ViewStudFil viewStudFil1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

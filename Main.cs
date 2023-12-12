@@ -27,6 +27,25 @@ namespace SPAAT
             appbar.MouseDown += new MouseEventHandler(label1_MouseDown);
             Admin();
             guna2HtmlToolTip1.SetToolTip(ZAPISAXIS, "© 2023 Copyright: Mhar Andrei Macapallag");
+            guna2HtmlToolTip1.SetToolTip(guna2Button1, "Log out and go to the login page.");
+
+            this.Resize += Form_Resize;
+        }
+
+        private const int MinFormWidth = 1000;
+        private const int MinFormHeight = 745;
+
+        private void Form_Resize(object sender, EventArgs e)
+        {
+            if (this.Width < MinFormWidth)
+            {
+                this.Width = MinFormWidth;
+            }
+
+            if (this.Height < MinFormHeight)
+            {
+                this.Height = MinFormHeight;
+            }
         }
 
         private bool IsSuperUser(string username)
@@ -207,5 +226,26 @@ namespace SPAAT
 
         }
 
+        private void pages_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                case Keys.Right:
+                    e.Handled = true;
+                    break;
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(Application.ExecutablePath);
+                Application.Exit();
+            }
+        }
     }
 }

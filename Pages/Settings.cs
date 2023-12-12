@@ -23,7 +23,6 @@ namespace SPAAT.Pages
         public Settings()
         {
             InitializeComponent();
-            guna2HtmlToolTip1.SetToolTip(logout, "Log out and go to the login page.");
             guna2HtmlToolTip1.SetToolTip(RBM, "Delete and reset all data stored in Budget Management.");
             guna2HtmlToolTip1.SetToolTip(RTL, "Delete and reset all data stored in Transaction Logs.");
             guna2HtmlToolTip1.SetToolTip(RSF, "Delete and reset all data stored in Student File.");
@@ -273,17 +272,6 @@ namespace SPAAT.Pages
                         resetAutoIncrementCommand.ExecuteNonQuery();
                     }
                 }
-            }
-        }
-
-        private void logout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                System.Diagnostics.Process.Start(Application.ExecutablePath);
-                Application.Exit();
             }
         }
 

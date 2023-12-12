@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.logout = new Guna.UI2.WinForms.Guna2Button();
             this.crebud = new System.Windows.Forms.Label();
             this.RBM = new Guna.UI2.WinForms.Guna2Button();
             this.RTL = new Guna.UI2.WinForms.Guna2Button();
@@ -38,28 +37,6 @@
             this.importdatabase = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
-            // 
-            // logout
-            // 
-            this.logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.logout.Animated = true;
-            this.logout.BackColor = System.Drawing.Color.Transparent;
-            this.logout.BorderRadius = 10;
-            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.logout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.logout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.logout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.logout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.logout.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.logout.ForeColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(64, 406);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(176, 56);
-            this.logout.TabIndex = 34;
-            this.logout.Text = "Log out";
-            this.logout.UseTransparentBackground = true;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // crebud
             // 
@@ -224,7 +201,6 @@
             this.Controls.Add(this.RTL);
             this.Controls.Add(this.RBM);
             this.Controls.Add(this.crebud);
-            this.Controls.Add(this.logout);
             this.Name = "Settings";
             this.Size = new System.Drawing.Size(750, 500);
             this.ResumeLayout(false);
@@ -233,8 +209,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button logout;
         private System.Windows.Forms.Label crebud;
         private Guna.UI2.WinForms.Guna2Button RBM;
         private Guna.UI2.WinForms.Guna2Button RTL;
