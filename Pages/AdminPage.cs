@@ -853,6 +853,21 @@ namespace SPAAT.Pages
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void securityquestion_Click(object sender, EventArgs e)
+        {
+            var mainForm = this.ParentForm as Main;
+
+            if (mainForm != null)
+            {
+                BunifuPages pagesControl = mainForm.GetPagesControl();
+
+                if (pagesControl != null)
+                {
+                    pagesControl.SelectedIndex = 14;
+                }
+            }
+        }
     }
 }
 

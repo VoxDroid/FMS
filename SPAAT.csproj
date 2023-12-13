@@ -571,6 +571,12 @@
     <Compile Include="SubPages\ModTranLo.Designer.cs">
       <DependentUpon>ModTranLo.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\SecurityQuestions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\SecurityQuestions.Designer.cs">
+      <DependentUpon>SecurityQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\SubBudMan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -641,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\ModTranLo.resx">
       <DependentUpon>ModTranLo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\SecurityQuestions.resx">
+      <DependentUpon>SecurityQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\SubBudMan.resx">
       <DependentUpon>SubBudMan.cs</DependentUpon>
