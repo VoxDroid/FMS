@@ -398,6 +398,7 @@
             this.securityStatusLabel.Text = "BSL";
             this.securityStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.securityStatusLabel.Visible = false;
+            this.securityStatusLabel.Click += new System.EventHandler(this.securityStatusLabel_Click);
             // 
             // SecurityQuestions
             // 

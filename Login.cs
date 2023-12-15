@@ -93,6 +93,7 @@ namespace SPAAT
                 this.Size = new Size(459, 648);
             };
 
+            guna2HtmlToolTip1.SetToolTip(info, "If you lost your access to the system, click here.");
         }
 
         private Timer closingTimer;
@@ -775,6 +776,12 @@ namespace SPAAT
                 lblError.Visible = true;
                 lblError.Text = "Database Error.";
             }
+        }
+
+        private void info_Click(object sender, EventArgs e)
+        {
+            Recovery recover = new Recovery();
+            recover.Show();
         }
     }
 }

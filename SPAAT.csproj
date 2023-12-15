@@ -553,6 +553,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recovery.Designer.cs">
+      <DependentUpon>Recovery.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\ModBudMan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -639,6 +645,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recovery.resx">
+      <DependentUpon>Recovery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\ModBudMan.resx">
       <DependentUpon>ModBudMan.cs</DependentUpon>
     </EmbeddedResource>

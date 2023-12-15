@@ -53,6 +53,7 @@
             this.minimize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.info = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblError = new System.Windows.Forms.Label();
+            this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockForm = false;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ResizeForm = false;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // guna2AnimateWindow1
@@ -467,6 +469,7 @@
             this.info.Size = new System.Drawing.Size(20, 20);
             this.info.TabIndex = 21;
             this.info.UseTransparentBackground = true;
+            this.info.Click += new System.EventHandler(this.info_Click);
             // 
             // lblError
             // 
@@ -480,6 +483,23 @@
             this.lblError.Text = "Stats.";
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblError.Visible = false;
+            // 
+            // guna2HtmlToolTip1
+            // 
+            this.guna2HtmlToolTip1.AllowLinksHandling = true;
+            this.guna2HtmlToolTip1.AutomaticDelay = 0;
+            this.guna2HtmlToolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlToolTip1.Font = new System.Drawing.Font("Poppins", 15F);
+            this.guna2HtmlToolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.ShowAlways = true;
+            this.guna2HtmlToolTip1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.guna2HtmlToolTip1.TitleFont = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlToolTip1.TitleForeColor = System.Drawing.Color.Teal;
+            this.guna2HtmlToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.guna2HtmlToolTip1.ToolTipTitle = "Lost your access? Then it\'s not my fault.";
+            this.guna2HtmlToolTip1.UseGdiPlusTextRendering = true;
             // 
             // Login
             // 
@@ -546,6 +566,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton info;
         private Guna.UI2.WinForms.Guna2ImageButton minimize;
         private System.Windows.Forms.Label lblError;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
     }
 }
 

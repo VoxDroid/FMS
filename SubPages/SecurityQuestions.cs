@@ -314,5 +314,10 @@ namespace SPAAT.SubPages
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void securityStatusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
