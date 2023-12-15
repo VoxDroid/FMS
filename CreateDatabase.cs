@@ -22,6 +22,8 @@ public static class DatabaseInitializer
 
                 CreateTableIfNotExists(connection, "resetkeys", "CREATE TABLE resetkeys (reset_key varchar(255) NOT NULL, id int(255) NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), UNIQUE KEY unique_reset_key (reset_key)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "");
 
+                CreateTableIfNotExists(connection, "securityquestions", "CREATE TABLE `securityquestions` (`sqs_id` int(1) NOT NULL AUTO_INCREMENT, `sq1` varchar(255) NOT NULL, `sq2` varchar(255) NOT NULL, `sq3` varchar(255) NOT NULL, `sq1a` varchar(255) NOT NULL, `sq2a` varchar(255) NOT NULL, `sq3a` varchar(255) NOT NULL, PRIMARY KEY (`sqs_id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", "");
+
                 CreateTableIfNotExists(connection, "su", "CREATE TABLE su (su_id int(255) NOT NULL AUTO_INCREMENT, user_id int(255) NOT NULL, PRIMARY KEY (su_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "ALTER TABLE su AUTO_INCREMENT = 1");
 
                 CreateTableIfNotExists(connection, "tranlo", "CREATE TABLE tranlo (tl_id int(255) NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, date varchar(255) NOT NULL, description varchar(255) NOT NULL, category varchar(255) NOT NULL, amount int(255) NOT NULL, PRIMARY KEY (tl_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AUTO_INCREMENT=1", "");
