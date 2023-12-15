@@ -402,8 +402,10 @@
             this.Controls.Add(this.searchtextbox);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.createbudget);
+            this.DoubleBuffered = true;
             this.Name = "BudgetManagement";
             this.Size = new System.Drawing.Size(750, 673);
+            this.Enter += new System.EventHandler(this.BudgetManagement_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -39,6 +39,7 @@
             this.nametb = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // crebud
@@ -263,10 +264,11 @@
             this.nametb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nametb.Location = new System.Drawing.Point(73, 125);
             this.nametb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.nametb.MaxLength = 50;
             this.nametb.Name = "nametb";
             this.nametb.PasswordChar = '\0';
             this.nametb.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.nametb.PlaceholderText = "Name...";
+            this.nametb.PlaceholderText = "Answer...";
             this.nametb.SelectedText = "";
             this.nametb.Size = new System.Drawing.Size(634, 41);
             this.nametb.TabIndex = 69;
@@ -292,10 +294,11 @@
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(73, 233);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.guna2TextBox1.MaxLength = 50;
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.guna2TextBox1.PlaceholderText = "Name...";
+            this.guna2TextBox1.PlaceholderText = "Answer...";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(634, 41);
             this.guna2TextBox1.TabIndex = 70;
@@ -321,19 +324,42 @@
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Location = new System.Drawing.Point(73, 347);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.guna2TextBox2.MaxLength = 50;
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.guna2TextBox2.PlaceholderText = "Name...";
+            this.guna2TextBox2.PlaceholderText = "Answer...";
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(634, 41);
             this.guna2TextBox2.TabIndex = 71;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.IndianRed;
+            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(206, 420);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(176, 56);
+            this.guna2Button1.TabIndex = 72;
+            this.guna2Button1.Text = "Set";
+            this.guna2Button1.UseTransparentBackground = true;
             // 
             // SecurityQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.nametb);
@@ -345,6 +371,7 @@
             this.Controls.Add(this.sq1);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.crebud);
+            this.DoubleBuffered = true;
             this.Name = "SecurityQuestions";
             this.Size = new System.Drawing.Size(750, 500);
             this.ResumeLayout(false);
@@ -365,5 +392,6 @@
         private Guna.UI2.WinForms.Guna2TextBox nametb;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

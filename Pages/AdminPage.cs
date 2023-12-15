@@ -119,6 +119,15 @@ namespace SPAAT.Pages
             searchtextbox.Text = string.Empty;
         }
 
+        private void RefreshAll()
+        {
+
+            PopulateDataGridView();
+            searchtextbox.Text = string.Empty;
+            nametb.Text = string.Empty;
+            passtb.Text = string.Empty;
+        }
+
         private void budmangrid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -222,6 +231,16 @@ namespace SPAAT.Pages
                     return;
                 }
 
+                string name2 = nametb.Text;
+                if (IsUsernameExists(name2))
+                {
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Username already exists.";
+                    return;
+                }
+
                 using (MySqlConnection connection = new MySqlConnection(connet))
                 {
                     connection.Open();
@@ -248,15 +267,6 @@ namespace SPAAT.Pages
 
                             string name = nametb.Text;
                             string password = passtb.Text;
-
-                            if (IsUsernameExists(name))
-                            {
-                                budgetstatuslabel.ForeColor = Color.Maroon;
-                                budgetstatuslabel.Enabled = true;
-                                budgetstatuslabel.Visible = true;
-                                budgetstatuslabel.Text = "Username already exists.";
-                                return;
-                            }
 
                             DateTime currentDate = DateTime.Now;
 
@@ -577,6 +587,15 @@ namespace SPAAT.Pages
                     string originalName = selectedRow.Cells["username"].Value.ToString();
                     string originalPassword = selectedRow.Cells["password"].Value.ToString();
 
+                    if (!string.IsNullOrWhiteSpace(name) && name != originalName && IsUsernameExists(name))
+                    {
+                        budgetstatuslabel.ForeColor = Color.Maroon;
+                        budgetstatuslabel.Visible = true;
+                        budgetstatuslabel.Enabled = true;
+                        budgetstatuslabel.Text = "Username already exists.";
+                        return;
+                    }
+
                     StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
 
                     if (!string.IsNullOrWhiteSpace(name) && name != originalName)
@@ -867,6 +886,11 @@ namespace SPAAT.Pages
                     pagesControl.SelectedIndex = 14;
                 }
             }
+        }
+
+        private void AdminPage_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

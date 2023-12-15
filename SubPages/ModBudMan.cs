@@ -320,6 +320,13 @@ namespace SPAAT.SubPages
             LoadRecentCategories();
         }
 
+        private void RefreshAll()
+        {
+
+            PopulateDataGridView();
+            LoadRecentCategories();
+        }
+
         private void budmangrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -489,6 +496,11 @@ namespace SPAAT.SubPages
         private void categorytb_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void ModBudMan_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

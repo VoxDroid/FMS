@@ -141,6 +141,15 @@ namespace SPAAT.Pages
             SetDefaultSelectedColumn();
         }
 
+        public void RefreshAll()
+        {
+            CalculateAndDisplayTotalRemainingBudget();
+            CalculateAndDisplayTotalFunds();
+            CalculateAndDisplayTotalCharge();
+            PopulateDataGridView();
+            SetDefaultSelectedColumn();
+        }
+
         private void SetDefaultSelectedColumn()
         {
             DataGridView dataGridView = budmangrid;
@@ -181,7 +190,7 @@ namespace SPAAT.Pages
             }
         }
 
-        private void PopulateDataGridView()
+        public void PopulateDataGridView()
         {
             try
             {
@@ -279,6 +288,16 @@ namespace SPAAT.Pages
         private void Dashboard_ClientSizeChanged(object sender, EventArgs e)
         {
             budgetremainlabel.Location = new Point(third.Right + 10, third.Top);
+        }
+
+        private void refresh_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

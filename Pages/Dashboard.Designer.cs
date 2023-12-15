@@ -45,7 +45,6 @@
             this.refresh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
-            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +53,7 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,6 +150,7 @@
             this.refresh.Size = new System.Drawing.Size(74, 88);
             this.refresh.TabIndex = 18;
             this.refresh.UseTransparentBackground = true;
+            this.refresh.VisibleChanged += new System.EventHandler(this.refresh_VisibleChanged);
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // guna2HtmlToolTip1
@@ -184,10 +185,6 @@
             this.guna2VScrollBar1.TabIndex = 27;
             this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.Value = 1;
-            // 
-            // guna2Elipse4
-            // 
-            this.guna2Elipse4.BorderRadius = 10;
             // 
             // budmangrid
             // 
@@ -332,6 +329,10 @@
             this.pm_id.ReadOnly = true;
             this.pm_id.Visible = false;
             // 
+            // guna2Elipse4
+            // 
+            this.guna2Elipse4.BorderRadius = 10;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,9 +345,11 @@
             this.Controls.Add(this.budgetremainlabel);
             this.Controls.Add(this.totalfundslabel);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Name = "Dashboard";
             this.Size = new System.Drawing.Size(873, 616);
             this.ClientSizeChanged += new System.EventHandler(this.Dashboard_ClientSizeChanged);
+            this.Enter += new System.EventHandler(this.Dashboard_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

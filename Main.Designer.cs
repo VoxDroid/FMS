@@ -71,6 +71,8 @@
             this.modStudFil1 = new SPAAT.SubPages.ModStudFil();
             this.viewstudfil = new System.Windows.Forms.TabPage();
             this.viewStudFil1 = new SPAAT.SubPages.ViewStudFil();
+            this.secque = new System.Windows.Forms.TabPage();
+            this.securityQuestions1 = new SPAAT.SubPages.SecurityQuestions();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.ZAPISAXIS = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.exportf = new Guna.UI2.WinForms.Guna2Button();
@@ -78,8 +80,6 @@
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.studentfile = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.secque = new System.Windows.Forms.TabPage();
-            this.securityQuestions1 = new SPAAT.SubPages.SecurityQuestions();
             this.pages.SuspendLayout();
             this.dashboardpage.SuspendLayout();
             this.budman.SuspendLayout();
@@ -95,9 +95,9 @@
             this.substudfil.SuspendLayout();
             this.modstudfil.SuspendLayout();
             this.viewstudfil.SuspendLayout();
+            this.secque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).BeginInit();
-            this.secque.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -357,6 +357,7 @@
             animation1.TransparencyCoeff = 0F;
             this.pages.Transition = animation1;
             this.pages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
+            this.pages.SelectedIndexChanged += new System.EventHandler(this.pages_SelectedIndexChanged);
             this.pages.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pages_KeyDown);
             // 
             // dashboardpage
@@ -388,7 +389,7 @@
             this.budman.Location = new System.Drawing.Point(4, 4);
             this.budman.Name = "budman";
             this.budman.Padding = new System.Windows.Forms.Padding(3);
-            this.budman.Size = new System.Drawing.Size(760, 643);
+            this.budman.Size = new System.Drawing.Size(760, 625);
             this.budman.TabIndex = 1;
             this.budman.Text = "Budget Management";
             // 
@@ -398,7 +399,7 @@
             this.budgetManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.budgetManagement1.Location = new System.Drawing.Point(3, 3);
             this.budgetManagement1.Name = "budgetManagement1";
-            this.budgetManagement1.Size = new System.Drawing.Size(754, 637);
+            this.budgetManagement1.Size = new System.Drawing.Size(754, 619);
             this.budgetManagement1.TabIndex = 0;
             // 
             // subbudman
@@ -407,7 +408,7 @@
             this.subbudman.Controls.Add(this.subBudMan1);
             this.subbudman.Location = new System.Drawing.Point(4, 4);
             this.subbudman.Name = "subbudman";
-            this.subbudman.Size = new System.Drawing.Size(760, 643);
+            this.subbudman.Size = new System.Drawing.Size(760, 625);
             this.subbudman.TabIndex = 5;
             this.subbudman.Text = "Budget Management Form";
             // 
@@ -417,7 +418,7 @@
             this.subBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subBudMan1.Location = new System.Drawing.Point(0, 0);
             this.subBudMan1.Name = "subBudMan1";
-            this.subBudMan1.Size = new System.Drawing.Size(760, 643);
+            this.subBudMan1.Size = new System.Drawing.Size(760, 625);
             this.subBudMan1.TabIndex = 0;
             // 
             // modbudman
@@ -425,7 +426,7 @@
             this.modbudman.Controls.Add(this.modBudMan1);
             this.modbudman.Location = new System.Drawing.Point(4, 4);
             this.modbudman.Name = "modbudman";
-            this.modbudman.Size = new System.Drawing.Size(760, 643);
+            this.modbudman.Size = new System.Drawing.Size(760, 625);
             this.modbudman.TabIndex = 7;
             this.modbudman.Text = "Edit BMF";
             this.modbudman.UseVisualStyleBackColor = true;
@@ -436,7 +437,7 @@
             this.modBudMan1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modBudMan1.Location = new System.Drawing.Point(0, 0);
             this.modBudMan1.Name = "modBudMan1";
-            this.modBudMan1.Size = new System.Drawing.Size(760, 643);
+            this.modBudMan1.Size = new System.Drawing.Size(760, 625);
             this.modBudMan1.TabIndex = 0;
             // 
             // log
@@ -445,7 +446,7 @@
             this.log.Controls.Add(this.transactionLogs1);
             this.log.Location = new System.Drawing.Point(4, 4);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(760, 643);
+            this.log.Size = new System.Drawing.Size(760, 625);
             this.log.TabIndex = 2;
             this.log.Text = "Logs";
             // 
@@ -455,7 +456,7 @@
             this.transactionLogs1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transactionLogs1.Location = new System.Drawing.Point(0, 0);
             this.transactionLogs1.Name = "transactionLogs1";
-            this.transactionLogs1.Size = new System.Drawing.Size(760, 643);
+            this.transactionLogs1.Size = new System.Drawing.Size(760, 625);
             this.transactionLogs1.TabIndex = 0;
             // 
             // sublog
@@ -463,7 +464,7 @@
             this.sublog.Controls.Add(this.subTranLo1);
             this.sublog.Location = new System.Drawing.Point(4, 4);
             this.sublog.Name = "sublog";
-            this.sublog.Size = new System.Drawing.Size(760, 643);
+            this.sublog.Size = new System.Drawing.Size(760, 625);
             this.sublog.TabIndex = 6;
             this.sublog.Text = "Logs Form";
             this.sublog.UseVisualStyleBackColor = true;
@@ -474,7 +475,7 @@
             this.subTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subTranLo1.Location = new System.Drawing.Point(0, 0);
             this.subTranLo1.Name = "subTranLo1";
-            this.subTranLo1.Size = new System.Drawing.Size(760, 643);
+            this.subTranLo1.Size = new System.Drawing.Size(760, 625);
             this.subTranLo1.TabIndex = 0;
             // 
             // modlog
@@ -482,7 +483,7 @@
             this.modlog.Controls.Add(this.modTranLo1);
             this.modlog.Location = new System.Drawing.Point(4, 4);
             this.modlog.Name = "modlog";
-            this.modlog.Size = new System.Drawing.Size(760, 643);
+            this.modlog.Size = new System.Drawing.Size(760, 625);
             this.modlog.TabIndex = 8;
             this.modlog.Text = "Edit LF";
             this.modlog.UseVisualStyleBackColor = true;
@@ -493,7 +494,7 @@
             this.modTranLo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modTranLo1.Location = new System.Drawing.Point(0, 0);
             this.modTranLo1.Name = "modTranLo1";
-            this.modTranLo1.Size = new System.Drawing.Size(760, 643);
+            this.modTranLo1.Size = new System.Drawing.Size(760, 625);
             this.modTranLo1.TabIndex = 0;
             // 
             // setting
@@ -502,7 +503,7 @@
             this.setting.Controls.Add(this.settings1);
             this.setting.Location = new System.Drawing.Point(4, 4);
             this.setting.Name = "setting";
-            this.setting.Size = new System.Drawing.Size(760, 643);
+            this.setting.Size = new System.Drawing.Size(760, 625);
             this.setting.TabIndex = 3;
             this.setting.Text = "Settings";
             // 
@@ -512,7 +513,7 @@
             this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settings1.Location = new System.Drawing.Point(0, 0);
             this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(760, 643);
+            this.settings1.Size = new System.Drawing.Size(760, 625);
             this.settings1.TabIndex = 0;
             this.settings1.Load += new System.EventHandler(this.settings1_Load);
             // 
@@ -521,7 +522,7 @@
             this.export.Controls.Add(this.export1);
             this.export.Location = new System.Drawing.Point(4, 4);
             this.export.Name = "export";
-            this.export.Size = new System.Drawing.Size(760, 643);
+            this.export.Size = new System.Drawing.Size(760, 625);
             this.export.TabIndex = 9;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -532,7 +533,7 @@
             this.export1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.export1.Location = new System.Drawing.Point(0, 0);
             this.export1.Name = "export1";
-            this.export1.Size = new System.Drawing.Size(760, 643);
+            this.export1.Size = new System.Drawing.Size(760, 625);
             this.export1.TabIndex = 0;
             // 
             // admins
@@ -541,7 +542,7 @@
             this.admins.Controls.Add(this.adminPage1);
             this.admins.Location = new System.Drawing.Point(4, 4);
             this.admins.Name = "admins";
-            this.admins.Size = new System.Drawing.Size(760, 643);
+            this.admins.Size = new System.Drawing.Size(760, 625);
             this.admins.TabIndex = 10;
             this.admins.Text = "Admin";
             // 
@@ -552,7 +553,7 @@
             this.adminPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminPage1.Location = new System.Drawing.Point(0, 0);
             this.adminPage1.Name = "adminPage1";
-            this.adminPage1.Size = new System.Drawing.Size(760, 643);
+            this.adminPage1.Size = new System.Drawing.Size(760, 625);
             this.adminPage1.TabIndex = 0;
             // 
             // studfil
@@ -561,7 +562,7 @@
             this.studfil.Controls.Add(this.studentFile1);
             this.studfil.Location = new System.Drawing.Point(4, 4);
             this.studfil.Name = "studfil";
-            this.studfil.Size = new System.Drawing.Size(760, 643);
+            this.studfil.Size = new System.Drawing.Size(760, 625);
             this.studfil.TabIndex = 11;
             this.studfil.Text = "Student File";
             // 
@@ -571,7 +572,7 @@
             this.studentFile1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentFile1.Location = new System.Drawing.Point(0, 0);
             this.studentFile1.Name = "studentFile1";
-            this.studentFile1.Size = new System.Drawing.Size(760, 643);
+            this.studentFile1.Size = new System.Drawing.Size(760, 625);
             this.studentFile1.TabIndex = 0;
             // 
             // substudfil
@@ -630,6 +631,25 @@
             this.viewStudFil1.Name = "viewStudFil1";
             this.viewStudFil1.Size = new System.Drawing.Size(760, 625);
             this.viewStudFil1.TabIndex = 0;
+            // 
+            // secque
+            // 
+            this.secque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.secque.Controls.Add(this.securityQuestions1);
+            this.secque.Location = new System.Drawing.Point(4, 4);
+            this.secque.Name = "secque";
+            this.secque.Size = new System.Drawing.Size(760, 625);
+            this.secque.TabIndex = 15;
+            this.secque.Text = "Manage SQ";
+            // 
+            // securityQuestions1
+            // 
+            this.securityQuestions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.securityQuestions1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.securityQuestions1.Location = new System.Drawing.Point(0, 0);
+            this.securityQuestions1.Name = "securityQuestions1";
+            this.securityQuestions1.Size = new System.Drawing.Size(760, 625);
+            this.securityQuestions1.TabIndex = 0;
             // 
             // guna2CirclePictureBox1
             // 
@@ -797,25 +817,6 @@
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // secque
-            // 
-            this.secque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.secque.Controls.Add(this.securityQuestions1);
-            this.secque.Location = new System.Drawing.Point(4, 4);
-            this.secque.Name = "secque";
-            this.secque.Size = new System.Drawing.Size(760, 625);
-            this.secque.TabIndex = 15;
-            this.secque.Text = "Manage SQ";
-            // 
-            // securityQuestions1
-            // 
-            this.securityQuestions1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.securityQuestions1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.securityQuestions1.Location = new System.Drawing.Point(0, 0);
-            this.securityQuestions1.Name = "securityQuestions1";
-            this.securityQuestions1.Size = new System.Drawing.Size(760, 625);
-            this.securityQuestions1.TabIndex = 0;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -838,6 +839,7 @@
             this.Controls.Add(this.guna2ControlBox2);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.appbar);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -861,9 +863,9 @@
             this.substudfil.ResumeLayout(false);
             this.modstudfil.ResumeLayout(false);
             this.viewstudfil.ResumeLayout(false);
+            this.secque.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZAPISAXIS)).EndInit();
-            this.secque.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

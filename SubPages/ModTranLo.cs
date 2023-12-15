@@ -267,6 +267,13 @@ namespace SPAAT.SubPages
             LoadRecentCategories();
         }
 
+        private void RefreshAll()
+        {
+
+            PopulateDataGridView();
+            LoadRecentCategories();
+        }
+
         private void budmangrid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -425,6 +432,11 @@ namespace SPAAT.SubPages
         private void alloctb_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+        }
+
+        private void ModTranLo_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

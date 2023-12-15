@@ -247,5 +247,10 @@ namespace SPAAT
                 Application.Exit();
             }
         }
+
+        private void pages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

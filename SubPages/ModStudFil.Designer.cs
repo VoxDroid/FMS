@@ -124,6 +124,7 @@
             this.chargetb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chargetb.Location = new System.Drawing.Point(46, 115);
             this.chargetb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.chargetb.MaxLength = 9;
             this.chargetb.Name = "chargetb";
             this.chargetb.PasswordChar = '\0';
             this.chargetb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -191,6 +192,7 @@
             this.amountptb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.amountptb.Location = new System.Drawing.Point(46, 200);
             this.amountptb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.amountptb.MaxLength = 9;
             this.amountptb.Name = "amountptb";
             this.amountptb.PasswordChar = '\0';
             this.amountptb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -533,8 +535,10 @@
             this.Controls.Add(this.delete);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.modifybutton);
+            this.DoubleBuffered = true;
             this.Name = "ModStudFil";
             this.Size = new System.Drawing.Size(750, 651);
+            this.Enter += new System.EventHandler(this.ModStudFil_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -236,6 +236,7 @@
             this.username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.username.Location = new System.Drawing.Point(48, 330);
             this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.username.MaxLength = 25;
             this.username.Name = "username";
             this.username.PasswordChar = '\0';
             this.username.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -268,6 +269,7 @@
             this.password.IconRight = ((System.Drawing.Image)(resources.GetObject("password.IconRight")));
             this.password.Location = new System.Drawing.Point(48, 391);
             this.password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.password.MaxLength = 25;
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.PlaceholderForeColor = System.Drawing.Color.Gray;

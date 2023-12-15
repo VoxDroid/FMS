@@ -344,6 +344,15 @@ namespace SPAAT.Pages
             searchtextbox.Text = string.Empty;
         }
 
+        private void RefreshAll()
+        {
+            PopulateDataGridView();
+            UpdateTotalEntriesLabel();
+
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
+        }
+
         private void totalentrieslabel_Click(object sender, EventArgs e)
         {
             UpdateTotalEntriesLabel();
@@ -466,6 +475,11 @@ namespace SPAAT.Pages
         private void budmangrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void StudentFile_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

@@ -72,6 +72,7 @@
             this.cats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studfil = new System.Windows.Forms.TabPage();
+            this.guna2VScrollBar3 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.budmangrid3 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.charge = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +83,6 @@
             this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.exportbutton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2VScrollBar3 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.bunifuPages1.SuspendLayout();
             this.select.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -598,6 +598,25 @@
             this.studfil.TabIndex = 3;
             this.studfil.Text = "Student File";
             // 
+            // guna2VScrollBar3
+            // 
+            this.guna2VScrollBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2VScrollBar3.AutoRoundedCorners = true;
+            this.guna2VScrollBar3.BindingContainer = this.budmangrid3;
+            this.guna2VScrollBar3.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.InUpdate = false;
+            this.guna2VScrollBar3.LargeChange = 10;
+            this.guna2VScrollBar3.Location = new System.Drawing.Point(448, 3);
+            this.guna2VScrollBar3.Minimum = 1;
+            this.guna2VScrollBar3.Name = "guna2VScrollBar3";
+            this.guna2VScrollBar3.ScrollbarSize = 1;
+            this.guna2VScrollBar3.Size = new System.Drawing.Size(1, 428);
+            this.guna2VScrollBar3.TabIndex = 47;
+            this.guna2VScrollBar3.ThumbColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.Value = 1;
+            // 
             // budmangrid3
             // 
             this.budmangrid3.AllowUserToAddRows = false;
@@ -776,25 +795,6 @@
             this.exportbutton.UseTransparentBackground = true;
             this.exportbutton.Click += new System.EventHandler(this.exportbutton_Click);
             // 
-            // guna2VScrollBar3
-            // 
-            this.guna2VScrollBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2VScrollBar3.AutoRoundedCorners = true;
-            this.guna2VScrollBar3.BindingContainer = this.budmangrid3;
-            this.guna2VScrollBar3.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar3.InUpdate = false;
-            this.guna2VScrollBar3.LargeChange = 10;
-            this.guna2VScrollBar3.Location = new System.Drawing.Point(448, 3);
-            this.guna2VScrollBar3.Minimum = 1;
-            this.guna2VScrollBar3.Name = "guna2VScrollBar3";
-            this.guna2VScrollBar3.ScrollbarSize = 1;
-            this.guna2VScrollBar3.Size = new System.Drawing.Size(1, 428);
-            this.guna2VScrollBar3.TabIndex = 47;
-            this.guna2VScrollBar3.ThumbColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar3.Value = 1;
-            // 
             // Export
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,6 +807,7 @@
             this.Controls.Add(this.guna2ComboBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.crebud);
+            this.DoubleBuffered = true;
             this.Name = "Export";
             this.Size = new System.Drawing.Size(750, 500);
             this.bunifuPages1.ResumeLayout(false);

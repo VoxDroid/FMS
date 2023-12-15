@@ -24,7 +24,6 @@ namespace SPAAT.SubPages
             PopulateDataGridView();
         }
 
-
         private void PopulateDataGridView()
         {
             try
@@ -188,6 +187,13 @@ namespace SPAAT.SubPages
             searchtextbox.Text = string.Empty;
         }
 
+        private void RefreshAll()
+        {
+
+            PopulateDataGridView();
+            searchtextbox.Text = string.Empty;
+        }
+
         private void searchtextbox_TextChanged(object sender, EventArgs e)
         {
             string searchQuery = searchtextbox.Text.Trim();
@@ -312,7 +318,8 @@ namespace SPAAT.SubPages
             try
             {
                 DataGridViewRow selectedRow = budmangrid.SelectedRows[0];
-                int snId = Convert.ToInt32(selectedRow.Cells["sn_id"].Value);
+                int pmId = Convert.ToInt32(selectedRow.Cells["pm_id"].Value);
+                int studentId = Convert.ToInt32(selectedRow.Cells["sn_id"].Value);
                 string name = selectedRow.Cells["name"].Value.ToString();
                 string originalCharge = selectedRow.Cells["charge"].Value.ToString();
                 string originalAmountPaid = selectedRow.Cells["amountpaid"].Value.ToString();
@@ -342,11 +349,11 @@ namespace SPAAT.SubPages
 
                         string sqlUpdateFil = "UPDATE studfil " +
                                               "SET charge = @charge, amountpaid = @amountpaid " +
-                                              "WHERE sn_id = @snId";
+                                              "WHERE pm_id = @pmId";
 
                         using (MySqlCommand commandUpdateFil = new MySqlCommand(sqlUpdateFil, connection))
                         {
-                            commandUpdateFil.Parameters.AddWithValue("@snId", snId);
+                            commandUpdateFil.Parameters.AddWithValue("@pmId", pmId);
                             commandUpdateFil.Parameters.AddWithValue("@charge", newCharge);
                             commandUpdateFil.Parameters.AddWithValue("@amountpaid", newAmountPaid);
 
@@ -354,7 +361,7 @@ namespace SPAAT.SubPages
 
                             if (rowsAffectedFil > 0)
                             {
-                                UpdateDebtStatusAndAmount(connection, snId, name, newCharge, newAmountPaid, originalCharge, originalAmountPaid);
+                                UpdateDebtStatusAndAmount(connection, studentId, name, newCharge, newAmountPaid, originalCharge, originalAmountPaid);
 
                                 budgetstatuslabel.ForeColor = Color.DarkGreen;
                                 budgetstatuslabel.Visible = true;
@@ -442,9 +449,16 @@ namespace SPAAT.SubPages
             }
         }
 
+        
+
         private void searchlabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ModStudFil_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

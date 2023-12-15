@@ -71,6 +71,7 @@
             this.nametb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nametb.Location = new System.Drawing.Point(41, 104);
             this.nametb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.nametb.MaxLength = 50;
             this.nametb.Name = "nametb";
             this.nametb.PasswordChar = '\0';
             this.nametb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -138,6 +139,7 @@
             this.amountptb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.amountptb.Location = new System.Drawing.Point(41, 274);
             this.amountptb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.amountptb.MaxLength = 9;
             this.amountptb.Name = "amountptb";
             this.amountptb.PasswordChar = '\0';
             this.amountptb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -269,6 +271,7 @@
             this.chargetb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chargetb.Location = new System.Drawing.Point(41, 189);
             this.chargetb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.chargetb.MaxLength = 9;
             this.chargetb.Name = "chargetb";
             this.chargetb.PasswordChar = '\0';
             this.chargetb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -436,6 +439,7 @@
             this.topaytb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.topaytb.Location = new System.Drawing.Point(41, 512);
             this.topaytb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.topaytb.MaxLength = 9;
             this.topaytb.Name = "topaytb";
             this.topaytb.PasswordChar = '\0';
             this.topaytb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -482,6 +486,7 @@
             this.Controls.Add(this.delete);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.createbudget);
+            this.DoubleBuffered = true;
             this.Name = "SubStudFil";
             this.Size = new System.Drawing.Size(750, 651);
             this.Load += new System.EventHandler(this.SubStudFil_Load);

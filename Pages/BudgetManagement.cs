@@ -242,6 +242,15 @@ namespace SPAAT.Pages
             searchtextbox.Text = string.Empty;
         }
 
+        private void RefreshAll()
+        {
+            PopulateDataGridView();
+            UpdateTotalEntriesLabel();
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
+            searchtextbox.Text = string.Empty;
+        }
+
         private void totalentrieslabel_Click(object sender, EventArgs e)
         {
             UpdateTotalEntriesLabel();
@@ -361,6 +370,11 @@ namespace SPAAT.Pages
                     }
                 }
             }
+        }
+
+        private void BudgetManagement_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

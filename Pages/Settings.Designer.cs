@@ -201,6 +201,7 @@
             this.Controls.Add(this.RTL);
             this.Controls.Add(this.RBM);
             this.Controls.Add(this.crebud);
+            this.DoubleBuffered = true;
             this.Name = "Settings";
             this.Size = new System.Drawing.Size(750, 500);
             this.ResumeLayout(false);

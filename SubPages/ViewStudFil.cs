@@ -78,6 +78,13 @@ namespace SPAAT.SubPages
             CalculateAndDisplayTotalCharge();
         }
 
+        private void RefreshAll()
+        {
+
+            PopulateDataGridView();
+            CalculateAndDisplayTotalCharge();
+        }
+
         private void PopulateDataGridView()
         {
             try
@@ -206,6 +213,11 @@ namespace SPAAT.SubPages
         private void searchlabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ViewStudFil_Enter(object sender, EventArgs e)
+        {
+            RefreshAll();
         }
     }
 }

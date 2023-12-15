@@ -63,6 +63,7 @@
             this.nametb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nametb.Location = new System.Drawing.Point(41, 104);
             this.nametb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.nametb.MaxLength = 50;
             this.nametb.Name = "nametb";
             this.nametb.PasswordChar = '\0';
             this.nametb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -116,6 +117,7 @@
             this.remtb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.remtb.Location = new System.Drawing.Point(41, 362);
             this.remtb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.remtb.MaxLength = 9;
             this.remtb.Name = "remtb";
             this.remtb.PasswordChar = '\0';
             this.remtb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -197,6 +199,7 @@
             this.categorytb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.categorytb.Location = new System.Drawing.Point(41, 189);
             this.categorytb.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.categorytb.MaxLength = 100;
             this.categorytb.Name = "categorytb";
             this.categorytb.PasswordChar = '\0';
             this.categorytb.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -337,6 +340,7 @@
             this.Controls.Add(this.delete);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.createbudget);
+            this.DoubleBuffered = true;
             this.Name = "SubTranLo";
             this.Size = new System.Drawing.Size(750, 500);
             this.ResumeLayout(false);
