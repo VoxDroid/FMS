@@ -559,6 +559,12 @@
     <Compile Include="Recovery.Designer.cs">
       <DependentUpon>Recovery.cs</DependentUpon>
     </Compile>
+    <Compile Include="SetupSQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupSQ.Designer.cs">
+      <DependentUpon>SetupSQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\ModBudMan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -647,6 +653,9 @@
     </Compile>
     <EmbeddedResource Include="Recovery.resx">
       <DependentUpon>Recovery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupSQ.resx">
+      <DependentUpon>SetupSQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\ModBudMan.resx">
       <DependentUpon>ModBudMan.cs</DependentUpon>

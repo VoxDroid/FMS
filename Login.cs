@@ -625,6 +625,7 @@ namespace SPAAT
             lblError.Text = string.Empty;
             string username1 = username.Text;
             string password1 = password.Text;
+
             if (IsDatabaseConnected())
             {
                 if (string.IsNullOrWhiteSpace(username1) || string.IsNullOrWhiteSpace(password1))
@@ -644,11 +645,33 @@ namespace SPAAT
                         lblError.Enabled = false;
                         lblError.Visible = false;
                         lblError.Text = string.Empty;
-                        Main mainForm = new Main();
-                        mainForm.Show();
-                        mainForm.LoggedInUser = currentlyLoggedInUser;
 
-                        this.Hide();
+                        bool securityQuestionsExist = CheckSecurityQuestionsExist();
+
+                        if (securityQuestionsExist)
+                        {
+                            Main mainForm = new Main();
+                            mainForm.Show();
+                            mainForm.LoggedInUser = currentlyLoggedInUser;
+
+                            this.Hide();
+                        }
+                        else
+                        {
+                            DialogResult result = MessageBox.Show("It seems like it's your first time logging in. Security questions are required before continuing. Would you like to set them up now?", "Security Questions Setup Required", MessageBoxButtons.YesNo);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                SetupSQ setupForm = new SetupSQ();
+                                setupForm.ShowDialog();
+                            }
+                            else
+                            {
+                                lblError.Enabled = true;
+                                lblError.Visible = true;
+                                lblError.Text = "First Set Up is Required.";
+                            }
+                        }
                     }
                     else
                     {
@@ -664,6 +687,32 @@ namespace SPAAT
                 lblError.Enabled = true;
                 lblError.Visible = true;
                 lblError.Text = "Database Error.";
+            }
+        }
+
+        private bool CheckSecurityQuestionsExist()
+        {
+            string sqlSelect = "SELECT * FROM securityquestions WHERE sqs_id = 1";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand selectCommand = new MySqlCommand(sqlSelect, connection))
+                    {
+                        using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            return reader.Read();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -736,6 +785,7 @@ namespace SPAAT
             lblError.Text = string.Empty;
             string username1 = username.Text;
             string password1 = password.Text;
+
             if (IsDatabaseConnected())
             {
                 if (string.IsNullOrWhiteSpace(username1) || string.IsNullOrWhiteSpace(password1))
@@ -755,11 +805,33 @@ namespace SPAAT
                         lblError.Enabled = false;
                         lblError.Visible = false;
                         lblError.Text = string.Empty;
-                        Main mainForm = new Main();
-                        mainForm.Show();
-                        mainForm.LoggedInUser = currentlyLoggedInUser;
 
-                        this.Hide();
+                        bool securityQuestionsExist = CheckSecurityQuestionsExist();
+
+                        if (securityQuestionsExist)
+                        {
+                            Main mainForm = new Main();
+                            mainForm.Show();
+                            mainForm.LoggedInUser = currentlyLoggedInUser;
+
+                            this.Hide();
+                        }
+                        else
+                        {
+                            DialogResult result = MessageBox.Show("It seems like it's your first time logging in. Security questions are required before continuing. Would you like to set them up now?", "Security Questions Setup Required", MessageBoxButtons.YesNo);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                SetupSQ setupForm = new SetupSQ();
+                                setupForm.ShowDialog();
+                            }
+                            else
+                            {
+                                lblError.Enabled = true;
+                                lblError.Visible = true;
+                                lblError.Text = "First Set Up is Required.";
+                            }
+                        }
                     }
                     else
                     {
