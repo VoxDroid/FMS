@@ -18,12 +18,17 @@ namespace SPAAT.Pages
     public partial class TransactionLogs : UserControl
     {
         string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
+        private bool isDescendingOrder = true;
+        private string currentSearchQuery = string.Empty;
+
         public TransactionLogs()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             PopulateDataGridView();
             UpdateTotalEntriesLabel();
             CalculateAndDisplayTotalCharge();
+
+            isDescendingOrder = !sbo.Checked;
         }
 
         private void CalculateAndDisplayTotalCharge()
@@ -162,7 +167,7 @@ namespace SPAAT.Pages
             }
         }
 
-        private void PopulateDataGridView()
+        private void PopulateDataGridView(string searchQuery = "")
         {
             try
             {
@@ -170,10 +175,13 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT tl_id, date, name, description, category, amount FROM tranlo;";
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+                    string sqlQuery = $"SELECT tl_id, date, name, description, category, amount FROM tranlo WHERE category LIKE @searchQuery OR description LIKE @searchQuery OR amount LIKE @searchQuery OR name LIKE @searchQuery OR date LIKE @searchQuery ORDER BY tl_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
+                        command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
+
                         DataTable dataTable = new DataTable();
                         MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                         adapter.Fill(dataTable);
@@ -190,6 +198,8 @@ namespace SPAAT.Pages
                         }
                     }
                 }
+                UpdateTotalEntriesLabel();
+                CalculateAndDisplayTotalCharge();
             }
             catch (Exception ex)
             {
@@ -227,6 +237,8 @@ namespace SPAAT.Pages
         {
             string searchQuery = searchtextbox.Text.Trim();
 
+            currentSearchQuery = searchQuery;
+
             FilterDataGridView(searchQuery);
             CalculateAndDisplayTotalCharge();
         }
@@ -239,12 +251,14 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
                     string sqlQuery = "SELECT * FROM tranlo " +
                               "WHERE category LIKE @searchQuery " +
                               "   OR description LIKE @searchQuery " +
                               "   OR amount LIKE @searchQuery" +
                               "   OR name LIKE @searchQuery" +
-                              "   OR date LIKE @searchQuery";
+                              "   OR date LIKE @searchQuery" +
+                                      $" ORDER BY tl_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -354,6 +368,13 @@ namespace SPAAT.Pages
         private void TransactionLogs_Enter(object sender, EventArgs e)
         {
             RefreshAll();
+        }
+
+        private void sbo_CheckedChanged(object sender, EventArgs e)
+        {
+            isDescendingOrder = !sbo.Checked;
+
+            PopulateDataGridView(currentSearchQuery);
         }
     }
 }

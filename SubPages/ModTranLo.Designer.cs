@@ -44,7 +44,6 @@
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchlabel = new System.Windows.Forms.Label();
             this.searchtextbox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.nametb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.budgetstatuslabel = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.createbudget = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.recentstudentscb = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.sbo = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,7 +222,7 @@
             this.searchlabel.AutoSize = true;
             this.searchlabel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchlabel.ForeColor = System.Drawing.Color.White;
-            this.searchlabel.Location = new System.Drawing.Point(477, 23);
+            this.searchlabel.Location = new System.Drawing.Point(432, 18);
             this.searchlabel.Name = "searchlabel";
             this.searchlabel.Size = new System.Drawing.Size(76, 28);
             this.searchlabel.TabIndex = 67;
@@ -249,7 +249,7 @@
             this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
             this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.searchtextbox.Location = new System.Drawing.Point(560, 14);
+            this.searchtextbox.Location = new System.Drawing.Point(515, 9);
             this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.searchtextbox.Name = "searchtextbox";
             this.searchtextbox.PasswordChar = '\0';
@@ -260,28 +260,6 @@
             this.searchtextbox.Size = new System.Drawing.Size(176, 42);
             this.searchtextbox.TabIndex = 66;
             this.searchtextbox.TextChanged += new System.EventHandler(this.searchtextbox_TextChanged);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(378, 424);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(176, 56);
-            this.guna2Button1.TabIndex = 64;
-            this.guna2Button1.Text = "Refresh";
-            this.guna2Button1.UseTransparentBackground = true;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // nametb
             // 
@@ -483,7 +461,7 @@
             this.delete.FillColor = System.Drawing.Color.IndianRed;
             this.delete.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.delete.ForeColor = System.Drawing.Color.White;
-            this.delete.Location = new System.Drawing.Point(14, 424);
+            this.delete.Location = new System.Drawing.Point(196, 424);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(176, 56);
             this.delete.TabIndex = 53;
@@ -505,7 +483,7 @@
             this.modify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.modify.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.modify.ForeColor = System.Drawing.Color.White;
-            this.modify.Location = new System.Drawing.Point(196, 424);
+            this.modify.Location = new System.Drawing.Point(378, 424);
             this.modify.Name = "modify";
             this.modify.Size = new System.Drawing.Size(176, 56);
             this.modify.TabIndex = 52;
@@ -574,17 +552,36 @@
             this.recentstudentscb.SelectedIndexChanged += new System.EventHandler(this.recentstudentscb_SelectedIndexChanged);
             this.recentstudentscb.Click += new System.EventHandler(this.recentstudentscb_Click);
             // 
+            // sbo
+            // 
+            this.sbo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbo.BackColor = System.Drawing.Color.Transparent;
+            this.sbo.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.sbo.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sbo.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Image = ((System.Drawing.Image)(resources.GetObject("sbo.Image")));
+            this.sbo.ImageOffset = new System.Drawing.Point(0, 0);
+            this.sbo.ImageRotate = 0F;
+            this.sbo.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Location = new System.Drawing.Point(698, 9);
+            this.sbo.Name = "sbo";
+            this.sbo.Size = new System.Drawing.Size(38, 42);
+            this.sbo.TabIndex = 70;
+            this.sbo.UseTransparentBackground = true;
+            this.sbo.CheckedChanged += new System.EventHandler(this.sbo_CheckedChanged);
+            // 
             // ModTranLo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Controls.Add(this.sbo);
             this.Controls.Add(this.recentstudentscb);
             this.Controls.Add(this.guna2VScrollBar1);
             this.Controls.Add(this.searchlabel);
             this.Controls.Add(this.searchtextbox);
             this.Controls.Add(this.budmangrid);
-            this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.nametb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.budgetstatuslabel);
@@ -615,7 +612,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView budmangrid;
         private System.Windows.Forms.Label searchlabel;
         private Guna.UI2.WinForms.Guna2TextBox searchtextbox;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2TextBox nametb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label budgetstatuslabel;
@@ -637,5 +633,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private Guna.UI2.WinForms.Guna2ComboBox recentstudentscb;
+        private Guna.UI2.WinForms.Guna2ImageCheckBox sbo;
     }
 }

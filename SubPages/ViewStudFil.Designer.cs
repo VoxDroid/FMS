@@ -276,7 +276,6 @@
             this.searchlabel.Size = new System.Drawing.Size(76, 28);
             this.searchlabel.TabIndex = 91;
             this.searchlabel.Text = "Search:";
-            this.searchlabel.Click += new System.EventHandler(this.searchlabel_Click);
             // 
             // searchtextbox
             // 

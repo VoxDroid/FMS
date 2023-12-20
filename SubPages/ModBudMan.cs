@@ -18,15 +18,19 @@ namespace SPAAT.SubPages
     public partial class ModBudMan : UserControl
     {
         string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
-       
+        private bool isDescendingOrder = true;
+        private string currentSearchQuery = string.Empty;
+
         public ModBudMan()
         {
             InitializeComponent();
             PopulateDataGridView();
             LoadRecentCategories();
+
+            isDescendingOrder = !sbo.Checked;
         }
 
-        private void PopulateDataGridView()
+        private void PopulateDataGridView(string searchQuery = "")
         {
             try
             {
@@ -34,10 +38,13 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT bm_id, name, category, allocation, remaining FROM budman;";
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+                    string sqlQuery = $"SELECT bm_id, name, category, allocation, remaining FROM budman WHERE category LIKE @searchQuery OR allocation LIKE @searchQuery OR remaining LIKE @searchQuery OR name LIKE @searchQuery ORDER BY bm_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
+                        command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
+
                         DataTable dataTable = new DataTable();
                         MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                         adapter.Fill(dataTable);
@@ -50,7 +57,6 @@ namespace SPAAT.SubPages
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
                             budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
                             budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
-
                         }
                     }
                 }
@@ -263,6 +269,8 @@ namespace SPAAT.SubPages
         {
             string searchQuery = searchtextbox.Text.Trim();
 
+            currentSearchQuery = searchQuery;
+
             FilterDataGridView(searchQuery);
         }
 
@@ -274,11 +282,14 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+
                     string sqlQuery = "SELECT * FROM budman " +
                               "WHERE category LIKE @searchQuery " +
                               "   OR allocation LIKE @searchQuery " +
                               "   OR remaining LIKE @searchQuery" +
-                              "   OR name LIKE @searchQuery";
+                              "   OR name LIKE @searchQuery" +
+                              $" ORDER BY bm_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -296,7 +307,6 @@ namespace SPAAT.SubPages
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
                             budmangrid.Rows[rowIndex].Cells["alloc"].Value = row["allocation"];
                             budmangrid.Rows[rowIndex].Cells["rembud"].Value = row["remaining"];
-
                         }
                     }
                 }
@@ -306,6 +316,7 @@ namespace SPAAT.SubPages
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void searchlabel_Click(object sender, EventArgs e)
         {
@@ -501,6 +512,13 @@ namespace SPAAT.SubPages
         private void ModBudMan_Enter(object sender, EventArgs e)
         {
             RefreshAll();
+        }
+
+        private void sbo_CheckedChanged(object sender, EventArgs e)
+        {
+            isDescendingOrder = !sbo.Checked;
+
+            PopulateDataGridView(currentSearchQuery);
         }
     }
 }

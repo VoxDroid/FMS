@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,7 +41,6 @@
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.third = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.refresh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.budmangrid = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -72,7 +70,7 @@
             this.totalfundslabel.Location = new System.Drawing.Point(22, 24);
             this.totalfundslabel.Name = "totalfundslabel";
             this.totalfundslabel.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.totalfundslabel.Size = new System.Drawing.Size(734, 88);
+            this.totalfundslabel.Size = new System.Drawing.Size(818, 88);
             this.totalfundslabel.TabIndex = 4;
             this.totalfundslabel.Text = "Total Funds:";
             this.totalfundslabel.Click += new System.EventHandler(this.totalfundslabel_Click);
@@ -128,30 +126,6 @@
             this.label1.Size = new System.Drawing.Size(327, 40);
             this.label1.TabIndex = 7;
             this.label1.Text = "Top Amount Paid Sources:";
-            // 
-            // refresh
-            // 
-            this.refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refresh.Animated = true;
-            this.refresh.BackColor = System.Drawing.Color.Transparent;
-            this.refresh.BorderRadius = 10;
-            this.refresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.refresh.FillColor = System.Drawing.Color.Teal;
-            this.refresh.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.refresh.ForeColor = System.Drawing.Color.White;
-            this.refresh.Image = ((System.Drawing.Image)(resources.GetObject("refresh.Image")));
-            this.refresh.ImageSize = new System.Drawing.Size(30, 30);
-            this.refresh.Location = new System.Drawing.Point(766, 24);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(74, 88);
-            this.refresh.TabIndex = 18;
-            this.refresh.UseTransparentBackground = true;
-            this.refresh.VisibleChanged += new System.EventHandler(this.refresh_VisibleChanged);
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // guna2HtmlToolTip1
             // 
@@ -341,7 +315,6 @@
             this.Controls.Add(this.guna2VScrollBar1);
             this.Controls.Add(this.budmangrid);
             this.Controls.Add(this.third);
-            this.Controls.Add(this.refresh);
             this.Controls.Add(this.budgetremainlabel);
             this.Controls.Add(this.totalfundslabel);
             this.Controls.Add(this.label1);
@@ -363,7 +336,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button refresh;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
         private System.Windows.Forms.Label third;

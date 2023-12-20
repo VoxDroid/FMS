@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.recompensebutton = new Guna.UI2.WinForms.Guna2Button();
             this.autofillpaid = new Guna.UI2.WinForms.Guna2Button();
             this.chargetb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,30 +57,9 @@
             this.pm_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2HtmlToolTip1 = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.sbo = new Guna.UI2.WinForms.Guna2ImageCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.budmangrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // recompensebutton
-            // 
-            this.recompensebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.recompensebutton.Animated = true;
-            this.recompensebutton.BackColor = System.Drawing.Color.Transparent;
-            this.recompensebutton.BorderRadius = 10;
-            this.recompensebutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.recompensebutton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.recompensebutton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.recompensebutton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.recompensebutton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.recompensebutton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.recompensebutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
-            this.recompensebutton.ForeColor = System.Drawing.Color.White;
-            this.recompensebutton.Location = new System.Drawing.Point(557, 454);
-            this.recompensebutton.Name = "recompensebutton";
-            this.recompensebutton.Size = new System.Drawing.Size(176, 56);
-            this.recompensebutton.TabIndex = 86;
-            this.recompensebutton.Text = "Refresh";
-            this.recompensebutton.UseTransparentBackground = true;
-            this.recompensebutton.Click += new System.EventHandler(this.recompensebutton_Click);
             // 
             // autofillpaid
             // 
@@ -284,7 +262,7 @@
             this.modifybutton.FillColor = System.Drawing.Color.Teal;
             this.modifybutton.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold);
             this.modifybutton.ForeColor = System.Drawing.Color.White;
-            this.modifybutton.Location = new System.Drawing.Point(557, 392);
+            this.modifybutton.Location = new System.Drawing.Point(557, 454);
             this.modifybutton.Name = "modifybutton";
             this.modifybutton.Size = new System.Drawing.Size(176, 56);
             this.modifybutton.TabIndex = 72;
@@ -294,11 +272,11 @@
             // 
             // searchlabel
             // 
-            this.searchlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchlabel.AutoSize = true;
             this.searchlabel.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchlabel.ForeColor = System.Drawing.Color.White;
-            this.searchlabel.Location = new System.Drawing.Point(312, 600);
+            this.searchlabel.Location = new System.Drawing.Point(454, 31);
             this.searchlabel.Name = "searchlabel";
             this.searchlabel.Size = new System.Drawing.Size(76, 28);
             this.searchlabel.TabIndex = 89;
@@ -307,7 +285,7 @@
             // 
             // searchtextbox
             // 
-            this.searchtextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchtextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchtextbox.Animated = true;
             this.searchtextbox.BackColor = System.Drawing.Color.Transparent;
             this.searchtextbox.BorderColor = System.Drawing.Color.White;
@@ -326,7 +304,7 @@
             this.searchtextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchtextbox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchtextbox.IconRight")));
             this.searchtextbox.IconRightOffset = new System.Drawing.Point(10, 0);
-            this.searchtextbox.Location = new System.Drawing.Point(391, 592);
+            this.searchtextbox.Location = new System.Drawing.Point(533, 23);
             this.searchtextbox.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.searchtextbox.Name = "searchtextbox";
             this.searchtextbox.PasswordChar = '\0';
@@ -501,18 +479,36 @@
             this.guna2VScrollBar1.AutoRoundedCorners = true;
             this.guna2VScrollBar1.BindingContainer = this.budmangrid;
             this.guna2VScrollBar1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2VScrollBar1.BorderRadius = 8;
             this.guna2VScrollBar1.FillColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.InUpdate = false;
             this.guna2VScrollBar1.LargeChange = 10;
-            this.guna2VScrollBar1.Location = new System.Drawing.Point(533, 268);
+            this.guna2VScrollBar1.Location = new System.Drawing.Point(541, 268);
             this.guna2VScrollBar1.Minimum = 1;
             this.guna2VScrollBar1.Name = "guna2VScrollBar1";
-            this.guna2VScrollBar1.ScrollbarSize = 18;
-            this.guna2VScrollBar1.Size = new System.Drawing.Size(18, 315);
+            this.guna2VScrollBar1.ScrollbarSize = 1;
+            this.guna2VScrollBar1.Size = new System.Drawing.Size(1, 315);
             this.guna2VScrollBar1.TabIndex = 90;
             this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Transparent;
             this.guna2VScrollBar1.Value = 1;
+            // 
+            // sbo
+            // 
+            this.sbo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbo.BackColor = System.Drawing.Color.Transparent;
+            this.sbo.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.sbo.CheckedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sbo.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Image = ((System.Drawing.Image)(resources.GetObject("sbo.Image")));
+            this.sbo.ImageOffset = new System.Drawing.Point(0, 0);
+            this.sbo.ImageRotate = 0F;
+            this.sbo.ImageSize = new System.Drawing.Size(30, 30);
+            this.sbo.Location = new System.Drawing.Point(699, 23);
+            this.sbo.Name = "sbo";
+            this.sbo.Size = new System.Drawing.Size(38, 42);
+            this.sbo.TabIndex = 91;
+            this.sbo.UseTransparentBackground = true;
+            this.sbo.CheckedChanged += new System.EventHandler(this.sbo_CheckedChanged);
             // 
             // ModStudFil
             // 
@@ -520,10 +516,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.Controls.Add(this.guna2VScrollBar1);
+            this.Controls.Add(this.sbo);
             this.Controls.Add(this.searchlabel);
             this.Controls.Add(this.searchtextbox);
             this.Controls.Add(this.budmangrid);
-            this.Controls.Add(this.recompensebutton);
             this.Controls.Add(this.autofillpaid);
             this.Controls.Add(this.chargetb);
             this.Controls.Add(this.label4);
@@ -546,7 +542,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button recompensebutton;
         private Guna.UI2.WinForms.Guna2Button autofillpaid;
         private Guna.UI2.WinForms.Guna2TextBox chargetb;
         private System.Windows.Forms.Label label4;
@@ -570,5 +565,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pm_id;
         private Guna.UI2.WinForms.Guna2HtmlToolTip guna2HtmlToolTip1;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
+        private Guna.UI2.WinForms.Guna2ImageCheckBox sbo;
     }
 }

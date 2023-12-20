@@ -304,7 +304,9 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil;";
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+
+                    string sqlQuery = $"SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil ORDER BY pm_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -351,6 +353,8 @@ namespace SPAAT.Pages
 
             CalculateAndDisplayTotalCharge();
             CalculateAndDisplayTotalCharge2();
+            filter.SelectedIndex = 0;
+            sbo.Checked = false;
         }
 
         private void totalentrieslabel_Click(object sender, EventArgs e)
@@ -366,12 +370,14 @@ namespace SPAAT.Pages
 
         private void searchtextbox_TextChanged(object sender, EventArgs e)
         {
-            string searchQuery = searchtextbox.Text.Trim();
+            currentSearchQuery = searchtextbox.Text.Trim();
 
-            FilterDataGridView(searchQuery);
+            FilterDataGridView(currentSearchQuery);
             CalculateAndDisplayTotalCharge();
             CalculateAndDisplayTotalCharge2();
         }
+
+        private string currentSearchQuery = string.Empty;
 
         private void FilterDataGridView(string searchQuery)
         {
@@ -381,15 +387,33 @@ namespace SPAAT.Pages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT * FROM studfil " +
-                              "WHERE name LIKE @searchQuery " +
-                              "   OR amountpaid LIKE @searchQuery " +
-                              "   OR paymentdate LIKE @searchQuery" +
-                              "   OR paymentstatus LIKE @searchQuery" +
-                              "   OR charge LIKE @searchQuery";
+                    string selectedFilter = filter.SelectedItem?.ToString();
+
+                    string sqlQuery;
+
+                    if (selectedFilter == "Show All" || string.IsNullOrEmpty(selectedFilter))
+                    {
+                        sqlQuery = "SELECT * FROM studfil " +
+                                    "WHERE name LIKE @searchQuery OR amountpaid LIKE @searchQuery OR paymentdate LIKE @searchQuery OR paymentstatus LIKE @searchQuery OR charge LIKE @searchQuery ";
+                    }
+                    else
+                    {
+                        sqlQuery = "SELECT * FROM studfil " +
+                                    $"WHERE paymentstatus = @status AND (name LIKE @searchQuery OR amountpaid LIKE @searchQuery OR paymentdate LIKE @searchQuery OR paymentstatus LIKE @searchQuery OR charge LIKE @searchQuery) ";
+                    }
+
+                    if (isDescendingOrder)
+                    {
+                        sqlQuery += "ORDER BY pm_id DESC";
+                    }
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
+                        if (selectedFilter != "Show All" && !string.IsNullOrEmpty(selectedFilter))
+                        {
+                            command.Parameters.AddWithValue("@status", selectedFilter);
+                        }
+
                         command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
 
                         DataTable dataTable = new DataTable();
@@ -406,11 +430,12 @@ namespace SPAAT.Pages
                             budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
                             budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
                             budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
-
                         }
                         UpdateTotalEntriesLabel();
                         CalculateAndDisplayTotalCharge();
                         CalculateAndDisplayTotalCharge2();
+
+                        currentSearchQuery = searchQuery;
                     }
                 }
             }
@@ -419,7 +444,6 @@ namespace SPAAT.Pages
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
 
         private void budmangrid_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -480,6 +504,93 @@ namespace SPAAT.Pages
         private void StudentFile_Enter(object sender, EventArgs e)
         {
             RefreshAll();
+        }
+
+        private void StudentFile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedFilter = filter.SelectedItem.ToString();
+            if (filter.SelectedIndex == 0)
+            {
+                PopulateDataGridView();
+                return;
+            }
+
+            searchtextbox.Text = string.Empty;
+
+            FilterDataGridViewByStatus(selectedFilter);
+
+            CalculateAndDisplayTotalCharge();
+            CalculateAndDisplayTotalCharge2();
+        }
+
+        private void FilterDataGridViewByStatus(string status)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connet))
+                {
+                    connection.Open();
+
+                    string sqlQuery = "SELECT * FROM studfil " +
+                                      "WHERE paymentstatus = @status ";
+
+                    sqlQuery += $"ORDER BY pm_id {(isDescendingOrder ? "DESC" : "ASC")}";
+
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@status", status);
+
+                        DataTable dataTable = new DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        adapter.Fill(dataTable);
+                        budmangrid.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            int rowIndex = budmangrid.Rows.Add();
+                            budmangrid.Rows[rowIndex].Cells["pm_id"].Value = row["pm_id"];
+                            budmangrid.Rows[rowIndex].Cells["sn_id"].Value = row["sn_id"];
+                            budmangrid.Rows[rowIndex].Cells["name"].Value = row["name"];
+                            budmangrid.Rows[rowIndex].Cells["charge"].Value = row["charge"];
+                            budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
+                            budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
+                            budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
+                        }
+                        UpdateTotalEntriesLabel();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+        private bool isDescendingOrder = true;
+
+        private void sbo_CheckedChanged(object sender, EventArgs e)
+        {
+            isDescendingOrder = !sbo.Checked;
+
+            string selectedFilter = filter.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(currentSearchQuery))
+            {
+                FilterDataGridView(currentSearchQuery);
+            }
+            else if (string.IsNullOrEmpty(selectedFilter) || selectedFilter == "Show All")
+            {
+                PopulateDataGridView();
+            }
+            else
+            {
+                FilterDataGridViewByStatus(selectedFilter);
+            }
         }
     }
 }

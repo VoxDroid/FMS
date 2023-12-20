@@ -18,24 +18,30 @@ namespace SPAAT.SubPages
     public partial class ModStudFil : UserControl
     {
         string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
+        private bool isDescendingOrder = true;
+        private string currentSearchQuery = string.Empty;
+
         public ModStudFil()
         {
             InitializeComponent();
             PopulateDataGridView();
         }
 
-        private void PopulateDataGridView()
+
+        private void PopulateDataGridView(string searchQuery = "")
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connet))
                 {
                     connection.Open();
-
-                    string sqlQuery = "SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil;";
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+                    string sqlQuery = $"SELECT pm_id, sn_id, name, charge, amountpaid, paymentdate, paymentstatus FROM studfil WHERE name LIKE @searchQuery OR amountpaid LIKE @searchQuery OR paymentdate LIKE @searchQuery OR paymentstatus LIKE @searchQuery OR charge LIKE @searchQuery ORDER BY pm_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
+                        command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
+
                         DataTable dataTable = new DataTable();
                         MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                         adapter.Fill(dataTable);
@@ -68,12 +74,15 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+
                     string sqlQuery = "SELECT * FROM studfil " +
-                              "WHERE name LIKE @searchQuery " +
-                              "   OR amountpaid LIKE @searchQuery " +
-                              "   OR paymentdate LIKE @searchQuery" +
-                              "   OR paymentstatus LIKE @searchQuery" +
-                              "   OR charge LIKE @searchQuery";
+                                      "WHERE name LIKE @searchQuery " +
+                                      "   OR amountpaid LIKE @searchQuery " +
+                                      "   OR paymentdate LIKE @searchQuery" +
+                                      "   OR paymentstatus LIKE @searchQuery" +
+                                      "   OR charge LIKE @searchQuery" +
+                                      $" ORDER BY pm_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -93,7 +102,6 @@ namespace SPAAT.SubPages
                             budmangrid.Rows[rowIndex].Cells["amountpaid"].Value = row["amountpaid"];
                             budmangrid.Rows[rowIndex].Cells["paymentdate"].Value = row["paymentdate"];
                             budmangrid.Rows[rowIndex].Cells["status"].Value = row["paymentstatus"];
-
                         }
                     }
                 }
@@ -197,6 +205,8 @@ namespace SPAAT.SubPages
         private void searchtextbox_TextChanged(object sender, EventArgs e)
         {
             string searchQuery = searchtextbox.Text.Trim();
+
+            currentSearchQuery = searchQuery;
 
             FilterDataGridView(searchQuery);
         }
@@ -459,6 +469,13 @@ namespace SPAAT.SubPages
         private void ModStudFil_Enter(object sender, EventArgs e)
         {
             RefreshAll();
+        }
+
+        private void sbo_CheckedChanged(object sender, EventArgs e)
+        {
+            isDescendingOrder = !sbo.Checked;
+
+            PopulateDataGridView(currentSearchQuery);
         }
     }
 }

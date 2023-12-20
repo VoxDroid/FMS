@@ -12,19 +12,27 @@ using MySql.Data.MySqlClient;
 using System.Xml.Linq;
 using Google.Protobuf.WellKnownTypes;
 using Guna.UI2.WinForms;
+using System.Data.SqlClient;
 
 namespace SPAAT.SubPages
 {
     public partial class ModTranLo : UserControl
     {
         string connet = "Server=localhost;Database=zapisaxisfms;Username=root;Password=;";
+        private bool isDescendingOrder = true;
+        private string currentSearchQuery = string.Empty;
+
         public ModTranLo()
         {
             InitializeComponent();
             PopulateDataGridView();
+            LoadRecentCategories();
+
+            isDescendingOrder = !sbo.Checked;
         }
 
-        private void PopulateDataGridView()
+
+        private void PopulateDataGridView(string searchQuery = "")
         {
             try
             {
@@ -32,10 +40,14 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
-                    string sqlQuery = "SELECT tl_id, date, name, description, category, amount FROM tranlo;";
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+                    string sqlQuery = $"SELECT tl_id, date, name, description, category, amount FROM tranlo WHERE date LIKE @searchQuery OR name LIKE @searchQuery OR category LIKE @searchQuery OR description LIKE @searchQuery OR amount LIKE @searchQuery ORDER BY tl_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
+                        // Add parameters for the search query
+                        command.Parameters.AddWithValue("@searchQuery", $"%{searchQuery}%");
+
                         DataTable dataTable = new DataTable();
                         MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                         adapter.Fill(dataTable);
@@ -49,7 +61,6 @@ namespace SPAAT.SubPages
                             budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
                             budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
-
                         }
                     }
                 }
@@ -215,6 +226,8 @@ namespace SPAAT.SubPages
         {
             string searchQuery = searchtextbox.Text.Trim();
 
+            currentSearchQuery = searchQuery;
+
             FilterDataGridView(searchQuery);
         }
 
@@ -226,12 +239,15 @@ namespace SPAAT.SubPages
                 {
                     connection.Open();
 
+                    string sortOrder = isDescendingOrder ? "DESC" : "ASC";
+
                     string sqlQuery = "SELECT * FROM tranlo " +
                               "WHERE date LIKE @searchQuery " +
                               "   OR name LIKE @searchQuery " +
                               "   OR category LIKE @searchQuery" +
                               "   OR description LIKE @searchQuery" +
-                              "   OR amount LIKE @searchQuery";
+                              "   OR amount LIKE @searchQuery" +
+                                      $" ORDER BY tl_id {sortOrder};";
 
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
@@ -250,7 +266,6 @@ namespace SPAAT.SubPages
                             budmangrid.Rows[rowIndex].Cells["desc"].Value = row["description"];
                             budmangrid.Rows[rowIndex].Cells["cat"].Value = row["category"];
                             budmangrid.Rows[rowIndex].Cells["amount"].Value = row["amount"];
-
                         }
                     }
                 }
@@ -438,5 +453,13 @@ namespace SPAAT.SubPages
         {
             RefreshAll();
         }
+
+        private void sbo_CheckedChanged(object sender, EventArgs e)
+        {
+            isDescendingOrder = !sbo.Checked;
+
+            PopulateDataGridView(currentSearchQuery);
+        }
+
     }
 }
