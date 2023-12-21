@@ -33,7 +33,7 @@ namespace SPAAT
         }
 
         private const int MinFormWidth = 1000;
-        private const int MinFormHeight = 745;
+        private const int MinFormHeight = 800;
 
         private void Form_Resize(object sender, EventArgs e)
         {

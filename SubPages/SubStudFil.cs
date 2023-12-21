@@ -633,7 +633,7 @@ namespace SPAAT.SubPages
                                 commandFil.Parameters.AddWithValue("@name", name);
                                 commandFil.Parameters.AddWithValue("@amountpaid", amountpaid);
                                 commandFil.Parameters.AddWithValue("@charge", charge);
-                                commandFil.Parameters.AddWithValue("@paymentdate", currentDate.AddMonths(1).ToString("yyyy-MM-dd"));
+                                commandFil.Parameters.AddWithValue("@paymentdate", currentDate.AddMonths(0).ToString("yyyy-MM-dd"));
 
                                 string sqlGetDebt = "SELECT debtamount FROM studdeb WHERE sn_id = @snId";
                                 using (MySqlCommand commandGetDebt = new MySqlCommand(sqlGetDebt, connection))

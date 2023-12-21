@@ -171,7 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.BGB.Location = new System.Drawing.Point(-3, 68);
             this.BGB.Name = "BGB";
-            this.BGB.Size = new System.Drawing.Size(217, 672);
+            this.BGB.Size = new System.Drawing.Size(217, 727);
             this.BGB.TabIndex = 4;
             // 
             // dashboardbutton
@@ -305,7 +305,7 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(210, 68);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Orientation = Bunifu.UI.WinForms.BunifuSeparator.LineOrientation.Vertical;
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 669);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 724);
             this.bunifuSeparator1.TabIndex = 10;
             // 
             // pages
@@ -338,7 +338,7 @@
             this.pages.PageName = "secque";
             this.pages.PageTitle = "Manage SQ";
             this.pages.SelectedIndex = 0;
-            this.pages.Size = new System.Drawing.Size(768, 669);
+            this.pages.Size = new System.Drawing.Size(768, 724);
             this.pages.TabIndex = 11;
             animation1.AnimateOnlyDifferences = true;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -638,7 +638,7 @@
             this.secque.Controls.Add(this.securityQuestions1);
             this.secque.Location = new System.Drawing.Point(4, 4);
             this.secque.Name = "secque";
-            this.secque.Size = new System.Drawing.Size(760, 625);
+            this.secque.Size = new System.Drawing.Size(760, 680);
             this.secque.TabIndex = 15;
             this.secque.Text = "Manage SQ";
             // 
@@ -648,7 +648,7 @@
             this.securityQuestions1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.securityQuestions1.Location = new System.Drawing.Point(0, 0);
             this.securityQuestions1.Name = "securityQuestions1";
-            this.securityQuestions1.Size = new System.Drawing.Size(760, 625);
+            this.securityQuestions1.Size = new System.Drawing.Size(760, 680);
             this.securityQuestions1.TabIndex = 0;
             // 
             // guna2CirclePictureBox1
@@ -672,7 +672,7 @@
             this.ZAPISAXIS.BorderRadius = 96;
             this.ZAPISAXIS.Image = ((System.Drawing.Image)(resources.GetObject("ZAPISAXIS.Image")));
             this.ZAPISAXIS.IsCircle = true;
-            this.ZAPISAXIS.Location = new System.Drawing.Point(12, 541);
+            this.ZAPISAXIS.Location = new System.Drawing.Point(12, 596);
             this.ZAPISAXIS.Name = "ZAPISAXIS";
             this.ZAPISAXIS.Size = new System.Drawing.Size(192, 192);
             this.ZAPISAXIS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -822,7 +822,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(1000, 745);
+            this.ClientSize = new System.Drawing.Size(1000, 800);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.studentfile);
             this.Controls.Add(this.adminpage);
