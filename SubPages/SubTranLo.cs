@@ -71,10 +71,19 @@ namespace SPAAT.SubPages
             }
             else
             {
-                string name = nametb.Text;
-                string description = categorytb.Text;
-                string category = alloctb.Text;
+                string name = nametb.Text.Trim();
+                string description = categorytb.Text.Trim();
+                string category = alloctb.Text.Trim();
                 double amount = Convert.ToDouble(remtb.Text);
+
+                if (IsRecordExists(name, category, amount))
+                {
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Record with the same name, category, and amount already exists.";
+                    return;
+                }
 
                 DateTime currentDate = DateTime.Now;
 
@@ -122,6 +131,27 @@ namespace SPAAT.SubPages
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private bool IsRecordExists(string name, string category, double amount)
+        {
+            string sqlCheck = "SELECT COUNT(*) FROM tranlo WHERE name = @name AND category = @category AND amount = @amount";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(sqlCheck, connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@category", category);
+                    command.Parameters.AddWithValue("@amount", amount);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    return count > 0;
                 }
             }
         }

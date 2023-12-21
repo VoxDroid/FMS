@@ -141,6 +141,15 @@ namespace SPAAT.SubPages
 
                 decimal remaining = string.IsNullOrWhiteSpace(remainingText) ? originalRemaining : Convert.ToDecimal(remainingText);
 
+                if (IsRecordExists(name, category, remaining))
+                {
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Record with the same name, category, and amount already exists.";
+                    return;
+                }
+
                 StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
 
                 if (!string.IsNullOrWhiteSpace(name) && name != originalName)
@@ -210,6 +219,27 @@ namespace SPAAT.SubPages
                 budgetstatuslabel.Visible = true;
                 budgetstatuslabel.Enabled = true;
                 budgetstatuslabel.Text = "Please select a row to update.";
+            }
+        }
+
+        private bool IsRecordExists(string name, string category, decimal amount)
+        {
+            string sqlCheck = "SELECT COUNT(*) FROM tranlo WHERE name = @name AND category = @category AND amount = @amount";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(sqlCheck, connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@category", category);
+                    command.Parameters.AddWithValue("@amount", amount);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    return count > 0;
+                }
             }
         }
 

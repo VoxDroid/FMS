@@ -65,7 +65,7 @@ namespace SPAAT.SubPages
         private void createbudget_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nametb.Text) || string.IsNullOrWhiteSpace(categorytb.Text) ||
-            string.IsNullOrWhiteSpace(alloctb.Text) || string.IsNullOrWhiteSpace(remtb.Text))
+                string.IsNullOrWhiteSpace(alloctb.Text) || string.IsNullOrWhiteSpace(remtb.Text))
             {
                 budgetstatuslabel.ForeColor = Color.Maroon;
                 budgetstatuslabel.Enabled = true;
@@ -79,50 +79,79 @@ namespace SPAAT.SubPages
                 double budget = Convert.ToDouble(alloctb.Text);
                 double remaining = Convert.ToDouble(remtb.Text);
 
-                string sqlInsert = "INSERT INTO budman (name, category, allocation, remaining) VALUES (@name, @category, @allocation, @remaining)";
-
-                try
+                if (IsRecordExists(name, category, budget))
                 {
-                    using (MySqlConnection connection = new MySqlConnection(connet))
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Record with the same name, category, and allocation already exists.";
+                }
+                else
+                {
+                    string sqlInsert = "INSERT INTO budman (name, category, allocation, remaining) VALUES (@name, @category, @allocation, @remaining)";
+
+                    try
                     {
-                        connection.Open();
-
-                        using (MySqlCommand command = new MySqlCommand(sqlInsert, connection))
+                        using (MySqlConnection connection = new MySqlConnection(connet))
                         {
-                            command.Parameters.AddWithValue("@name", name);
-                            command.Parameters.AddWithValue("@category", category);
-                            command.Parameters.AddWithValue("@allocation", budget);
-                            command.Parameters.AddWithValue("@remaining", remaining);
+                            connection.Open();
 
-                            int rowsAffected = command.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
+                            using (MySqlCommand command = new MySqlCommand(sqlInsert, connection))
                             {
-                                budgetstatuslabel.Enabled = true;
-                                budgetstatuslabel.Visible = true;
-                                budgetstatuslabel.ForeColor = Color.DarkGreen;
-                                budgetstatuslabel.Text = "Record inserted successfully.";
-                                nametb.Clear();
-                                categorytb.Clear();
-                                alloctb.Clear();
-                                remtb.Clear();
+                                command.Parameters.AddWithValue("@name", name);
+                                command.Parameters.AddWithValue("@category", category);
+                                command.Parameters.AddWithValue("@allocation", budget);
+                                command.Parameters.AddWithValue("@remaining", remaining);
 
-                                LoadRecentCategories();
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    budgetstatuslabel.Enabled = true;
+                                    budgetstatuslabel.Visible = true;
+                                    budgetstatuslabel.ForeColor = Color.DarkGreen;
+                                    budgetstatuslabel.Text = "Record inserted successfully.";
+                                    nametb.Clear();
+                                    categorytb.Clear();
+                                    alloctb.Clear();
+                                    remtb.Clear();
+
+                                    LoadRecentCategories();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to insert record.");
+
+                                    LoadRecentCategories();
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show("Failed to insert record.");
-
-                                LoadRecentCategories();
-                            }
-
-
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
                 }
-                catch (Exception ex)
+            }
+        }
+
+        private bool IsRecordExists(string name, string category, double allocation)
+        {
+            string sqlCheck = "SELECT COUNT(*) FROM budman WHERE name = @name AND category = @category AND allocation = @allocation";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(sqlCheck, connection))
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@category", category);
+                    command.Parameters.AddWithValue("@allocation", allocation);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    return count > 0;
                 }
             }
         }

@@ -151,6 +151,15 @@ namespace SPAAT.SubPages
                 decimal budget = string.IsNullOrWhiteSpace(budgetText) ? originalBudget : Convert.ToDecimal(budgetText);
                 decimal remaining = string.IsNullOrWhiteSpace(remainingText) ? originalRemaining : Convert.ToDecimal(remainingText);
 
+                if (IsRecordExists(name, category, budget))
+                {
+                    budgetstatuslabel.ForeColor = Color.Maroon;
+                    budgetstatuslabel.Enabled = true;
+                    budgetstatuslabel.Visible = true;
+                    budgetstatuslabel.Text = "Record with the same name, category, and allocation already exists.";
+                    return;
+                }
+
                 StringBuilder confirmationMessage = new StringBuilder("Are you sure you want to update this record with the following changes?\n\n");
 
                 if (!string.IsNullOrWhiteSpace(name) && name != originalName)
@@ -223,6 +232,26 @@ namespace SPAAT.SubPages
             }
         }
 
+        private bool IsRecordExists(string name, string category, decimal allocation)
+        {
+            string sqlCheck = "SELECT COUNT(*) FROM budman WHERE name = @name AND category = @category AND allocation = @allocation";
+
+            using (MySqlConnection connection = new MySqlConnection(connet))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(sqlCheck, connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@category", category);
+                    command.Parameters.AddWithValue("@allocation", allocation);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
 
         private void NumbersOnly_KeyPress(object sender, KeyPressEventArgs e)
         {
