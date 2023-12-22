@@ -383,6 +383,25 @@ namespace SPAAT.Pages
 
         private void exportbutton_Click(object sender, EventArgs e)
         {
+
+            if (guna2ComboBox2.SelectedIndex == 1 && budmangrid.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (guna2ComboBox2.SelectedIndex == 2 && budmangrid2.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (guna2ComboBox2.SelectedIndex == 3 && budmangrid3.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (guna2ComboBox2.SelectedIndex < 1 || guna2ComboBox1.SelectedIndex < 1)
             {
                 MessageBox.Show("Please select both a table and a format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -456,6 +475,8 @@ namespace SPAAT.Pages
         {
             try
             {
+                
+
                 switch (format.ToLower())
                 {
                     case "csv":
