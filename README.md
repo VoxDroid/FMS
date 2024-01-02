@@ -1,6 +1,11 @@
 # ZapisAxis - Financial Management System for Student Organization of the College of Computer Studies (SOCCS).
 
-![ZapisAxis](https://github.com/VoxDroid/FMS/blob/master/ZapisAxisL.png)
+<br/>
+<div align="center">
+  <img width="50px" src="https://github.com/VoxDroid/FMS/blob/master/ZapisAxisL.png">
+</div>
+<br/>
+<div align="center">
 
 ## Introduction
 
