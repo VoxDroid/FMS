@@ -6,6 +6,11 @@
 </div>
 <br/>
 
+<div align="center">
+    <br>
+    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/VoxDroid/FMS/total">
+</div>
+
 ## Introduction
 
 Welcome to ZapisAxis, a college project developed as part of the ITEC 204 course @ Laguna State Polytechnic University SCC. ZapisAxis is a financial management system tailored for the Student Organization of the College of Computer Studies (SOCCS). This C# application aims to provide a practical learning experience for students while addressing the unique financial needs of a student organization.
