@@ -9,6 +9,7 @@
 <div align="center">
     <br>
     <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/VoxDroid/FMS/total">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/VoxDroid/FMS">
 </div>
 
 ## Introduction
