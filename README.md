@@ -5,7 +5,6 @@
   <img width="500px" src="https://github.com/VoxDroid/FMS/blob/master/ZapisAxisL.png">
 </div>
 <br/>
-<div align="center">
 
 ## Introduction
 
