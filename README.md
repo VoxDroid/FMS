@@ -39,7 +39,7 @@ Welcome to ZapisAxis, a college project developed as part of the ITEC 204 course
 
 1. Download and install XAMPP from [https://www.apachefriends.org/index.html](https://www.apachefriends.org/index.html).
 2. Start the Apache and MySQL services using the XAMPP control panel.
-3. Download the executable (.msi) file for ZapisAxis from [here](https://github.com/VoxDroid/FMS/releases/tag/v1.2.8R-alpha).
+3. Download the executable (.msi) file for ZapisAxis from [here](https://github.com/VoxDroid/FMS/releases).
 4. Run the installer and follow the on-screen instructions.
 5. The installer will guide you through the setup process.
 
