@@ -1,5 +1,7 @@
 # ZapisAxis - Financial Management System for Student Organization of the College of Computer Studies (SOCCS).
 
+![ZapisAxis](https://github.com/VoxDroid/FMS/blob/master/ZapisAxisL.png)
+
 ## Introduction
 
 Welcome to ZapisAxis, a college project developed as part of the ITEC 204 course. ZapisAxis is a financial management system tailored for the Student Organization of the College of Computer Studies (SOCCS). This C# application aims to provide a practical learning experience for students while addressing the unique financial needs of a student organization.
