@@ -10,8 +10,8 @@
     <br>
     <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/VoxDroid/FMS/total">
     <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/VoxDroid/FMS">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/VoxDroid/human?style=flat-square&svg=true">
-    <img alt="License" src="https://img.shields.io/github/license/VoxDroid/human?style=flat-square&svg=true">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/VoxDroid/FMS/human?style=flat-square&svg=true">
+    <img alt="License" src="https://img.shields.io/github/license/VoxDroid/FMS/human?style=flat-square&svg=true">
 </div>
 
 ## Introduction
