@@ -61,3 +61,11 @@ Welcome to ZapisAxis, a college project developed as part of the ITEC 204 course
 2. Launch ZapisAxis after installation.
 3. Login using the default credentials (username: admin / password: admin).
 4. Explore the features, customize settings, and manage your financial data efficiently.
+
+## Demo Images
+
+<br/>
+<div align="center">
+  <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(1).PNG">
+</div>
+<br/>
