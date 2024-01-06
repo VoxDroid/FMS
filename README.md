@@ -66,6 +66,10 @@ Welcome to ZapisAxis, a college project developed as part of the ITEC 204 course
 
 <br/>
 <div align="center">
+  <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(6).PNG">
   <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(1).PNG">
+  <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(2).PNG">
+  <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(3).PNG">
+  <img src="https://github.com/VoxDroid/FMS/blob/master/Demo_Images/ZAPISAXIS%20(4).PNG">
 </div>
 <br/>
